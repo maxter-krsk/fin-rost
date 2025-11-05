@@ -41,24 +41,24 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icons/favicons/favicon-light.png",
-        type: "image/png",
+        url: "/icons/favicons/favicon-32x32.svg",
+        type: "image/svg",
         sizes: "32x32",
       },
 
       {
-        url: "/icons/favicons/favicon-dark.png",
-        type: "image/png",
+        url: "/icons/favicons/favicon-32x32.svg",
+        type: "image/svg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icons/favicons/favicon-light.png",
-        type: "image/png",
+        url: "/icons/favicons/favicon-32x32.svg",
+        type: "image/svg",
         media: "(prefers-color-scheme: dark)",
       },
     ],
 
-    apple: [{ url: "/icons/favicons/favicon-large.png", sizes: "180x180" }],
+    apple: [{ url: "/icons/favicons/favicon-180x180.svg", sizes: "180x180" }],
   },
 };
 
@@ -69,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={`${onest.className} ${bounded.variable}`}>
-      <body className="leading-1.7 text-white bg-darkBlue flex min-h-screen flex-col overflow-x-hidden font-light antialiased">
+      <body className="leading-1.7 bg-darkBlue flex min-h-screen flex-col overflow-x-hidden font-light text-white antialiased">
         <Header />
         <main className="flex-1">
           {children}
