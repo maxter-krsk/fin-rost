@@ -1,0 +1,54 @@
+<svg width="353" height="353" viewBox="0 0 353 353" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.5">
+<g opacity="0.5">
+<rect x="155.349" y="155.349" width="42.3258" height="42.3258" fill="white" fill-opacity="0.06"/>
+<rect x="155.849" y="155.849" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.6"/>
+<rect x="196.86" y="113.837" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="197.36" y="114.337" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+<rect x="113.837" y="113.837" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="114.337" y="114.337" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+<rect x="155.349" y="113.837" width="42.3258" height="42.3258" fill="white" fill-opacity="0.06"/>
+<rect x="155.849" y="114.337" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.2"/>
+<rect x="155.349" y="72.3252" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="155.849" y="72.8252" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+<rect x="238.372" y="155.349" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="238.872" y="155.849" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+<rect x="72.3252" y="155.349" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="72.8252" y="155.849" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+<rect x="155.349" y="238.373" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="155.849" y="238.873" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+<rect x="196.86" y="155.349" width="42.3258" height="42.3258" fill="white" fill-opacity="0.06"/>
+<rect x="197.36" y="155.849" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.2"/>
+<rect x="196.86" y="196.861" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="197.36" y="197.361" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+<rect x="155.349" y="196.861" width="42.3258" height="42.3258" fill="white" fill-opacity="0.06"/>
+<rect x="155.849" y="197.361" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.2"/>
+<rect x="113.837" y="155.349" width="42.3258" height="42.3258" fill="white" fill-opacity="0.06"/>
+<rect x="114.337" y="155.849" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.2"/>
+<rect x="113.837" y="196.861" width="42.3258" height="42.3258" fill="white" fill-opacity="0.02"/>
+<rect x="114.337" y="197.361" width="41.3258" height="41.3258" stroke="white" stroke-opacity="0.1"/>
+</g>
+<g filter="url(#filter0_fn_376_568)">
+<circle cx="176.105" cy="176.105" r="76.105" fill="#4594E9"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_fn_376_568" x="0" y="0" width="352.21" height="352.21" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_376_568"/>
+<feTurbulence type="fractalNoise" baseFrequency="1.4285714626312256 1.4285714626312256" stitchTiles="stitch" numOctaves="3" result="noise" seed="2163" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="effect1_foregroundBlur_376_568" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(255, 255, 255, 0.25)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect2_noise_376_568">
+<feMergeNode in="effect1_foregroundBlur_376_568" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+</defs>
+</svg>
