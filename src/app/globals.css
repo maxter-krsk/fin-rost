@@ -18,10 +18,14 @@
 
   /* Цвета */
 
-  --color-colorNameHere: #fff;
-  --color-colorNameHere: #fff;
-  --color-colorNameHere: #fff;
-  --color-colorNameHere: #fff;
+  --color-ocean: #4594E9;
+  --color-orange: #DD9B1D;
+  --color-darkBlue: #0E1D3A;
+
+  /* Шрифты */
+
+  --font-onest: var(--font-onest), system-ui, sans-serif;
+  --font-bounded: var(--font-bounded), sans-serif;
 
 
   /* Текст */

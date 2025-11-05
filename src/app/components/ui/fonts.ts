@@ -1,6 +1,18 @@
-import { Montserrat } from "next/font/google";
+import { Onest } from "next/font/google";
+import localFont from "next/font/local";
 
-export const montserrat = Montserrat({
-  weight: ["300", "400", "500", "600", "700"],
+export const onest = Onest({
+  weight: ["200", "300", "400"],
   subsets: ["latin"],
+});
+
+export const bounded = localFont({
+  src: [
+    {
+      path: "../../../../public/fonts/Bounded-Variable.woff2",
+      style: "normal",
+    },
+  ],
+  variable: "--font-bounded",
+  display: "swap",
 });

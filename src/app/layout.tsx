@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { montserrat } from "@/app/components/ui/fonts";
+import { onest, bounded } from "@/app/components/ui/fonts";
 import "./globals.css";
 import Header from "@/app/components/shared/Header/Header";
 import Footer from "@/app/components/shared/Footer/Footer";
@@ -68,10 +68,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <body
-        className={`${montserrat.className} flex min-h-screen flex-col overflow-x-hidden antialiased`}
-      >
+    <html lang="ru" className={`${onest.className} ${bounded.variable}`}>
+      <body className="leading-1.7 text-white bg-darkBlue flex min-h-screen flex-col overflow-x-hidden font-light antialiased">
         <Header />
         <main className="flex-1">
           {children}
