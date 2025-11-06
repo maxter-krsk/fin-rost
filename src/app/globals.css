@@ -267,6 +267,11 @@
   margin: 0 auto;
 }
 
+.stroke-text {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.125rem var(--color-white);
+}
+
 html body[data-scroll-locked] {
   overflow: visible !important;
   margin-right: 0 !important;
@@ -276,6 +281,10 @@ html body[data-scroll-locked] {
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .stroke-text {
+    -webkit-text-stroke: 0.063rem;
   }
 }
 
