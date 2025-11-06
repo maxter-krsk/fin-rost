@@ -1,5 +1,5 @@
 import { Title } from "@/app/components/ui/Title";
-import { NewsCard } from "./NewsCard";
+import { NewsCard } from "@/app/components/ui/NewsCard";
 import { Button } from "@/lib/ui/button";
 
 const newsList = [
