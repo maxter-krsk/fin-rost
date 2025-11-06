@@ -1,16 +1,18 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import { Button } from "@/lib/ui/button";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const CONSENT_COOKIE = 'cookie-consent=true';
+const CONSENT_COOKIE = "cookie-consent=true";
 const COOKIE_MAX_AGE_DAYS = 6;
 
 export default function CookiesBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const hasConsent = document.cookie.includes('cookie-consent=');
+    const hasConsent = document.cookie.includes("cookie-consent=");
     if (!hasConsent) setVisible(true);
   }, []);
 
@@ -22,31 +24,35 @@ export default function CookiesBanner() {
   };
 
   return (
-    visible && (
-      <div className="fixed right-0 bottom-0 left-0 p-0 md:right-auto md:bottom-6 md:left-1/2 md:mx-auto md:w-[calc(100%-2rem)] md:max-w-2xl md:-translate-x-1/2 md:p-2">
-        <div className="bg-blue-300">
-          <div className="flex flex-col gap-4 p-4">
-            <p className="text-14 text-center leading-relaxed text-gray-800">
-              Продолжая просмотр сайта, вы соглашаетесь с использованием cookie
-              в соответствии с нашей{' '}
-              <Link
-                href="/cookie-policy"
-                className="font-medium text-black underline"
-              >
-                Политикой в отношении обработки cookie-файлов
-              </Link>
-            </p>
-            <div className="flex justify-center">
-              <button
-                onClick={accept}
-                className="rounded-30 bg-sand cursor-pointer bg-amber-500 p-2 transition-colors duration-500 hover:shadow-lg"
-              >
-                Принять
-              </button>
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          key="cookie-banner"
+          initial={{ y: "110%", x: 0 }}
+          animate={{ y: 0, x: 0 }}
+          exit={{ y: "110%", transition: { duration: 0.4, ease: "easeInOut" } }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          style={{ willChange: "transform" }}
+          className="fixed inset-x-16 bottom-6 p-2 md:right-auto md:left-1/2 md:mx-auto md:w-[calc(100%-2rem)] md:max-w-4xl md:-translate-x-1/2"
+        >
+          <div className="rounded-12 bg-white/10 backdrop-blur-md">
+            <div className="flex flex-col gap-24 p-20 lg:flex-row lg:gap-60 lg:p-30">
+              <p className="text-14 xs:text-16 lg:text-18 text-center leading-relaxed font-light">
+                Продолжая просмотр сайта, вы соглашаетесь с использованием cookie в соответствии с
+                нашей{" "}
+                <Link href="/cookie-policy" className="font-medium underline">
+                  Политикой в отношении обработки cookie-файлов
+                </Link>
+              </p>
+              <div className="flex justify-center">
+                <Button onClick={accept} variant="orange" className="">
+                  ОК
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    )
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
