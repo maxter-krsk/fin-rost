@@ -3,7 +3,7 @@
 import { Title } from "@/app/components/ui/Title";
 
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useMask } from "@react-input/mask";
 import { Checkbox } from "@/lib/ui/checkbox";
 import { Input } from "@/lib/ui/input";
@@ -18,11 +18,12 @@ import {
 import { Textarea } from "@/lib/ui/textarea";
 import { Label } from "@/lib/ui/label";
 import { Button } from "@/lib/ui/button";
-// import { sendContact } from "@/app/actions/sendContact";
+import { sendContact } from "@/app/actions/sendContact";
 // import { useSuccessPopup } from "@/app/providers/SuccessPopupProvider";
 
 type Channel = "Telegram" | "WhatsApp" | "Телефон" | "";
 export function Form() {
+  const [pending, setPending] = useState(false);
   const [channel, setChannel] = useState<Channel>("");
   const [telegram, setTelegram] = useState("");
   const [phone, setPhone] = useState("");
@@ -37,6 +38,26 @@ export function Form() {
   const tgPattern = /^@?[a-zA-Z0-9_]{5,32}$/;
   const phonePattern = /^\+?\d[\d\s()-]{6,}$/;
 
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setPending(true);
+    try {
+      const form = e.currentTarget;
+      const fd = new FormData(form);
+      fd.set("source", "Форма из подвала сайта");
+
+      const res = await sendContact(fd);
+      if (res?.ok) {
+        form.reset();
+        alert("Заявка успешно отправлена");
+      } else {
+        alert(res?.error ?? "Заявка не отправилась. Повторите попытку.");
+      }
+    } finally {
+      setPending(false);
+    }
+  };
+
   return (
     <section className="mb-120">
       <div className="container">
@@ -44,7 +65,11 @@ export function Form() {
         <h1 className="font-bounded text-14 sm:text-18 lg:text-30 xs:text-left mb-24 text-center md:mb-20 lg:mb-50">
           Обсудим цели, найдём «узкие места» и предложим план действий
         </h1>
-        <form className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-20" method="post">
+        <form
+          onSubmit={onSubmit}
+          className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-20"
+          method="post"
+        >
           <Input
             type="text"
             name="Имя"
@@ -115,8 +140,8 @@ export function Form() {
               </Link>
             </Label>
           </div>
-          <Button type="submit" variant="orange">
-            Отправить
+          <Button type="submit" disabled={pending} variant="orange">
+            {pending ? "Отправляем..." : "Отправить"}
           </Button>
         </form>
       </div>
