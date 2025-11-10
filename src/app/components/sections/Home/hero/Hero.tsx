@@ -5,24 +5,17 @@ export function Hero() {
     <section>
       <div className="container">
         <div className="mb-40 flex flex-col gap-36 md:mb-60 md:grid md:auto-rows-auto md:grid-cols-2 md:gap-x-20 md:gap-y-24 md:[grid-template-areas:'title_title''subtitle_button''text_.'] lg:grid lg:auto-rows-auto lg:grid-cols-3 lg:gap-x-0 lg:gap-y-50 lg:[grid-template-areas:'title_title_button''subtitle_subtitle_text']">
-          {/* h1 */}
           <h1 className="text-24 xs:text-30 md:text-36 desk:text-60 font-bounded desk:font-bold text-left font-semibold md:[grid-area:title] lg:whitespace-normal lg:[grid-area:title]">
             Порядок в голове <br /> — порядок в цифрах
           </h1>
-
-          {/* span */}
           <span className="text-18 xs:text-24 md:text-28 desk:text-40 font-bounded desk:font-medium ml-auto text-left font-normal md:m-0 md:self-center md:justify-self-start md:[grid-area:subtitle] lg:self-start lg:justify-self-start lg:[grid-area:subtitle]">
             Рост в бизнесе
           </span>
-
-          {/* p — во 2-м ряду, 3-я колонка */}
           <p className="text-14 xs:text-16 desk:text-18 font-onest text-center font-normal md:text-left md:[grid-area:text] lg:[grid-area:text]">
             «Финансовый рост» — команда экспертов по корпоративным финансам. Настраиваем
             управленческий учёт, строим финансовые модели, берём функции CFO на аутсорсе. Вы видите
             картину по цифрам и принимаете решения без догадок.
           </p>
-
-          {/* Button — 1-й ряд, 3-я колонка */}
           <Button
             className="m-auto w-fit md:m-0 md:self-center md:justify-self-end md:[grid-area:button] lg:m-0 lg:self-end lg:justify-self-start lg:[grid-area:button]"
             variant="orange"
@@ -31,7 +24,6 @@ export function Hero() {
             Оставить заявку
           </Button>
         </div>
-
         <ul className="flex flex-col items-center gap-34 md:grid md:grid-cols-4 md:grid-rows-2 md:items-end">
           <li className="text-center">
             <span className="text-36 font-bounded font-bold whitespace-nowrap">18 лет</span>
