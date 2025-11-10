@@ -26,8 +26,8 @@ export function Hero() {
         </div>
         <ul className="flex flex-col items-center gap-34 md:grid md:grid-cols-4 md:grid-rows-2 md:items-end">
           <li className="text-center">
-            <span className="text-36 font-bounded font-bold whitespace-nowrap">18 лет</span>
-            <p className="text-14 font-onest font-normal">в финансах</p>
+            <span className="text-36 md:text-44 desk:text-80 font-bounded font-bold whitespace-nowrap">18 лет</span>
+            <p className="text-14 md:text-16 desk:text-18 font-onest font-normal">в финансах</p>
           </li>
           <li className="row-span-2">
             <div className="flex flex-col items-center gap-10">
@@ -56,14 +56,14 @@ export function Hero() {
                   mask="url(#path-1-outside-1_342_824)"
                 />
               </svg>
-              <p className="text-14 font-onest text-center font-normal whitespace-nowrap">
+              <p className="text-14 md:text-16 desk:text-18 font-onest text-center font-normal whitespace-nowrap">
                 реализованных проектов
               </p>
             </div>
           </li>
           <li className="text-center">
-            <span className="text-36 font-bounded font-bold">100%</span>
-            <p className="text-14 font-onest font-normal">конфиденциальность</p>
+            <span className="text-36 md:text-44 desk:text-80 font-bounded font-bold">100%</span>
+            <p className="text-14 md:text-16 desk:text-18 font-onest font-normal">конфиденциальность</p>
           </li>
           <li className="row-span-2">
             <div className="flex flex-col items-center gap-10">
@@ -92,7 +92,7 @@ export function Hero() {
                   mask="url(#path-1-outside-1_342_827)"
                 />
               </svg>
-              <p className="text-14 font-onest text-center font-normal">консультаций</p>
+              <p className="text-14 md:text-16 desk:text-18 font-onest text-center font-normal">консультаций</p>
             </div>
           </li>
         </ul>
