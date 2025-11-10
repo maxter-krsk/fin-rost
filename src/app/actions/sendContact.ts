@@ -1,6 +1,7 @@
 "use server";
 
 const NAME_RE = /^(?=.{2,40}$)\p{L}+(?:[ \-'\u2019]\p{L}+)*$/u;
+const TG_RE = /^@?[a-zA-Z0-9_]{5,32}$/;
 
 function normalizeName(raw: string) {
   return raw
@@ -9,11 +10,13 @@ function normalizeName(raw: string) {
     .replace(/\s+/g, " ")
     .replace(/^[\s\-'\u2019]+|[\s\-'\u2019]+$/g, "");
 }
+
 function normalizePhone(raw: string) {
   const digits = String(raw).replace(/\D+/g, "");
   if (digits.length < 10 || digits.length > 15) return null;
   return `+${digits}`;
 }
+
 function escapeHtml(s: string) {
   return s
     .replace(/&/g, "&amp;")
@@ -22,6 +25,7 @@ function escapeHtml(s: string) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
+
 function getErrorMessage(e: unknown) {
   if (e instanceof Error) return e.message;
   if (typeof e === "string") return e;
@@ -38,33 +42,51 @@ export async function sendContact(formData: FormData): Promise<SendContactResult
   "use server";
 
   const { Resend } = await import("resend");
-
   const key = process.env.RESEND_API_KEY;
   if (!key) return { ok: false, error: "RESEND_API_KEY не задан" };
 
   const resend = new Resend(key);
 
   try {
-    const nameRaw  = String(formData.get("name")    ?? formData.get("Имя")      ?? "");
-    const phoneRaw = String(formData.get("phone")   ?? formData.get("Телефон")  ?? "");
+    const nameRaw = String(formData.get("name") ?? formData.get("Имя") ?? "");
+    const preferred = String(formData.get("preferred") ?? "Телефон") as
+      | "Telegram"
+      | "WhatsApp"
+      | "Телефон";
 
     const name = normalizeName(nameRaw);
-    const phoneE164 = normalizePhone(phoneRaw);
-
     if (!NAME_RE.test(name)) {
       return { ok: false, error: "Введите корректное имя (2–40 символов, только буквы)." };
     }
-    if (!phoneE164) {
-      return { ok: false, error: "Введите корректный номер телефона." };
+
+    // определяем контакт в зависимости от способа связи
+    let contactLabel = preferred;
+    let contactValue = "";
+
+    if (preferred === "Telegram") {
+      const tg = String(formData.get("telegram") ?? "").trim();
+      if (!TG_RE.test(tg)) {
+        return { ok: false, error: "Введите корректный Telegram username." };
+      }
+      contactValue = tg.startsWith("@") ? tg : `@${tg}`;
+    } else if (preferred === "WhatsApp") {
+      const raw = String(formData.get("whatsapp") ?? "");
+      const phoneE164 = normalizePhone(raw);
+      if (!phoneE164) {
+        return { ok: false, error: "Введите корректный номер WhatsApp." };
+      }
+      contactValue = phoneE164;
+    } else {
+      const raw = String(formData.get("phone") ?? "");
+      const phoneE164 = normalizePhone(raw);
+      if (!phoneE164) {
+        return { ok: false, error: "Введите корректный номер телефона." };
+      }
+      contactValue = phoneE164;
     }
 
     const source =
-      String(
-        formData.get("source") ??
-        formData.get("Источник") ??
-        formData.get("Форма:") ??
-        ""
-      ).trim() || "сайт";
+      String(formData.get("source") ?? formData.get("Источник") ?? "").trim() || "сайт";
 
     const fromEmail = process.env.RESEND_FROM || "onboarding@resend.dev";
     const to = process.env.RESEND_TO || "nigazzz2000@gmail.com";
@@ -80,9 +102,10 @@ export async function sendContact(formData: FormData): Promise<SendContactResult
               <h2 style="margin: 0; font-size: 22px;">Новая заявка с сайта <span style="color: #BC9C5F;">Финансовый рост</span></h2>
             </div>
             <div style="padding: 24px 30px; color: #142B23; background-color: #fff;">
-              <p style="margin: 8px 0; font-size: 16px;"><b style="color: #5E785F;">Источник:</b> ${escapeHtml(source)}</p>
-              <p style="margin: 8px 0; font-size: 16px;"><b style="color: #5E785F;">Имя:</b> ${escapeHtml(name)}</p>
-              <p style="margin: 8px 0; font-size: 16px;"><b style="color: #5E785F;">Телефон:</b> ${escapeHtml(phoneE164)}</p>
+              <p><b style="color:#5E785F;">Источник:</b> ${escapeHtml(source)}</p>
+              <p><b style="color:#5E785F;">Имя:</b> ${escapeHtml(name)}</p>
+              <p><b style="color:#5E785F;">Способ связи:</b> ${escapeHtml(contactLabel)}</p>
+              <p><b style="color:#5E785F;">Контакт:</b> ${escapeHtml(contactValue)}</p>
             </div>
           </div>
         </div>

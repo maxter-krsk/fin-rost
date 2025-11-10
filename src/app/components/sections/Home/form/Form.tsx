@@ -26,6 +26,7 @@ export function Form() {
   const [pending, setPending] = useState(false);
   const [channel, setChannel] = useState<Channel>("");
   const [telegram, setTelegram] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
   const [phone, setPhone] = useState("");
 
   const effectiveChannel: Exclude<Channel, ""> = channel || "Телефон";
@@ -34,6 +35,16 @@ export function Form() {
     mask: "+7 999 999-99-99",
     replacement: { 9: /\d/ },
   });
+
+  const handleChannelChange = (v: Channel) => {
+    setChannel(v);
+    setTelegram("");
+    setWhatsapp("");
+    setPhone("");
+    if ((phoneRef as React.RefObject<HTMLInputElement>).current) {
+      (phoneRef as React.RefObject<HTMLInputElement>).current!.value = "";
+    }
+  };
 
   const tgPattern = /^@?[a-zA-Z0-9_]{5,32}$/;
   const phonePattern = /^\+?\d[\d\s()-]{6,}$/;
@@ -44,11 +55,15 @@ export function Form() {
     try {
       const form = e.currentTarget;
       const fd = new FormData(form);
-      fd.set("source", "Форма из подвала сайта");
-
+      fd.set("source", "Форма из блока Консультация");
+      // preferred и конкретные поля будут отправлены сами, т.к. не disabled
       const res = await sendContact(fd);
       if (res?.ok) {
         form.reset();
+        setChannel("");
+        setTelegram("");
+        setWhatsapp("");
+        setPhone("");
         alert("Заявка успешно отправлена");
       } else {
         alert(res?.error ?? "Заявка не отправилась. Повторите попытку.");
@@ -80,7 +95,7 @@ export function Form() {
             pattern="^(?=.{2,40}$)[A-Za-zÀ-ÖØ-öø-ÿА-Яа-яЁё]+(?:[ '\-’][A-Za-zÀ-ÖØ-öø-ÿА-Яа-яЁё]+)*$"
             title="2–40 символов, только буквы, пробелы, дефис и апостроф"
           ></Input>
-          <Select value={channel} onValueChange={(v: Channel) => setChannel(v)}>
+          <Select value={channel} onValueChange={handleChannelChange}>
             <SelectTrigger className="text-slate bg-midnight rounded-12 w-full cursor-pointer border-none px-30 py-16 font-normal">
               <SelectValue placeholder="Способ связи" />
             </SelectTrigger>
@@ -99,19 +114,39 @@ export function Form() {
             </SelectContent>
           </Select>
 
-          {effectiveChannel === "Telegram" ? (
+          {effectiveChannel === "Telegram" && (
             <Input
+              key="tg"
               type="text"
               name="telegram"
               value={telegram}
               onChange={(e) => setTelegram(e.target.value)}
               required
               pattern={tgPattern.source}
-              title="От 5 до 32 символов: буквы, цифры, подчёркивание. Можно начинать с @"
               placeholder="@username"
+              title="От 5 до 32 символов: буквы, цифры, подчёркивание. Можно начинать с @"
             />
-          ) : (
+          )}
+
+          {effectiveChannel === "WhatsApp" && (
             <Input
+              key="wa"
+              ref={phoneRef}
+              type="tel"
+              inputMode="tel"
+              name="whatsapp"
+              value={whatsapp}
+              onChange={(e) => setWhatsapp(e.target.value)}
+              required
+              pattern={phonePattern.source}
+              placeholder="Номер WhatsApp"
+              title="Формат: +7 999 999-99-99"
+            />
+          )}
+
+          {effectiveChannel === "Телефон" && (
+            <Input
+              key="ph"
               ref={phoneRef}
               type="tel"
               inputMode="tel"
@@ -120,11 +155,13 @@ export function Form() {
               onChange={(e) => setPhone(e.target.value)}
               required
               pattern={phonePattern.source}
+              placeholder="Номер телефона"
               title="Формат: +7 999 999-99-99"
-              className="text-slate bg-midnight rounded-12 border-none px-30 py-16 font-normal"
-              placeholder={effectiveChannel === "WhatsApp" ? "Номер WhatsApp" : "Номер телефона"}
             />
           )}
+
+          {/* скрытое поле: удобный способ связи */}
+          <input type="hidden" name="preferred" value={effectiveChannel} />
 
           <Textarea
             className="text-slate bg-midnight rounded-12 border-none px-30 py-16 font-normal"
