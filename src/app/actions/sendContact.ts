@@ -54,6 +54,7 @@ export async function sendContact(formData: FormData): Promise<SendContactResult
       | "WhatsApp"
       | "Телефон";
 
+    const messageRaw = String(formData.get("message") ?? "").trim();
     const name = normalizeName(nameRaw);
     if (!NAME_RE.test(name)) {
       return { ok: false, error: "Введите корректное имя (2–40 символов, только буквы)." };
@@ -96,16 +97,21 @@ export async function sendContact(formData: FormData): Promise<SendContactResult
       to: [to],
       subject: `Заявка с сайта • ${escapeHtml(source)}`,
       html: `
-        <div style="font-family: Arial, sans-serif; background-color: #EFE5D9; padding: 30px;">
-          <div style="max-width: 620px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(20, 43, 35, 0.15);">
-            <div style="background-color: #142B23; color: #EFE5D9; text-align: center; padding: 20px 30px;">
-              <h2 style="margin: 0; font-size: 22px;">Новая заявка с сайта <span style="color: #BC9C5F;">Финансовый рост</span></h2>
+        <div style="font-family: Arial, sans-serif; background-color: #B9B9B9; padding: 30px;">
+          <div style="max-width: 700px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(20, 43, 35, 0.15);">
+            <div style="background-color: #0E1D3A; color: #FFFFFF; text-align: center; padding: 20px 30px;">
+              <h2 style="margin: 0; font-size: 22px;">Новая заявка с сайта <span style="color: #DD9B1D;">Финансовый рост</span></h2>
             </div>
             <div style="padding: 24px 30px; color: #142B23; background-color: #fff;">
-              <p><b style="color:#5E785F;">Источник:</b> ${escapeHtml(source)}</p>
-              <p><b style="color:#5E785F;">Имя:</b> ${escapeHtml(name)}</p>
-              <p><b style="color:#5E785F;">Способ связи:</b> ${escapeHtml(contactLabel)}</p>
-              <p><b style="color:#5E785F;">Контакт:</b> ${escapeHtml(contactValue)}</p>
+              <p><b style="color:#000000;">Источник:</b> ${escapeHtml(source)}</p>
+              <p><b style="color:#000000;">Имя:</b> ${escapeHtml(name)}</p>
+              <p><b style="color:#000000;">Способ связи:</b> ${escapeHtml(contactLabel)}</p>
+              <p><b style="color:#000000;">Контакт:</b> ${escapeHtml(contactValue)}</p>
+			   ${
+           messageRaw
+             ? `<p><b style="color:#000000;">Что интересует:</b> ${escapeHtml(messageRaw)}</p>`
+             : ""
+         }
             </div>
           </div>
         </div>
