@@ -165,6 +165,7 @@ export function Form() {
 
           <Textarea
             className="text-slate bg-midnight rounded-12 border-none px-30 py-16 font-normal"
+            name="message"
             placeholder="Что вас интересует?"
           />
 
