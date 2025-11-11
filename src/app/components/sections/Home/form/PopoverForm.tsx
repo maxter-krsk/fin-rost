@@ -41,13 +41,6 @@ export function PopoverForm({ open, onOpenChange, trigger, anchorRef }: Props) {
   const [whatsapp, setWhatsapp] = useState("");
   const [phone, setPhone] = useState("");
 
-  const virtualRef = React.useMemo(
-    () => ({ current: anchorRef?.current ?? undefined }),
-    [anchorRef?.current]
-  ) as React.RefObject<Element>;
-
-  const effectiveChannel: Exclude<Channel, ""> = channel || "Телефон";
-
   const phoneRef = useMask({
     mask: "+7 999 999-99-99",
     replacement: { 9: /\d/ },

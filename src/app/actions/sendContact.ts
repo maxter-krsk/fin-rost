@@ -60,8 +60,7 @@ export async function sendContact(formData: FormData): Promise<SendContactResult
       return { ok: false, error: "Введите корректное имя (2–40 символов, только буквы)." };
     }
 
-    // определяем контакт в зависимости от способа связи
-    let contactLabel = preferred;
+    const contactLabel = preferred;
     let contactValue = "";
 
     if (preferred === "Telegram") {

@@ -11,6 +11,12 @@ type CircleElementProps = {
   ariaLabel?: string;
 };
 
+type CircleCSSVars = {
+  "--circle-border-width"?: string;
+  "--circle-fill"?: string;
+  "--circle-gradient"?: string;
+};
+
 const CircleElement: React.FC<CircleElementProps> = ({
   children,
   className,
@@ -28,11 +34,11 @@ const CircleElement: React.FC<CircleElementProps> = ({
   fillColor = "var(--color-darkBlue)",
   ariaLabel,
 }) => {
-  const style: React.CSSProperties = {
-    ...(size ? { width: size, height: size } : null),
-    ["--circle-border-width" as any]: `${borderWidth}px`,
-    ["--circle-fill" as any]: fillColor,
-    ["--circle-gradient" as any]: gradient,
+  const style: React.CSSProperties & CircleCSSVars = {
+    ...(size ? { width: size, height: size } : {}),
+    "--circle-border-width": `${borderWidth}px`,
+    "--circle-fill": fillColor,
+    "--circle-gradient": gradient,
   };
 
   return (

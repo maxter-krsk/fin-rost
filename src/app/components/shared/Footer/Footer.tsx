@@ -1,4 +1,3 @@
-import Link from "next/link";
 import DevelopedBy from "@/app/components/ui/DevelopedBy";
 
 export default function Footer() {

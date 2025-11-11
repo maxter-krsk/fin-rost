@@ -17,14 +17,26 @@ const socialLinks = [
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);
+
   useEffect(() => {
     const mql = window.matchMedia(query);
-    const onChange = (e: MediaQueryListEvent | MediaQueryList) =>
-      setMatches("matches" in e ? e.matches : (e as MediaQueryList).matches);
-    onChange(mql);
-    mql.addEventListener?.("change", onChange as any);
-    return () => mql.removeEventListener?.("change", onChange as any);
+
+    setMatches(mql.matches);
+
+    const onChangeEvent = (e: MediaQueryListEvent) => setMatches(e.matches);
+    const onChangeList = (e: MediaQueryList) => setMatches(e.matches);
+
+    if (typeof mql.addEventListener === "function") {
+      mql.addEventListener("change", onChangeEvent);
+      return () => mql.removeEventListener("change", onChangeEvent);
+    } else {
+      // @ts-expect-error: старые типы MediaQueryList
+      mql.addListener(onChangeList);
+      // @ts-expect-error: старые типы MediaQueryList
+      return () => mql.removeListener(onChangeList);
+    }
   }, [query]);
+
   return matches;
 }
 
