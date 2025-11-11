@@ -1,0 +1,36 @@
+@reference "../../globals.css";
+
+.heroBg {
+  @apply relative isolate w-full overflow-hidden;
+  min-height: 60svh;
+}
+
+.heroBg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+
+  background-image: url("/images/hero/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .heroBg {
+    min-height: 70svh;
+  }
+  .heroBg::before {
+    background-position: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroBg {
+    min-height: 80svh;
+  }
+  .heroBg::before {
+    background-position: top center;
+  }
+}
