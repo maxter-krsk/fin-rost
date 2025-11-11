@@ -9,14 +9,22 @@ import { Burger } from "./Burger";
 import { PopoverForm } from "@/app/components/sections/Home/form/PopoverForm";
 
 const socialLinks = [
+<<<<<<< HEAD
   { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#WhatsApp" },
   { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "#Phone" },
   { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#YouTube" },
   { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#Telegram" },
+=======
+  { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#" },
+  { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "#" },
+  { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#" },
+  { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#" },
+>>>>>>> 8e36b87 (feat: Добавил форму на кнопку | Написал логику отправки заявок на почту | Дополнил компонент кнопки с useRef | Прописал управление поповером с формой на всех адаптациях | Добавил блюр на бг-хедера | сделал хедер фиксированным при скролле | Адаптировал размер линий бургера и крестика для больших экранов | Добавил блюр на бг-соц.сетей)
 ];
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);
+<<<<<<< HEAD
 
   useEffect(() => {
     const mql = window.matchMedia(query);
@@ -37,6 +45,16 @@ function useMediaQuery(query: string) {
     }
   }, [query]);
 
+=======
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const onChange = (e: MediaQueryListEvent | MediaQueryList) =>
+      setMatches("matches" in e ? e.matches : (e as MediaQueryList).matches);
+    onChange(mql);
+    mql.addEventListener?.("change", onChange as any);
+    return () => mql.removeEventListener?.("change", onChange as any);
+  }, [query]);
+>>>>>>> 8e36b87 (feat: Добавил форму на кнопку | Написал логику отправки заявок на почту | Дополнил компонент кнопки с useRef | Прописал управление поповером с формой на всех адаптациях | Добавил блюр на бг-хедера | сделал хедер фиксированным при скролле | Адаптировал размер линий бургера и крестика для больших экранов | Добавил блюр на бг-соц.сетей)
   return matches;
 }
 
