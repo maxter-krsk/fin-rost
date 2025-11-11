@@ -24,14 +24,17 @@ export function Hero() {
             Оставить заявку
           </Button>
         </div>
-        <ul className="flex flex-col items-center gap-34 md:grid md:grid-cols-4 md:grid-rows-2 md:items-end">
+        <ul className="flex flex-col items-center gap-40 md:grid md:grid-cols-4 md:grid-rows-2 md:items-end">
           <li className="text-center">
-            <span className="text-36 md:text-44 desk:text-80 font-bounded font-bold whitespace-nowrap">18 лет</span>
+            <span className="text-36 md:text-44 desk:text-80 font-bounded font-bold whitespace-nowrap">
+              18 лет
+            </span>
             <p className="text-14 md:text-16 desk:text-18 font-onest font-normal">в финансах</p>
           </li>
           <li className="row-span-2">
             <div className="flex flex-col items-center gap-10">
               <svg
+                className="h-[2.813rem] w-[6.875rem] md:h-[3.438rem] md:w-[8.438rem] lg:h-[6.188rem] lg:w-[17.375rem]"
                 width="111"
                 height="31"
                 viewBox="0 0 111 31"
@@ -57,17 +60,21 @@ export function Hero() {
                 />
               </svg>
               <p className="text-14 md:text-16 desk:text-18 font-onest text-center font-normal whitespace-nowrap">
-                реализованных проектов
+                реализованных
+                <br className="hidden md:block lg:hidden" /> проектов
               </p>
             </div>
           </li>
           <li className="text-center">
             <span className="text-36 md:text-44 desk:text-80 font-bounded font-bold">100%</span>
-            <p className="text-14 md:text-16 desk:text-18 font-onest font-normal">конфиденциальность</p>
+            <p className="text-14 md:text-16 desk:text-18 font-onest font-normal">
+              конфиденциальность
+            </p>
           </li>
           <li className="row-span-2">
             <div className="flex flex-col items-center gap-10">
               <svg
+                className="h-[2.813rem] w-[5.125rem] md:h-[3.438rem] md:w-[6.25rem] lg:h-[6.188rem] lg:w-[12.125rem]"
                 width="83"
                 height="30"
                 viewBox="0 0 83 30"
@@ -92,7 +99,9 @@ export function Hero() {
                   mask="url(#path-1-outside-1_342_827)"
                 />
               </svg>
-              <p className="text-14 md:text-16 desk:text-18 font-onest text-center font-normal">консультаций</p>
+              <p className="text-14 md:text-16 desk:text-18 font-onest text-center font-normal">
+                консультаций
+              </p>
             </div>
           </li>
         </ul>
