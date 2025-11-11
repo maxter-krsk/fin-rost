@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils";
+import * as React from "react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type Variant = "light" | "dark" | "orange";
 
@@ -30,9 +31,9 @@ const variantClasses: Record<Variant, string> = {
 };
 
 const baseClasses =
-  "relative inline-flex items-center justify-center text-18 font-bounded font-normal rounded-12 " +
-  "backdrop-blur-md cursor-pointer ";
-export function Button(props: ButtonProps) {
+  "relative inline-flex items-center justify-center text-18 font-bounded font-normal rounded-12 backdrop-blur-md cursor-pointer ";
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(props, ref) {
   if ("href" in props && props.href) {
     const { href, children, className, variant = "light", ...anchorProps } = props;
     const classes = cn(baseClasses, variantClasses[variant], className);
@@ -45,9 +46,10 @@ export function Button(props: ButtonProps) {
 
   const { children, className, variant = "light", ...buttonProps } = props as ButtonAsButtonProps;
   const classes = cn(baseClasses, variantClasses[variant], className);
+
   return (
-    <button className={classes} {...buttonProps}>
+    <button ref={ref} className={classes} {...buttonProps}>
       {children}
     </button>
   );
-}
+});
