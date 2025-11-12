@@ -41,16 +41,6 @@ export function PopoverForm({ open, onOpenChange, trigger, anchorRef }: Props) {
   const [whatsapp, setWhatsapp] = useState("");
   const [phone, setPhone] = useState("");
 
-<<<<<<< HEAD
-=======
-  const virtualRef = React.useMemo(
-    () => ({ current: anchorRef?.current ?? undefined }),
-    [anchorRef?.current]
-  ) as React.RefObject<Element>;
-
-  const effectiveChannel: Exclude<Channel, ""> = channel || "Телефон";
-
->>>>>>> 8e36b87 (feat: Добавил форму на кнопку | Написал логику отправки заявок на почту | Дополнил компонент кнопки с useRef | Прописал управление поповером с формой на всех адаптациях | Добавил блюр на бг-хедера | сделал хедер фиксированным при скролле | Адаптировал размер линий бургера и крестика для больших экранов | Добавил блюр на бг-соц.сетей)
   const phoneRef = useMask({
     mask: "+7 999 999-99-99",
     replacement: { 9: /\d/ },
