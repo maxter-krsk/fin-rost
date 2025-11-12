@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function ScrollTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,12 +12,12 @@ export default function ScrollTop() {
     };
 
     toggleVisibility();
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -28,26 +28,30 @@ export default function ScrollTop() {
           initial={{
             opacity: 0,
             scale: 0,
-            backgroundColor: '#000000',
-            color: '#fff',
-            boxShadow: '0px 4px 12px rgba(20, 43, 35, 0.25)',
           }}
           animate={{
             opacity: 1,
             scale: 1,
-            boxShadow: '0px 4px 12px rgba(20, 43, 35, 0.25)',
           }}
           exit={{ opacity: 0, scale: 0 }}
           whileHover={{
-            backgroundColor: '#fff',
-            color: '#000000',
-            boxShadow: '0px 0px 20px rgba(149, 186, 168, 0.2)',
+            scale: 1.05,
           }}
           transition={{
-            type: 'spring',
+            type: "spring",
             stiffness: 180,
             damping: 18,
             mass: 0.5,
+          }}
+          style={{
+            borderRadius: "100%",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+            background: "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",
+            backdropFilter: "blur(0.75rem)",
+            WebkitBackdropFilter: "blur(0.75rem)",
+            color: "#fff",
+            boxShadow: "0px 0.25rem 0.75rem rgba(20, 43, 35, 0.25)",
+            cursor: "pointer",
           }}
           onClick={scrollToTop}
           className="fixed right-3 bottom-3 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#142B23] hover:text-[#95BAA8]"
