@@ -30,7 +30,7 @@ const cardsItems = [
 
 export function ResultsCards() {
   return (
-    <div className="container flex-wrap justify-center gap-10 hidden desk:flex">
+    <div className="container flex-wrap justify-center gap-10 hidden md:flex">
       {cardsItems.map((item, i) => (
         <div
           key={i}
