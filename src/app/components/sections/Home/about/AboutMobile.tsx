@@ -1,15 +1,12 @@
 import Image from "next/image";
-import { Title } from "@/app/components/ui/Title";
 import { Separator } from "@/lib/ui/separator";
 
 export function AboutMobile() {
   return (
-    <section className="block lg:hidden" aria-labelledby="founder-title">
-      <div className="container">
-        <Title>Основатель компании</Title>
+      <div className="block lg:hidden container">
         <article>
           <div
-            className="mb-36 flex md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center"
+            className="mb-16 md:mb-36 flex gap-20 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center"
             aria-labelledby="founder-name"
           >
             <div>
@@ -23,7 +20,7 @@ export function AboutMobile() {
                 Основатель компании «Финансовый Рост»
               </p>
 
-              <figure className="mb-36">
+              <figure className="mb-16 md:mb-36">
                 <blockquote className="flex gap-16">
                   <span className="text-20 font-bounded text-orange font-normal">“</span>
                   <p className="text-16 font-onest font-extralight">
@@ -70,13 +67,13 @@ export function AboutMobile() {
               </div>
             </div>
 
-            <div className="hidden justify-center md:flex">
+            <div>
               <Image
                 src="/images/about/olga-kiryanova-mobile.png"
                 alt="Фотография Ольги Кирьяновой"
                 width={300}
                 height={350}
-                className="h-[21.875rem] w-[18.75rem]"
+                className="h-auto w-[18.75rem] object-cover"
               />
             </div>
           </div>
@@ -101,6 +98,5 @@ export function AboutMobile() {
           </div>
         </article>
       </div>
-    </section>
   );
 }
