@@ -172,7 +172,7 @@ export function PriceCards() {
           )}
         </AnimatePresence>
       </motion.div>
-      <div className="text-center">
+      <div className="hidden md:block text-center">
         <Button
           className="xs:mt-36 mt-12 mb-70 md:mb-90 lg:mt-50 lg:mb-50"
           variant="orange"
