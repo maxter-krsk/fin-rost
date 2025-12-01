@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="text-darkBlue desk:pt-30 desk:pb-120 relative bg-white pt-24 pb-68">
+    <footer className="text-darkBlue desk:pt-30 desk:pb-60 relative bg-white pt-24 pb-68">
       <div className="desk:block pointer-events-none absolute inset-x-0 -top-[4.938rem] hidden h-100 overflow-hidden">
         <Image
           src="/icons/ui/subtract.svg"
@@ -184,11 +184,11 @@ export default function Footer() {
                 <p>ОГРНИП 318246800069120 </p>
                 <p>Красноярский край, г. Красноярск </p>
               </address>
-              <div className="mt-20 flex justify-start">
-                <DevelopedBy />
-              </div>
             </section>
           </div>
+        </div>
+        <div className="mt-30 flex justify-center">
+          <DevelopedBy />
         </div>
       </div>
     </footer>
