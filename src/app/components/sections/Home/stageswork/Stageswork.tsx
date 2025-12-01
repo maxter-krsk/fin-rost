@@ -4,101 +4,76 @@ import { Separator } from "@/lib/ui/separator";
 
 export function Stageswork() {
   return (
-    <section>
+    <section
+      id="stages"
+      className="xs:mb-70 xs:scroll-mt-120 mb-50 scroll-mt-100 md:mb-90 lg:mb-120"
+    >
       <div className="container">
         <Title>Как мы работаем</Title>
 
         <div className="mt-6">
-          <div className="relative w-full lg:w-fit lg:mx-auto">
+          <div className="relative w-full lg:mx-auto lg:w-fit">
             <div className="pointer-events-none absolute inset-0 hidden lg:block">
-              <div className="absolute left-80 top-28 w-[18.75rem] h-[0.063rem] bg-gradient-to-r from-[#F4C96B] to-[#F4C96B]">
-                <span className="absolute right-0 -translate-y-1/2 block border-l-[0.5rem] border-l-[#F4C96B] border-y-[0.313rem] border-y-transparent" />
+              <div className="absolute top-28 left-80 h-[0.063rem] w-[18.75rem] bg-gradient-to-r from-[#F4C96B] to-[#F4C96B]">
+                <span className="absolute right-0 block -translate-y-1/2 border-y-[0.313rem] border-l-[0.5rem] border-y-transparent border-l-[#F4C96B]" />
               </div>
 
-              <div className="absolute right-0 top-28 w-[17.5rem] h-[8.625rem] border border-[#F4C96B] border-l-0 rounded-r-full" />
+              <div className="absolute top-28 right-0 h-[8.625rem] w-[17.5rem] rounded-r-full border border-l-0 border-[#F4C96B]" />
 
-              <div className="absolute left-80 bottom-90 w-[18.75rem] h-[0.063rem] bg-gradient-to-l from-[#F4C96B] to-[#F4C96B]">
-                <span className="absolute left-0 -translate-y-1/2 block border-r-[0.5rem] border-r-[#F4C96B] border-y-[0.313rem] border-y-transparent" />
+              <div className="absolute bottom-90 left-80 h-[0.063rem] w-[18.75rem] bg-gradient-to-l from-[#F4C96B] to-[#F4C96B]">
+                <span className="absolute left-0 block -translate-y-1/2 border-y-[0.313rem] border-r-[0.5rem] border-y-transparent border-r-[#F4C96B]" />
               </div>
             </div>
 
             <ul className="grid grid-cols-2 gap-x-20 gap-y-20 lg:w-fit">
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size={56}>
-                    <span className="font-bounded text-14 font-extralight">
-                      01
-                    </span>
+                  <CircleElement size="3.5rem">
+                    <span className="font-bounded text-14 font-extralight">01</span>
                   </CircleElement>
-                  <Separator
-                    className="hidden sm:block lg:hidden"
-                    gradientDirection="center"
-                  />
+                  <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="mt-10 font-bounded text-14 font-normal">
-                  Знакомство
-                </h2>
-                <p className="mt-10 font-onest text-14 font-extralight">
+                <h2 className="font-bounded text-14 mt-10 font-normal">Знакомство</h2>
+                <p className="font-onest text-14 mt-10 font-extralight">
                   Бесплатная онлайн-встреча 20-30 минут: цели и запрос
                 </p>
               </li>
 
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size={56}>
-                    <span className="font-bounded text-14 font-extralight">
-                      02
-                    </span>
+                  <CircleElement size="3.5rem">
+                    <span className="font-bounded text-14 font-extralight">02</span>
                   </CircleElement>
-                  <Separator
-                    className="hidden sm:block lg:hidden"
-                    gradientDirection="center"
-                  />
+                  <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="mt-10 font-bounded text-14 font-normal">
-                  Варианты
-                </h2>
-                <p className="mt-10 font-onest text-14 font-extralight">
+                <h2 className="font-bounded text-14 mt-10 font-normal">Варианты</h2>
+                <p className="font-onest text-14 mt-10 font-extralight">
                   В течение 24 часов предлагаем решения и форматы
                 </p>
               </li>
 
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size={56}>
-                    <span className="font-bounded text-14 font-extralight">
-                      03
-                    </span>
+                  <CircleElement size="3.5rem">
+                    <span className="font-bounded text-14 font-extralight">03</span>
                   </CircleElement>
-                  <Separator
-                    className="hidden sm:block lg:hidden"
-                    gradientDirection="center"
-                  />
+                  <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="mt-10 font-bounded text-14 font-normal">
-                  Сопровождение
-                </h2>
-                <p className="mt-10 font-onest text-14 font-extralight">
+                <h2 className="font-bounded text-14 mt-10 font-normal">Сопровождение</h2>
+                <p className="font-onest text-14 mt-10 font-extralight">
                   Регулярные онлайн-встречи, отчёты, контроль
                 </p>
               </li>
 
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size={56}>
-                    <span className="font-bounded text-14 font-extralight">
-                      04
-                    </span>
+                  <CircleElement size="3.5rem">
+                    <span className="font-bounded text-14 font-extralight">04</span>
                   </CircleElement>
-                  <Separator
-                    className="hidden sm:block lg:hidden"
-                    gradientDirection="center"
-                  />
+                  <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="mt-10 font-bounded text-14 font-normal">
-                  Договор
-                </h2>
-                <p className="mt-10 font-onest text-14 font-extralight">
+                <h2 className="font-bounded text-14 mt-10 font-normal">Договор</h2>
+                <p className="font-onest text-14 mt-10 font-extralight">
                   Подписываем, выставляем счёт, стартуем в тот же день
                 </p>
               </li>

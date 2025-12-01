@@ -47,6 +47,8 @@ export default function Header() {
   const burgerBtnRef = useRef<HTMLButtonElement>(null);
   const isBelowXs = useMediaQuery("(max-width: 575.98px)");
 
+  const [isInDarkZone, setIsInDarkZone] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 70);
     handleScroll();
@@ -54,14 +56,47 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const targets = document.querySelectorAll<HTMLElement>("footer, [data-dark-header]");
+    if (!targets.length) return;
+
+    // тут храним все элементы, которые сейчас видны
+    const visible = new Set<Element>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visible.add(entry.target);
+          } else {
+            visible.delete(entry.target);
+          }
+        });
+
+        setIsInDarkZone(visible.size > 0);
+      },
+      {
+        root: null,
+        threshold: 0, // можно потом подрегулировать
+        // для начала убери rootMargin, чтобы убедиться что работает
+        rootMargin: "0px 0px -500px 0px",
+      }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header className={clsx("isolation-isolate fixed inset-x-0 top-0 left-0 z-40 w-full py-20")}>
       <div
         className={clsx(
-          "pointer-events-none absolute inset-0 -z-10 rounded-b-3xl",
-          "bg-white/10 backdrop-blur-xl",
-          "transition-opacity duration-300 ease-out",
-          isScrolled ? "opacity-100 shadow-md" : "opacity-0 shadow-none"
+          "pointer-events-none absolute inset-0 -z-10 rounded-b-3xl transition-all duration-300 ease-out",
+          isInDarkZone
+            ? "bg-midnight/80 shadow-md backdrop-blur-xl"
+            : isScrolled
+              ? "bg-white/10 opacity-100 shadow-md backdrop-blur-xl"
+              : "opacity-0"
         )}
       />
       <div className="container">
@@ -82,6 +117,7 @@ export default function Header() {
               formOpen={formOpen}
               onOpenForm={() => setFormOpen(true)}
               onCloseForm={() => setFormOpen(false)}
+              isDarkZone={isInDarkZone}
             />
           </div>
 
@@ -103,6 +139,7 @@ export default function Header() {
               anchorRef={isBelowXs ? burgerBtnRef : undefined}
               open={formOpen}
               onOpenChange={setFormOpen}
+              isAtFooter={isInDarkZone}
               trigger={
                 <Button className="xs:block hidden px-20 py-10 lg:px-20 lg:py-14" variant="light">
                   Записаться

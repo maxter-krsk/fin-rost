@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export default function ScrollTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAtFooter, setIsAtFooter] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -19,6 +20,20 @@ export default function ScrollTop() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(([entry]) => setIsAtFooter(entry.isIntersecting), {
+      root: null,
+      threshold: 0,
+      rootMargin: "0px 0px 50px 0px",
+    });
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <AnimatePresence>
@@ -45,13 +60,17 @@ export default function ScrollTop() {
           }}
           style={{
             borderRadius: "100%",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            background: "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",
+            border: isAtFooter
+              ? "1px solid rgba(255, 255, 255, 0.4)"
+              : "1px solid rgba(255, 255, 255, 0.3)",
+            background: isAtFooter
+              ? "linear-gradient(135deg, rgba(14,29,58,0.7), rgba(14,29,58,0.9))"
+              : "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",
             backdropFilter: "blur(0.75rem)",
-            WebkitBackdropFilter: "blur(0.75rem)",
-            color: "#fff",
-            boxShadow: "0px 0.25rem 0.75rem rgba(20, 43, 35, 0.25)",
-            cursor: "pointer",
+            color: isAtFooter ? "#B8D2C5" : "#fff",
+            boxShadow: isAtFooter
+              ? "0px 0.25rem 0.75rem rgba(0,0,0,0.35)"
+              : "0px 0.25rem 0.75rem rgba(20, 43, 35, 0.25)",
           }}
           onClick={scrollToTop}
           className="fixed right-3 bottom-3 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#142B23] hover:text-[#95BAA8]"

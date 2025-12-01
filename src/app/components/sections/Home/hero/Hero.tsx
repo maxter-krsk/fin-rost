@@ -3,8 +3,10 @@ import bg from "@/app/styles/modules/herobg.module.css";
 
 export function Hero() {
   return (
-    <section className={`${bg.heroBg} pt-200 md:pt-120 desk:pt-200`}>
-      <div className="container relative z-10">
+    <section
+      className={`${bg.heroBg} desk:pt-200 xs:mb-70 mb-50 pt-200 md:mb-90 md:pt-120 lg:mb-120`}
+    >
+      <div className="relative z-10 container">
         <div className="mb-40 flex flex-col gap-36 md:mb-60 md:grid md:auto-rows-auto md:grid-cols-2 md:gap-x-20 md:gap-y-24 md:[grid-template-areas:'title_title''subtitle_button''text_.'] lg:grid lg:auto-rows-auto lg:grid-cols-3 lg:gap-x-0 lg:gap-y-50 lg:[grid-template-areas:'title_title_button''subtitle_subtitle_text']">
           <h1 className="text-24 xs:text-30 md:text-36 desk:text-60 font-bounded desk:font-bold text-left font-semibold md:[grid-area:title] lg:whitespace-normal lg:[grid-area:title]">
             Порядок в голове <br /> — порядок в цифрах
@@ -20,7 +22,7 @@ export function Hero() {
           <Button
             className="m-auto w-fit md:m-0 md:self-center md:justify-self-end md:[grid-area:button] lg:m-0 lg:self-end lg:justify-self-start lg:[grid-area:button]"
             variant="orange"
-            href="#"
+            href="#form"
           >
             Оставить заявку
           </Button>
@@ -35,7 +37,7 @@ export function Hero() {
           <li className="row-span-2">
             <div className="flex flex-col items-center gap-10">
               <svg
-                className="h-[2.813rem] w-[6.875rem] md:h-[3.438rem] md:w-[8.438rem] desk:h-[6.188rem] desk:w-[17.375rem]"
+                className="desk:h-[6.188rem] desk:w-[17.375rem] h-[2.813rem] w-[6.875rem] md:h-[3.438rem] md:w-[8.438rem]"
                 width="111"
                 height="31"
                 viewBox="0 0 111 31"
@@ -75,7 +77,7 @@ export function Hero() {
           <li className="row-span-2">
             <div className="flex flex-col items-center gap-10">
               <svg
-                className="h-[2.813rem] w-[5.125rem] md:h-[3.438rem] md:w-[6.25rem] desk:h-[6.188rem] desk:w-[12.125rem]"
+                className="desk:h-[6.188rem] desk:w-[12.125rem] h-[2.813rem] w-[5.125rem] md:h-[3.438rem] md:w-[6.25rem]"
                 width="83"
                 height="30"
                 viewBox="0 0 83 30"

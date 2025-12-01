@@ -4,12 +4,14 @@ import Link from "next/link";
 import { Button } from "@/lib/ui/button";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="text-darkBlue desk:pt-30 desk:pb-120 relative bg-white pt-24 pb-68">
-      <div className="desk:block pointer-events-none absolute inset-x-0 -top-[79px] hidden h-[100px] overflow-hidden">
+      <div className="desk:block pointer-events-none absolute inset-x-0 -top-[4.938rem] hidden h-100 overflow-hidden">
         <Image
           src="/icons/ui/subtract.svg"
-          alt=""
+          alt="Декоративный вырез"
           aria-hidden="true"
           fill
           className="object-cover"
@@ -18,13 +20,13 @@ export default function Footer() {
       </div>
       <div className="container">
         <Image
-          className="mb-36"
+          className="mb-36 h-48 w-66"
           src="/icons/logos/logo-dark.svg"
           alt="Логотип компании"
           width={66}
           height={49}
         />
-        <div className="desk:grid-cols-3 mb-40 grid grid-cols-2 gap-20">
+        <div className="desk:grid-cols-3 grid grid-cols-2 gap-20">
           <div className="flex flex-col gap-36">
             <nav aria-label="Навигация по разделам сайта">
               <ul className="text-14 md:text-16 font-bounded font-extraLight flex flex-col gap-16">
@@ -65,7 +67,7 @@ export default function Footer() {
 
             <p>
               <small className="text-14 md:text-16 font-onest font-extralight">
-                © Финансовый рост, 2025
+                © Финансовый рост, {year}
               </small>
             </p>
           </div>
@@ -84,17 +86,17 @@ export default function Footer() {
               <ul className="flex items-center gap-16">
                 <li>
                   <Link href="#WhatsApp" aria-label="Ссылка на WhatsApp">
-                    <Image src="/icons/ui/socials/wa-dark.svg" alt="" width={24} height={24} />
+                    <Image className="w-24 h-24" src="/icons/ui/socials/wa-dark.svg" alt="WhatsApp" width={24} height={24} />
                   </Link>
                 </li>
                 <li>
                   <Link href="#Telegram" aria-label="Ссылка на Telegram">
-                    <Image src="/icons/ui/socials/tg-dark.svg" alt="" width={24} height={24} />
+                    <Image className="w-24 h-24" src="/icons/ui/socials/tg-dark.svg" alt="Telegram" width={24} height={24} />
                   </Link>
                 </li>
                 <li>
                   <Link href="#YouTube" aria-label="Ссылка на YouTube">
-                    <Image src="/icons/ui/socials/youtube-dark.svg" alt="" width={24} height={24} />
+                    <Image className="w-24 h-24" src="/icons/ui/socials/youtube-dark.svg" alt="YouTube" width={24} height={24} />
                   </Link>
                 </li>
               </ul>
@@ -126,7 +128,7 @@ export default function Footer() {
                 <p>ОГРНИП 318246800069120 </p>
                 <p>Красноярский край, г. Красноярск </p>
               </address>
-              <div className="flex justify-start mt-20">
+              <div className="mt-20 flex justify-start">
                 <DevelopedBy />
               </div>
             </section>

@@ -239,11 +239,11 @@ export function PriceCards() {
 
       <div className="hidden lg:block text-center">
         <Button
-          className="xs:mt-36 mt-12 mb-70 md:mb-90 lg:mt-50 lg:mb-50"
+          className="xs:mt-36 mt-12 lg:mt-50"
           variant="orange"
           onClick={handleShowMoreClick}
         >
-          {showMore ? "Свернуть" : "Все новости"}
+          {showMore ? "Свернуть" : "Все услуги"}
         </Button>
       </div>
     </>

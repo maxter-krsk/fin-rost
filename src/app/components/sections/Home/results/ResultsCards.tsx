@@ -34,14 +34,14 @@ export function ResultsCards() {
       {cardsItems.map((item, i) => (
         <div
           key={i}
-          className="rounded-10 bg-darkBlue relative flex h-[396px] w-[280px] overflow-hidden border border-white/30 p-30"
+          className="rounded-10 bg-darkBlue relative flex h-[24.75rem] w-[17.5rem] overflow-hidden border border-white/30 p-30"
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
           <div className="relative z-10 flex h-full w-full flex-col">
             <h2 className="text-left text-20 font-bounded font-normal">{item.title}</h2>
             <div className="mt-auto flex justify-center">
-              <Image width={177} height={136} src={item.image} alt={item.alt} />
+              <Image className="w-[11.063rem] h-[8.5rem]" width={177} height={136} src={item.image} alt={item.alt} />
             </div>
           </div>
         </div>

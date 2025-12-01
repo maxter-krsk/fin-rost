@@ -7,34 +7,36 @@ import { Popover, PopoverTrigger, PopoverContent } from "@/lib/ui/popover";
 import { Button } from "@/lib/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 type BurgerProps = {
   formOpen: boolean;
   onOpenForm: () => void;
   onCloseForm: () => void;
   triggerRef?: React.RefObject<HTMLButtonElement | null>;
+  isDarkZone?: boolean;
 };
 
-export function Burger({ formOpen, onOpenForm, onCloseForm, triggerRef }: BurgerProps) {
+export function Burger({ formOpen, onOpenForm, onCloseForm, triggerRef, isDarkZone }: BurgerProps) {
   const [open, setOpen] = useState(false);
 
   const links: [string, string][] = [
-    ["Обо мне", "#about"],
-    ["Проблемы роста", "#problems"],
-    ["Решения", "#solutions"],
-    ["Преимущества", "#advantages"],
-    ["Этапы работ", "#stages"],
-    ["Прайс", "#price"],
-    ["Вопросы и ответы", "#faq"],
-    ["Регалии", "#regalia"],
+    ["Обо мне", "/#about"],
+    ["Проблемы роста", "/#problems"],
+    ["Решения", "/#solutions"],
+    ["Преимущества", "/#advantages"],
+    ["Этапы работ", "/#stages"],
+    ["Прайс", "/#price"],
+    ["Вопросы и ответы", "/#faq"],
+    ["Регалии", "/#regalia"],
     ["Новости", "/news"],
   ];
 
   const socialLinks = [
-    { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#" },
-    { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "#" },
-    { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#" },
-    { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#" },
+    { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#wa" },
+    { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "#phone" },
+    { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#youtube" },
+    { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#tg" },
   ];
 
   const showXMobile = open || formOpen;
@@ -100,7 +102,13 @@ export function Burger({ formOpen, onOpenForm, onCloseForm, triggerRef }: Burger
         align="center"
         sideOffset={12}
         collisionPadding={16}
-        className="rounded-12 w-[min(21.875rem,calc(100vw-2rem))] border border-white/20 bg-white/10 p-20 text-white [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] backdrop-blur-md sm:w-[21.875rem] sm:p-30"
+        className={clsx(
+          "rounded-12 w-[min(21.875rem,calc(100vw-2rem))] p-20 text-white sm:w-[21.875rem] sm:p-30",
+          "[box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] backdrop-blur-md",
+          isDarkZone
+            ? "bg-midnight/90 border border-white/30"
+            : "border border-white/20 bg-white/10"
+        )}
       >
         <div className="flex items-start justify-between">
           <nav className="flex flex-col gap-10">

@@ -127,7 +127,7 @@ export function CertificatesCard() {
         className="w-full"
       >
         <div className="flex justify-between">
-          <Title>Благодарственные письма</Title>
+          <Title>Сертификаты и дипломы</Title>
 
           <div className="hidden items-center gap-20 md:flex">
             <CarouselPrevious aria-label="Предыдущий">Предыдущий</CarouselPrevious>
@@ -138,20 +138,20 @@ export function CertificatesCard() {
         <CarouselContent className="gap-10">
           {carouselItems.map((item, i) => {
             const isPortrait = item.orientation === "portrait";
-            const desktopW = isPortrait ? 345 : 865;
+            const desktopW = isPortrait ? "21.5625rem" : "54.0625rem";
 
             return (
               <CarouselItem
                 key={i}
                 className="shrink-0 basis-auto"
                 style={{
-                  width: `min(${desktopW}px, calc(100vw - 2rem))`,
+                  width: `min(${desktopW}, calc(100vw - 2rem))`,
                   flex: "0 0 auto",
                 }}
               >
                 <div
                   className="relative w-full overflow-hidden rounded-md bg-white/30"
-                  style={{ height: 488 }}
+                  style={{ height: "30.5rem" }}
                 >
                   <Image
                     src={item.image}

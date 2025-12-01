@@ -34,7 +34,7 @@ const newsList = [
 
 export function News() {
   return (
-    <section>
+    <section className="mb-50 desk:mb-120">
       <div className="container">
         <Title>Новости</Title>
         <div className="xs:grid-cols-2 mb-50 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20">
@@ -44,7 +44,7 @@ export function News() {
             </div>
           ))}
         </div>
-        <div className="pb-70 text-center md:pb-90 lg:pb-50">
+        <div className="text-center">
           <Button variant="orange" href="/news">
             Все новости
           </Button>

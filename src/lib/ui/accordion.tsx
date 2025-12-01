@@ -41,12 +41,13 @@ function AccordionTrigger({
       >
         {children}
         <CircleElement
-          size={32}
+          size="2rem"
           className="flex shrink-0 translate-y-0.5 items-center justify-center"
           ariaLabel="Элемент Открытия / Закрытия"
         >
           <span className="faq-close-icon inline-flex items-center justify-center transition-transform duration-300">
             <Image
+            className="w-12 h-12"
               src="/icons/ui/close-icon.svg"
               alt="Иконка Открытия / Закрытия"
               width={12}

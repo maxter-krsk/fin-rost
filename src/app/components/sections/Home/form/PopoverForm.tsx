@@ -15,6 +15,7 @@ import { Checkbox } from "@/lib/ui/checkbox";
 import { Label } from "@/lib/ui/label";
 import { Popover, PopoverTrigger, PopoverContent } from "@/lib/ui/popover";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
+import clsx from "clsx";
 import {
   Select,
   SelectContent,
@@ -31,10 +32,11 @@ type Props = {
   open?: boolean;
   onOpenChange?: (v: boolean) => void;
   trigger?: React.ReactNode;
+  isAtFooter?: boolean;
   anchorRef?: React.RefObject<HTMLElement> | React.MutableRefObject<HTMLElement | null>;
 };
 
-export function PopoverForm({ open, onOpenChange, trigger, anchorRef }: Props) {
+export function PopoverForm({ open, onOpenChange, trigger, anchorRef, isAtFooter }: Props) {
   const [pending, setPending] = useState(false);
   const [channel, setChannel] = useState<Channel>("");
   const [telegram, setTelegram] = useState("");
@@ -96,9 +98,15 @@ export function PopoverForm({ open, onOpenChange, trigger, anchorRef }: Props) {
         align="center"
         sideOffset={12}
         collisionPadding={16}
-        className="rounded-16 text-slate w-[min(29.375rem,calc(100vw-2rem))] overflow-y-auto border border-white/15 bg-white/10 p-20 shadow-xl [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.35)] backdrop-blur-md sm:mr-8 md:mr-16"
+        className={clsx(
+          "rounded-16 text-slate w-[min(29.375rem,calc(100vw-2rem))] overflow-y-auto p-20 shadow-xl",
+          "[box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.35)] backdrop-blur-md",
+          "sm:mr-8 md:mr-16",
+          isAtFooter
+            ? "bg-midnight/90 border border-white/30 text-white"
+            : "text-slate border border-white/15 bg-white/10"
+        )}
       >
-        {/* крестик закрытия ТОЛЬКО формы */}
         <motion.button
           className="xs:block mb-20 ml-auto hidden"
           onClick={() => onOpenChange?.(false)}
@@ -202,10 +210,10 @@ export function PopoverForm({ open, onOpenChange, trigger, anchorRef }: Props) {
           />
 
           <div className="my-20 flex items-start gap-10 text-white sm:col-span-2">
-            <Checkbox required className="shrink-0" id="privacy-policy" />
+            <Checkbox required className="shrink-0 cursor-pointer" id="privacy-policy-popup" />
             <Label
-              htmlFor="privacy-policy"
-              className="text-12 sm:text-14 block text-left leading-snug"
+              htmlFor="privacy-policy-popup"
+              className="text-12 sm:text-14 block cursor-pointer text-left leading-snug"
             >
               Нажимая кнопку, Вы даёте согласие с{" "}
               <Link className="underline" href="/privacy-policy">

@@ -4,7 +4,7 @@ import clsx from "clsx";
 type CircleElementProps = {
   children?: React.ReactNode;
   className?: string;
-  size?: number;
+  size?: string;
   borderWidth?: number;
   gradient?: string;
   fillColor?: string;

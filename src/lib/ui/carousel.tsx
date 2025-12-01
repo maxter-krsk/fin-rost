@@ -214,9 +214,9 @@ function CarouselPrevious({ className, ...props }: React.ComponentProps<typeof B
             y2="104.5"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4594E9" />
-            <stop offset="0.5" stop-color="#4594E9" stop-opacity="0" />
-            <stop offset="1" stop-color="#4594E9" />
+            <stop stopColor="#4594E9" />
+            <stop offset="0.5" stopColor="#4594E9" stopOpacity="0" />
+            <stop offset="1" stopColor="#4594E9" />
           </linearGradient>
         </defs>
       </svg>

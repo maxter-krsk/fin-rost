@@ -56,7 +56,6 @@ export function Form() {
       const form = e.currentTarget;
       const fd = new FormData(form);
       fd.set("source", "Форма из блока Консультация");
-      // preferred и конкретные поля будут отправлены сами, т.к. не disabled
       const res = await sendContact(fd);
       if (res?.ok) {
         form.reset();
@@ -74,7 +73,7 @@ export function Form() {
   };
 
   return (
-    <section className="mb-120">
+    <section id="form" className="xs:mb-70 xs:scroll-mt-120 mb-50 scroll-mt-100 md:mb-90 lg:mb-120">
       <div className="container">
         <Title>Консультация</Title>
         <h1 className="font-bounded text-14 sm:text-18 lg:text-30 xs:text-left mb-24 text-center md:mb-20 lg:mb-50">
@@ -82,7 +81,7 @@ export function Form() {
         </h1>
         <form
           onSubmit={onSubmit}
-          className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-20"
+          className="grid items-start gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-20"
           method="post"
         >
           <Input
@@ -170,7 +169,7 @@ export function Form() {
           />
 
           <div className="my-14 flex items-start gap-16 md:my-0 lg:gap-20">
-            <Checkbox required className="shrink-0" id="privacy-policy" />
+            <Checkbox required className="shrink-0 cursor-pointer" id="privacy-policy" />
             <Label className="block cursor-pointer items-start" htmlFor="privacy-policy">
               «Я согласен(а) на обработку персональных данных и принимаю{" "}
               <Link className="inline underline" href="/privacy-policy">

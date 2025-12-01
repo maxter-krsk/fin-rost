@@ -272,6 +272,12 @@
   -webkit-text-stroke: 0.125rem var(--color-white);
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 html body[data-scroll-locked] {
   overflow: visible !important;
   margin-right: 0 !important;

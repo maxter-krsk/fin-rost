@@ -133,7 +133,7 @@ export default function News() {
   };
 
   return (
-    <section className="mt-120">
+    <section className="mt-120 mb-50 desk:mb-120">
       <div className="container">
         <h1 className="font-bounded text-30 md:text-36 lg:text-60 xs:mb-36 mb-20 font-bold lg:mb-50">
           Новости об Ольги Кирьяновой
@@ -162,7 +162,7 @@ export default function News() {
         </motion.div>
         <div className="text-center">
           <Button
-            className="xs:mt-36 mt-12 mb-70 md:mb-90 lg:mt-50 lg:mb-50"
+            className="xs:mt-36 mt-12 lg:mt-50"
             variant="orange"
             onClick={handleShowMoreClick}
           >
