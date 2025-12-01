@@ -123,7 +123,7 @@ export default function Header() {
           </div>
 
           <div className="ml-auto flex gap-30">
-            <ul className="rounded-12 hidden items-center gap-10 bg-white/10 p-4 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] backdrop-blur-md lg:flex">
+            <ul className="rounded-12 hidden items-center gap-10 bg-white/10 p-8 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] backdrop-blur-md lg:flex">
               {socialLinks.map(({ href, src, alt }) => (
                 <li key={href} className="h-40 w-40">
                   <Link
