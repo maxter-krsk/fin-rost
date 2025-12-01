@@ -33,10 +33,18 @@ type Props = {
   onOpenChange?: (v: boolean) => void;
   trigger?: React.ReactNode;
   isAtFooter?: boolean;
+  isScrolled?: boolean;
   anchorRef?: React.RefObject<HTMLElement> | React.MutableRefObject<HTMLElement | null>;
 };
 
-export function PopoverForm({ open, onOpenChange, trigger, anchorRef, isAtFooter }: Props) {
+export function PopoverForm({
+  open,
+  onOpenChange,
+  trigger,
+  anchorRef,
+  isAtFooter,
+  isScrolled,
+}: Props) {
   const [pending, setPending] = useState(false);
   const [channel, setChannel] = useState<Channel>("");
   const [telegram, setTelegram] = useState("");
@@ -100,6 +108,7 @@ export function PopoverForm({ open, onOpenChange, trigger, anchorRef, isAtFooter
         collisionPadding={16}
         className={clsx(
           "rounded-16 text-slate w-[min(29.375rem,calc(100vw-2rem))] overflow-y-auto p-20 shadow-xl",
+          isScrolled && "mt-16",
           "[box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.35)] backdrop-blur-md",
           "sm:mr-8 md:mr-16",
           isAtFooter

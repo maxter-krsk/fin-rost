@@ -118,6 +118,7 @@ export default function Header() {
               onOpenForm={() => setFormOpen(true)}
               onCloseForm={() => setFormOpen(false)}
               isDarkZone={isInDarkZone}
+              isScrolled={isScrolled}
             />
           </div>
 
@@ -140,6 +141,7 @@ export default function Header() {
               open={formOpen}
               onOpenChange={setFormOpen}
               isAtFooter={isInDarkZone}
+              isScrolled={isScrolled}
               trigger={
                 <Button className="xs:block hidden px-20 py-10 lg:px-20 lg:py-14" variant="light">
                   Записаться
