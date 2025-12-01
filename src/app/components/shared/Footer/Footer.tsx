@@ -32,42 +32,42 @@ export default function Footer() {
               <nav aria-label="Навигация по разделам сайта">
                 <ul className="text-14 md:text-16 font-bounded font-extraLight flex flex-col gap-16">
                   <li>
-                    <Link className="nav-link" href="#about">
+                    <Link className="nav-link" href="/#about">
                       Обо мне
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#problems">
+                    <Link className="nav-link" href="/#problems">
                       Проблемы роста
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#solutions">
+                    <Link className="nav-link" href="/#solutions">
                       Решения
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#advantages">
+                    <Link className="nav-link" href="/#advantages">
                       Преимущества
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#stages">
+                    <Link className="nav-link" href="/#stages">
                       Этапы работ
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#price">
+                    <Link className="nav-link" href="/#price">
                       Прайс
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#faq">
+                    <Link className="nav-link" href="/#faq">
                       Вопросы и ответы
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#regalia">
+                    <Link className="nav-link" href="/#regalia">
                       Регалии
                     </Link>
                   </li>
@@ -100,7 +100,7 @@ export default function Footer() {
               >
                 <h3 className="sr-only">Контактная информация и социальные сети</h3>
 
-                <Button href="#form" variant="dark">
+                <Button href="/#form" variant="dark">
                   Записаться
                 </Button>
 
@@ -208,42 +208,42 @@ export default function Footer() {
               <nav aria-label="Навигация по разделам сайта">
                 <ul className="text-14 md:text-16 font-bounded font-extraLight flex flex-col gap-16">
                   <li>
-                    <Link className="nav-link" href="#about">
+                    <Link className="nav-link" href="/#about">
                       Обо мне
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#problems">
+                    <Link className="nav-link" href="/#problems">
                       Проблемы роста
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#solutions">
+                    <Link className="nav-link" href="/#solutions">
                       Решения
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#advantages">
+                    <Link className="nav-link" href="/#advantages">
                       Преимущества
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#stages">
+                    <Link className="nav-link" href="/#stages">
                       Этапы работ
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#price">
+                    <Link className="nav-link" href="/#price">
                       Прайс
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#faq">
+                    <Link className="nav-link" href="/#faq">
                       Вопросы и ответы
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link" href="#regalia">
+                    <Link className="nav-link" href="/#regalia">
                       Регалии
                     </Link>
                   </li>
