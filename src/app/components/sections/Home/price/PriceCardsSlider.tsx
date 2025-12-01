@@ -99,7 +99,7 @@ export function PriceCardsSlider() {
   }, [api]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <Carousel
         setApi={setApi}
         opts={{
@@ -115,7 +115,7 @@ export function PriceCardsSlider() {
           {sliderItems.map((item, i) => {
             return (
               <CarouselItem key={i}>
-                <div className="rounded-10 bg-darkBlue relative flex h-full basis-full flex-col gap-80 overflow-hidden p-20">
+                <div className="rounded-10 bg-darkBlue relative flex h-full basis-full flex-col gap-80 overflow-hidden p-30">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
                   <div className={styles.noise} />
@@ -143,7 +143,7 @@ export function PriceCardsSlider() {
         </CarouselContent>
       </Carousel>
 
-      <div className="mt-36 flex items-center justify-center gap-4 md:hidden">
+      <div className="mt-36 flex items-center justify-center gap-4 lg:hidden">
         {sliderItems.map((_, i) => (
           <button
             key={i}
