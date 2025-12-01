@@ -20,11 +20,10 @@ export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 const variantClasses: Record<Variant, string> = {
   light:
-    "py-14 px-20 bg-white/10 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)]",
-  dark:
-    "py-14 px-20 w-full max-w-[23.75rem] bg-black/0.1 text-darkBlue [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(14,29,58,0.4)]",
+    "py-14 px-20 bg-white/10 hover:bg-white/20 transition-colors duration-300 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)]",
+  dark: "py-14 px-20 w-full max-w-[23.75rem] bg-black/0.1 hover:bg-midnight/10 transition-colors duration-300 text-darkBlue [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(14,29,58,0.4)]",
   orange:
-    "py-16 px-32 bg-black/0.1 border border-orange/70 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(221,155,29,0.4),inset_0_0.125rem_0.5rem_rgba(221,155,29,0.4)]",
+    "py-16 px-32 bg-black/0.1 hover:bg-orange/10 transition-colors duration-300 border border-orange/70 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(221,155,29,0.4),inset_0_0.125rem_0.5rem_rgba(221,155,29,0.4)]",
 };
 
 const baseClasses =
@@ -47,8 +46,7 @@ export const Button: ButtonComponent = React.forwardRef<HTMLButtonElement, Butto
       );
     }
 
-    const { children, className, variant = "light", ...buttonProps } =
-      props as ButtonAsButtonProps;
+    const { children, className, variant = "light", ...buttonProps } = props as ButtonAsButtonProps;
     const classes = cn(baseClasses, variantClasses[variant], className);
 
     return (

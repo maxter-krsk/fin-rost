@@ -31,38 +31,58 @@ export default function Footer() {
             <nav aria-label="Навигация по разделам сайта">
               <ul className="text-14 md:text-16 font-bounded font-extraLight flex flex-col gap-16">
                 <li>
-                  <Link href="#about">Обо мне</Link>
+                  <Link className="nav-link" href="#about">
+                    Обо мне
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#problems">Проблемы роста</Link>
+                  <Link className="nav-link" href="#problems">
+                    Проблемы роста
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#solutions">Решения</Link>
+                  <Link className="nav-link" href="#solutions">
+                    Решения
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#advantages">Преимущества</Link>
+                  <Link className="nav-link" href="#advantages">
+                    Преимущества
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#stages">Этапы работ</Link>
+                  <Link className="nav-link" href="#stages">
+                    Этапы работ
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#price">Прайс</Link>
+                  <Link className="nav-link" href="#price">
+                    Прайс
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#faq">Вопросы и ответы</Link>
+                  <Link className="nav-link" href="#faq">
+                    Вопросы и ответы
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#regalia">Регалии</Link>
+                  <Link className="nav-link" href="#regalia">
+                    Регалии
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/news">Новости</Link>
+                  <Link className="nav-link" href="/news">
+                    Новости
+                  </Link>
                 </li>
               </ul>
             </nav>
 
             <div className="text-12 md:text-14 desk:text-16 font-onest flex flex-col gap-10 font-thin">
               <p>Работаем на территории России и стран СНГ</p>
-              <Link href="/privacy-policy">Политика конфиденциальности</Link>
+              <Link className="nav-link" href="/privacy-policy">
+                Политика конфиденциальности
+              </Link>
             </div>
 
             <p>
@@ -85,18 +105,48 @@ export default function Footer() {
 
               <ul className="flex items-center gap-16">
                 <li>
-                  <Link href="#WhatsApp" aria-label="Ссылка на WhatsApp">
-                    <Image className="w-24 h-24" src="/icons/ui/socials/wa-dark.svg" alt="WhatsApp" width={24} height={24} />
+                  <Link
+                    className="inline-block transition-transform duration-300 hover:scale-110"
+                    href="#WhatsApp"
+                    aria-label="Ссылка на WhatsApp"
+                  >
+                    <Image
+                      className="h-24 w-24"
+                      src="/icons/ui/socials/wa-dark.svg"
+                      alt="WhatsApp"
+                      width={24}
+                      height={24}
+                    />
                   </Link>
                 </li>
                 <li>
-                  <Link href="#Telegram" aria-label="Ссылка на Telegram">
-                    <Image className="w-24 h-24" src="/icons/ui/socials/tg-dark.svg" alt="Telegram" width={24} height={24} />
+                  <Link
+                    className="inline-block transition-transform duration-300 hover:scale-110"
+                    href="#Telegram"
+                    aria-label="Ссылка на Telegram"
+                  >
+                    <Image
+                      className="h-24 w-24"
+                      src="/icons/ui/socials/tg-dark.svg"
+                      alt="Telegram"
+                      width={24}
+                      height={24}
+                    />
                   </Link>
                 </li>
                 <li>
-                  <Link href="#YouTube" aria-label="Ссылка на YouTube">
-                    <Image className="w-24 h-24" src="/icons/ui/socials/youtube-dark.svg" alt="YouTube" width={24} height={24} />
+                  <Link
+                    className="inline-block transition-transform duration-300 hover:scale-110"
+                    href="#YouTube"
+                    aria-label="Ссылка на YouTube"
+                  >
+                    <Image
+                      className="h-24 w-24"
+                      src="/icons/ui/socials/youtube-dark.svg"
+                      alt="YouTube"
+                      width={24}
+                      height={24}
+                    />
                   </Link>
                 </li>
               </ul>
@@ -104,13 +154,19 @@ export default function Footer() {
               <address className="mt-4 not-italic">
                 <ul className="text-14 md:text-16 font-onest flex flex-col gap-10 font-extralight">
                   <li>
-                    <a href="tel:+79080107559">8 (908) 010-75-59</a>
+                    <a className="nav-link" href="tel:+79080107559">
+                      8 (908) 010-75-59
+                    </a>
                   </li>
                   <li>
-                    <a href="mailto:info@kiryanova-o.ru">info@kiryanova-o.ru</a>
+                    <a className="nav-link" href="mailto:info@kiryanova-o.ru">
+                      info@kiryanova-o.ru
+                    </a>
                   </li>
                   <li>
-                    <a href="mailto:bkkiryanova.o@yandex.ru">bkkiryanova.o@yandex.ru</a>
+                    <a className="nav-link" href="mailto:bkkiryanova.o@yandex.ru">
+                      bkkiryanova.o@yandex.ru
+                    </a>
                   </li>
                 </ul>
               </address>

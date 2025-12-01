@@ -117,7 +117,7 @@ export function Burger({ formOpen, onOpenForm, onCloseForm, triggerRef, isDarkZo
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="text-14 xs:text-16 font-bounded font-normal hover:underline"
+                className="text-14 xs:text-16 font-bounded font-normal nav-link"
               >
                 {label}
               </Link>

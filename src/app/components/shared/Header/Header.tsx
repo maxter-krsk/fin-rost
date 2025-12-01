@@ -128,7 +128,7 @@ export default function Header() {
                   <Link
                     href={href}
                     aria-label={alt}
-                    className="rounded-12 flex h-full w-full items-center justify-center bg-white/10 transition-all active:scale-95"
+                    className="rounded-12 flex h-full w-full items-center justify-center bg-white/10 transition-all duration-300 active:scale-95"
                   >
                     <Image src={src} alt={alt} width={22} height={22} className="h-22 w-22" />
                   </Link>
