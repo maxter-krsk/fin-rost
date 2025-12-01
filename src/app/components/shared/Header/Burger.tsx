@@ -15,9 +15,17 @@ type BurgerProps = {
   onCloseForm: () => void;
   triggerRef?: React.RefObject<HTMLButtonElement | null>;
   isDarkZone?: boolean;
+  isScrolled?: boolean;
 };
 
-export function Burger({ formOpen, onOpenForm, onCloseForm, triggerRef, isDarkZone }: BurgerProps) {
+export function Burger({
+  formOpen,
+  onOpenForm,
+  onCloseForm,
+  triggerRef,
+  isDarkZone,
+  isScrolled,
+}: BurgerProps) {
   const [open, setOpen] = useState(false);
 
   const links: [string, string][] = [
@@ -104,6 +112,7 @@ export function Burger({ formOpen, onOpenForm, onCloseForm, triggerRef, isDarkZo
         collisionPadding={16}
         className={clsx(
           "rounded-12 w-[min(21.875rem,calc(100vw-2rem))] p-20 text-white sm:w-[21.875rem] sm:p-30",
+          isScrolled && "mt-16",
           "[box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] backdrop-blur-md",
           isDarkZone
             ? "bg-midnight/90 border border-white/30"
@@ -117,7 +126,7 @@ export function Burger({ formOpen, onOpenForm, onCloseForm, triggerRef, isDarkZo
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="text-14 xs:text-16 font-bounded font-normal nav-link"
+                className="text-14 xs:text-16 font-bounded nav-link font-normal"
               >
                 {label}
               </Link>
