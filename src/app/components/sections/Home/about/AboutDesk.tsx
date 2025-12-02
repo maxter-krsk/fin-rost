@@ -5,18 +5,18 @@ export function AboutDesk() {
       <div className="hidden lg:block container">
         <article>
           <div
-            className="mb-36 grid grid-cols-[0.8fr_1.2fr] items-center gap-20 desk:gap-70"
+            className="mb-36 grid grid-cols-[1fr_1.5fr] gap-x-70 items-center"
             aria-labelledby="founder-name"
           >
-            <div className="ml-auto flex flex-col items-start">
+            <div className="flex flex-col justify-items-start">
               <Image
-                src="/images/about/olga-kiryanova-desk.png"
+                src="/images/about/olga-kiryanova-desk.svg"
                 alt="Фотография Ольги Кирьяновой"
                 width={350}
                 height={403}
-                className="h-auto w-[21.875rem] object-cover"
+                className="h-auto w-auto object-contain"
               />
-              <div className="flex flex-col gap-10 bg-[linear-gradient(90deg,#24406F_0%,#0E1D3A_100%)] p-20">
+              <div className="mt-[-10px] flex flex-col gap-10 bg-[linear-gradient(90deg,#24406F_0%,#0E1D3A_100%)] p-20">
                 <h2 className="text-18 desk:text-20 font-bounded font-normal" id="founder-name">
                   Ольга Кирьянова
                 </h2>
@@ -68,7 +68,7 @@ export function AboutDesk() {
                       alt="Баннер Деловой России"
                       width={123}
                       height={40}
-                      className="desk:w-[25rem] desk:h-[8.125rem]"
+                      className="lg:w-[14rem] lg:h-[8.125rem] desk:w-[25rem] desk-h-[8.125rem]"
                     />
                   </li>
                   <li>
@@ -77,7 +77,7 @@ export function AboutDesk() {
                       alt="Баннер Фаба Платинум"
                       width={123}
                       height={62}
-                      className="desk:w-[15.938rem] desk:h-[8.063rem]"
+                      className="lg:w-[10.938rem] lg:h-[8.063rem] desk:w-[15.938rem] desk-h-[8.125rem]"
                     />
                   </li>
                   <li>
@@ -86,7 +86,7 @@ export function AboutDesk() {
                       alt="Баннер Президентской программы"
                       width={82}
                       height={89}
-                      className="desk:w-[7.75rem] desk:h-[8.125rem]"
+                      className="lg:w-[5.75rem] lg:h-[8.125rem] desk:w-[7.813rem] desk-h-[8.125rem]"
                     />
                   </li>
                 </ul>
