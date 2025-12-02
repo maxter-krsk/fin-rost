@@ -12,52 +12,70 @@ import {
 } from "@/lib/ui/carousel";
 import { Title } from "@/app/components/ui/Title";
 
-const carouselItems = [
+type Orientation = "portrait" | "landscape";
+
+const carouselItems: {
+  image: string;
+  alt: string;
+  orientation: Orientation;
+}[] = [
   {
     image: "/images/thankful-letter/top-350.jpg",
     alt: "топ-350 бизнеса страны",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/top-business-region.jpg",
     alt: "топ бизнеса региона",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/leader-buhgaltersk-autsorsing.jpg",
     alt: "лидер бухгалтерского аутсорсинга",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/blagodarstvennoe-pismo-2024.jpg",
     alt: "благодарственное письмо 2024 года",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/blagodarstvennoe-pismo-2023.jpg",
     alt: "благодарственное письмо 2023 года",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/blagodarstvennoe-pismo-2022.jpg",
     alt: "благодарственное письмо 2022 года",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/business-obshestva-mam.jpg",
     alt: "благодарственное письмо партнера за вклад в развитие Бизнеса Общества Мам",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/agentstvo-razvitiya.jpg",
     alt: "благодарственное письмо от Агентство развития малого и среднего предпринимательства",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/ya-v-dele-2023.jpg",
     alt: "благодарственное письмо 2023 года от Я в деле",
+    orientation: "portrait",
   },
   {
     image: "/images/thankful-letter/ya-v-dele-2024.jpg",
     alt: "благодарственное письмо 2024 года от Я в деле",
+    orientation: "landscape",
   },
   {
     image: "/images/thankful-letter/cantilen.jpg",
     alt: "благодарственное письмо 2024 года от cantilen",
+    orientation: "landscape",
   },
 ];
+
 export function ThankfulLetterCard() {
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -65,9 +83,7 @@ export function ThankfulLetterCard() {
   useEffect(() => {
     if (!api) return;
 
-    const onSelect = () => {
-      setCurrentSlide(api.selectedScrollSnap());
-    };
+    const onSelect = () => setCurrentSlide(api.selectedScrollSnap());
 
     api.on("select", onSelect);
 
@@ -84,45 +100,54 @@ export function ThankfulLetterCard() {
           align: "start",
           loop: false,
           slidesToScroll: 1,
-          breakpoints: {
-            "(min-width: 90rem)": { slidesToScroll: 1 },
-            "(min-width: 64rem)": { slidesToScroll: 2 },
-          },
+          containScroll: "trimSnaps",
+          dragFree: false,
         }}
         className="w-full"
       >
         <div className="flex justify-between">
-          <Title>Благодарственные письма</Title>
+          <Title>Сертификаты и дипломы</Title>
 
-          <div className="flex hidden items-center gap-20 md:flex">
+          <div className="hidden items-center gap-20 md:flex">
             <CarouselPrevious aria-label="Предыдущий">Предыдущий</CarouselPrevious>
-            <CarouselNext className="" aria-label="Следующий">
-              Следующий
-            </CarouselNext>
+            <CarouselNext aria-label="Следующий">Следующий</CarouselNext>
           </div>
         </div>
 
-        <CarouselContent>
-          {carouselItems.map((item, i) => (
-            <CarouselItem
-              key={i}
-              className="xs:basis-1/2 basis-full pr-10 pl-0 last:pr-0 md:basis-1/3 lg:basis-1/4"
-            >
-              <div className="relative h-full w-full">
-                <Image
-                  className="h-full w-full object-contain"
-                  src={item.image}
-                  alt={item.alt}
-                  width={345}
-                  height={488}
-                />
-              </div>
-            </CarouselItem>
-          ))}
+        <CarouselContent className="gap-10">
+          {carouselItems.map((item, i) => {
+            const isPortrait = item.orientation === "portrait";
+            const desktopW = isPortrait ? "21.5625rem" : "54.0625rem";
+
+            return (
+              <CarouselItem
+                key={i}
+                className="shrink-0 basis-auto"
+                style={{
+                  width: `min(${desktopW}, calc(100vw - 2rem))`,
+                  flex: "0 0 auto",
+                }}
+              >
+                <div
+                  className="relative w-full overflow-hidden rounded-md bg-white/30"
+                  style={{ height: "30.5rem" }}
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    className="object-contain px-10 md:p-20"
+                    sizes="(min-width: 1024px) 865px, 100vw"
+                    priority={i < 2}
+                  />
+                </div>
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
       </Carousel>
 
-      <div className="mt-36 block flex items-center justify-center gap-4 md:hidden">
+      <div className="mt-36 flex items-center justify-center gap-4 md:hidden">
         {carouselItems.map((_, i) => (
           <button
             key={i}

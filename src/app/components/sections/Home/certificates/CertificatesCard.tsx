@@ -157,7 +157,7 @@ export function CertificatesCard() {
                     src={item.image}
                     alt={item.alt}
                     fill
-                    className="object-contain"
+                    className="object-contain px-10 md:p-20"
                     sizes="(min-width: 1024px) 865px, 100vw"
                     priority={i < 2}
                   />
