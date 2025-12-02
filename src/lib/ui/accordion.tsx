@@ -41,17 +41,16 @@ function AccordionTrigger({
       >
         {children}
         <CircleElement
-          size="2rem"
-          className="flex shrink-0 translate-y-0.5 items-center justify-center"
+          className="flex shrink-0 translate-y-0.5 items-center justify-center w-[2.5rem] h-[2.5rem] lg:w-[3.5rem] lg:h-[3.5rem]"
           ariaLabel="Элемент Открытия / Закрытия"
         >
           <span className="faq-close-icon inline-flex items-center justify-center transition-transform duration-300">
             <Image
-            className="w-12 h-12"
-              src="/icons/ui/close-icon.svg"
+            className="w-16 h-16"
+              src="/icons/ui/open-icon.svg"
               alt="Иконка Открытия / Закрытия"
-              width={12}
-              height={12}
+              width={16}
+              height={16}
             />
           </span>
         </CircleElement>

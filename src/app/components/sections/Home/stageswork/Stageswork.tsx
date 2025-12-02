@@ -25,10 +25,10 @@ export function Stageswork() {
               </div>
             </div>
 
-            <ul className="grid grid-cols-2 gap-x-20 gap-y-20 lg:w-fit">
+            <ul className="grid grid-cols-2 gap-x-40 gap-y-40 lg:w-fit">
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size="3.5rem">
+                  <CircleElement className="w-[2.5rem] h-[2.5rem] lg:w-[3.5rem] lg:h-[3.5rem]">
                     <span className="font-bounded text-14 font-extralight">01</span>
                   </CircleElement>
                   <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />
@@ -41,7 +41,7 @@ export function Stageswork() {
 
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size="3.5rem">
+                  <CircleElement className="w-[2.5rem] h-[2.5rem] lg:w-[3.5rem] lg:h-[3.5rem]">
                     <span className="font-bounded text-14 font-extralight">02</span>
                   </CircleElement>
                   <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />
@@ -54,7 +54,7 @@ export function Stageswork() {
 
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size="3.5rem">
+                  <CircleElement className="w-[2.5rem] h-[2.5rem] lg:w-[3.5rem] lg:h-[3.5rem]">
                     <span className="font-bounded text-14 font-extralight">03</span>
                   </CircleElement>
                   <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />
@@ -67,7 +67,7 @@ export function Stageswork() {
 
               <li>
                 <div className="flex flex-col gap-10">
-                  <CircleElement size="3.5rem">
+                  <CircleElement className="w-[2.5rem] h-[2.5rem] lg:w-[3.5rem] lg:h-[3.5rem]">
                     <span className="font-bounded text-14 font-extralight">04</span>
                   </CircleElement>
                   <Separator className="hidden sm:block lg:hidden" gradientDirection="center" />

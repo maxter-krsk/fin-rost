@@ -50,7 +50,7 @@ export function BarrierCards() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
           <div className={styles.noise} />
 
-          <CircleElement className="relative ml-auto" size="3.5rem">
+          <CircleElement className="relative ml-auto w-[3.5rem] h-[3.5rem]">
             <span className="font-bounded text-16 font-extralight">{item.number}</span>
           </CircleElement>
 
