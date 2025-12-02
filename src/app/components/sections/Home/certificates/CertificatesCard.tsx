@@ -152,7 +152,7 @@ export function CertificatesCard() {
                 }}
               >
                 <div
-                  className="relative w-full overflow-hidden rounded-md bg-white/30"
+                  className="relative w-full overflow-hidden rounded-md bg-[radial-gradient(ellipse_at_top_right,_#4594E960_0%,_transparent_90%)]"
                   style={{ height: "30.5rem" }}
                 >
                   {!imageLoaded[i] && (
