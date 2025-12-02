@@ -11,6 +11,7 @@ import {
   type CarouselApi,
 } from "@/lib/ui/carousel";
 import { Title } from "@/app/components/ui/Title";
+import { Skeleton } from "@/lib/ui/skeleton";
 
 type Orientation = "portrait" | "landscape";
 
@@ -79,6 +80,7 @@ const carouselItems: {
 export function ThankfulLetterCard() {
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [imageLoaded, setImageLoaded] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     if (!api) return;
@@ -106,7 +108,7 @@ export function ThankfulLetterCard() {
         className="w-full"
       >
         <div className="flex justify-between">
-          <Title>Сертификаты и дипломы</Title>
+          <Title>Благодарственные письма</Title>
 
           <div className="hidden items-center gap-20 md:flex">
             <CarouselPrevious aria-label="Предыдущий">Предыдущий</CarouselPrevious>
@@ -132,13 +134,19 @@ export function ThankfulLetterCard() {
                   className="relative w-full overflow-hidden rounded-md bg-white/30"
                   style={{ height: "30.5rem" }}
                 >
+                  {!imageLoaded[i] && (
+                    <Skeleton className="absolute inset-0 z-20 h-full w-full animate-pulse rounded-md bg-gray-200" />
+                  )}
                   <Image
                     src={item.image}
                     alt={item.alt}
                     fill
-                    className="object-contain px-10 md:p-20"
+                    className={`object-contain px-10 transition-opacity duration-500 md:p-20 ${
+                      imageLoaded[i] ? "opacity-100" : "opacity-0"
+                    }`}
                     sizes="(min-width: 1024px) 865px, 100vw"
                     priority={i < 2}
+                    onLoad={() => setImageLoaded((prev) => ({ ...prev, [i]: true }))}
                   />
                 </div>
               </CarouselItem>
