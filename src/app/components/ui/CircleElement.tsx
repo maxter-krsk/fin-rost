@@ -4,7 +4,7 @@ import clsx from "clsx";
 type CircleElementProps = {
   children?: React.ReactNode;
   className?: string;
-  size?: string;
+  size?: string; 
   borderWidth?: number;
   gradient?: string;
   fillColor?: string;
@@ -20,7 +20,6 @@ type CircleCSSVars = {
 const CircleElement: React.FC<CircleElementProps> = ({
   children,
   className,
-  size,
   borderWidth = 2,
   gradient = `
     linear-gradient(
@@ -35,7 +34,6 @@ const CircleElement: React.FC<CircleElementProps> = ({
   ariaLabel,
 }) => {
   const style: React.CSSProperties & CircleCSSVars = {
-    ...(size ? { width: size, height: size } : {}),
     "--circle-border-width": `${borderWidth}px`,
     "--circle-fill": fillColor,
     "--circle-gradient": gradient,
@@ -43,7 +41,7 @@ const CircleElement: React.FC<CircleElementProps> = ({
 
   return (
     <span
-      className={clsx("circle-gradient", !size && "circle-size", className)}
+      className={clsx("circle-gradient", className)}
       style={style}
       aria-label={ariaLabel}
       role={ariaLabel ? "img" : undefined}

@@ -84,7 +84,7 @@ export function BarrierCardsMobile() {
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
                   <div className={styles.noise} />
-                  <CircleElement className="relative ml-auto">
+                  <CircleElement className="relative ml-auto w-[2.5rem] h-[2.5rem]">
                     <span className="font-bounded text-14 font-extralight">{item.number}</span>
                   </CircleElement>
                   <div className="relative flex flex-col gap-10">
