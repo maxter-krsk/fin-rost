@@ -50,9 +50,8 @@ export default function Footer() {
               <nav>
                 <ul className="flex flex-col gap-16">
                   {links.map(([label, href]) => (
-                    <li>
+                    <li key={href}>
                       <Link
-                        key={href}
                         href={href}
                         className="text-14 xs:text-16 font-bounded nav-link font-light"
                       >
@@ -133,9 +132,8 @@ export default function Footer() {
               <nav>
                 <ul className="mb-36 flex flex-col gap-16">
                   {links.map(([label, href]) => (
-                    <li>
+                    <li key={href}>
                       <Link
-                        key={href}
                         href={href}
                         className="text-14 xs:text-16 font-bounded nav-link font-light"
                       >
@@ -222,12 +220,8 @@ export default function Footer() {
               <nav>
                 <ul className="mb-20 flex flex-col gap-14">
                   {links.map(([label, href]) => (
-                    <li>
-                      <Link
-                        key={href}
-                        href={href}
-                        className="text-14 font-bounded nav-link font-light"
-                      >
+                    <li key={href}>
+                      <Link href={href} className="text-14 font-bounded nav-link font-light">
                         {label}
                       </Link>
                     </li>
