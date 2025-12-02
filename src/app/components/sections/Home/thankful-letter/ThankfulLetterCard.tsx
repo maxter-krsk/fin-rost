@@ -84,17 +84,13 @@ export function ThankfulLetterCard() {
           align: "start",
           loop: false,
           slidesToScroll: 1,
-          breakpoints: {
-            "(min-width: 90rem)": { slidesToScroll: 1 },
-            "(min-width: 64rem)": { slidesToScroll: 2 },
-          },
         }}
         className="w-full"
       >
         <div className="flex justify-between">
           <Title>Благодарственные письма</Title>
 
-          <div className="flex hidden items-center gap-20 md:flex">
+          <div className="hidden items-center gap-20 md:flex">
             <CarouselPrevious aria-label="Предыдущий">Предыдущий</CarouselPrevious>
             <CarouselNext className="" aria-label="Следующий">
               Следующий
@@ -122,7 +118,7 @@ export function ThankfulLetterCard() {
         </CarouselContent>
       </Carousel>
 
-      <div className="mt-36 block flex items-center justify-center gap-4 md:hidden">
+      <div className="mt-36 block items-center justify-center gap-4 md:hidden">
         {carouselItems.map((_, i) => (
           <button
             key={i}
