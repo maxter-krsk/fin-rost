@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  FlipButton,
-  FlipButtonBack,
-  FlipButtonFront,
-} from "@/components/animate-ui/primitives/buttons/flip";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 import { Button } from "@/lib/ui/button";
 import styles from "@/app/styles/modules/noise.module.css";
@@ -148,104 +143,110 @@ export function PriceCards() {
     setShowMore((prev) => !prev);
   };
 
-  const cardBaseClasses =
-    "rounded-10 bg-darkBlue relative flex flex-col text-start overflow-hidden w-full h-full p-20 lg:p-30";
-
   return (
     <>
-      <motion.div className="hidden lg:grid md:grid-cols-3 gap-10 cursor-pointer">
-        <AnimatePresence>
-          {cardItems.map((item, i) =>
-            showMore || i < 6 ? (
-              <motion.div
-                key={item.title}
-                layout="position"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="h-full w-full"
-              >
-                <FlipButton className="w-full h-full">
-                  <FlipButtonFront>
-                    <div className={cardBaseClasses}>
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
-                      <div className={styles.noise} />
+      <div className="hidden gap-10 lg:grid lg:grid-cols-3">
+        {cardItems.map((item, i) =>
+          showMore || i < 6 ? <FlipCard key={item.title} item={item} /> : null
+        )}
+      </div>
 
-                      <div className="relative flex flex-1 flex-col">
-                        <h2 className="text-16 lg:text-18 font-bounded font-normal">
-                          {item.title}
-                        </h2>
-                        <div className="mt-auto flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
-                          <p className="text-14 lg:text-16 font-onest text-mouse order-2 font-extralight underline lg:order-none">
-                            {item.front.question}
-                          </p>
-
-                          <div className="order-1 flex flex-col items-start gap-10 lg:order-none lg:items-end">
-                            <p className="text-16 lg:text-18 font-bounded font-extralight">
-                              {item.front.cost}
-                            </p>
-
-                            {item.front.time && (
-                              <span className="text-14 lg:text-16 font-onest text-mouse font-extralight">
-                                {item.front.time}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FlipButtonFront>
-
-                  <FlipButtonBack>
-                    <div className={`${cardBaseClasses} gap-80 p-20`}>
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
-                      <div className={styles.noise} />
-
-                      <div className="relative flex flex-col gap-24">
-                        <h2 className="text-16 xs:text-18 font-bounded font-normal">
-                          {item.title}
-                        </h2>
-                        <ul className="text-16 xs:text-18 font-onest text-mouse flex flex-col gap-10 font-extralight">
-                          {item.back.description.map((descItem, index) => (
-                            <li className="flex items-center gap-16" key={index}>
-                              <span className="bg-ocean text-ocean block h-[0.5rem] w-[0.5rem] shrink-0 rounded-full" />
-                              <p>{descItem}</p>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="relative mt-auto flex justify-between">
-                        {item.back.time && (
-                          <span className="text-14 xs:text-16 font-onest text-mouse font-extralight">
-                            {item.back.time}
-                          </span>
-                        )}
-                        <p className="text-16 xs:text-18 font-bounded font-extralight">
-                          {item.back.cost}
-                        </p>
-                      </div>
-                    </div>
-                  </FlipButtonBack>
-                </FlipButton>
-              </motion.div>
-            ) : null
-          )}
-        </AnimatePresence>
-      </motion.div>
-
-      <div className="hidden lg:block text-center">
-        <Button
-          className="xs:mt-36 mt-12 lg:mt-50"
-          variant="orange"
-          onClick={handleShowMoreClick}
-        >
+      <div className="hidden text-center lg:block">
+        <Button className="xs:mt-36 mt-12 lg:mt-50" variant="orange" onClick={handleShowMoreClick}>
           {showMore ? "Свернуть" : "Все услуги"}
         </Button>
       </div>
     </>
+  );
+}
+
+function FlipCard({ item }: { item: CardItem }) {
+  const [flipped, setFlipped] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(hover: none)");
+    setIsTouch(mq.matches);
+  }, []);
+
+  const handleClick = () => {
+    if (!isTouch) return;
+    setFlipped((prev) => !prev);
+  };
+
+  return (
+    <motion.div
+      className="desk:h-[19rem] h-[25rem] w-full cursor-pointer"
+      style={{ perspective: 2000 }}
+      onClick={handleClick}
+      initial={false}
+      animate={flipped ? "back" : "front"}
+      whileHover={isTouch ? undefined : "back"}
+    >
+      <motion.div
+        className="relative h-full w-full"
+        variants={{
+          front: { rotateY: 0 },
+          back: { rotateY: 180 },
+        }}
+        transition={{ duration: 0.5 }}
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* FRONT */}
+        <div
+          className="rounded-12 bg-darkBlue absolute inset-0 flex h-full w-full flex-col overflow-hidden p-30"
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          <div className="rounded-12 pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
+          <div className="rounded-12 pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
+          <div className={`${styles.noise} rounded-12 pointer-events-none`} />
+
+          <h3 className="font-bounded text-20 font-normal">{item.title}</h3>
+
+          <div className="mt-auto flex items-end justify-between">
+            <p className="text-18 text-mouse mr-10 font-light underline">{item.front.question}</p>
+            <div className="flex flex-col text-right">
+              <span className="desk:text-20 text-18 font-bounded font-light">
+                {item.front.cost}
+              </span>
+              {item.front.time && <span className="text-16 font-light">{item.front.time}</span>}
+            </div>
+          </div>
+        </div>
+
+        {/* BACK */}
+        <div
+          className="rounded-12 bg-darkBlue absolute inset-0 flex h-full w-full flex-col overflow-hidden p-30"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
+        >
+          <div className="rounded-12 pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
+          <div className="rounded-12 pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
+          <div className={`${styles.noise} rounded-12 pointer-events-none`} />
+
+          <div className="desk:flex-row flex flex-col justify-between">
+            <div className="basis-1/2">
+              <h3 className="font-bounded text-20 desk:mb-0 mb-20 font-normal">{item.title}</h3>
+            </div>
+            <div className="desk:items-end flex flex-col items-start">
+              <span className="font-bounded text-light text-20">{item.back.cost}</span>
+              {item.back.time && <span className="text-mouse">{item.back.time}</span>}
+            </div>
+          </div>
+
+          <ul className="mt-auto">
+            {item.back.description.map((desc, idx) => (
+              <li key={idx} className="text-18 text-mouse flex items-center gap-16 font-light">
+                <span className="h-6 w-6 shrink-0 rounded-full border border-blue-500 bg-blue-500" />
+                {desc}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
