@@ -45,7 +45,7 @@ export function Stageswork() {
                 </p>
               </li>
 
-              <li className="order-2">
+              <li className="desk:order-2">
                 <div className="flex flex-col gap-10">
                   <CircleElement className="h-[2.5rem] w-[2.5rem] lg:h-[3.5rem] lg:w-[3.5rem]">
                     <span className="font-bounded text-14 font-extralight">03</span>
@@ -58,7 +58,7 @@ export function Stageswork() {
                 </p>
               </li>
 
-              <li className="order-1">
+              <li className="desk:order-1">
                 <div className="flex flex-col gap-10">
                   <CircleElement className="h-[2.5rem] w-[2.5rem] lg:h-[3.5rem] lg:w-[3.5rem]">
                     <span className="font-bounded text-14 font-extralight">04</span>
