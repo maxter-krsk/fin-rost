@@ -42,7 +42,7 @@ export function Burger({
 
   const socialLinks = [
     { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#wa" },
-    { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "#phone" },
+    { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "tel:+79080107559" },
     { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#youtube" },
     { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#tg" },
   ];

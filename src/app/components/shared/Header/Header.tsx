@@ -10,7 +10,7 @@ import { PopoverForm } from "@/app/components/sections/Home/form/PopoverForm";
 
 const socialLinks = [
   { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#WhatsApp" },
-  { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "#Phone" },
+  { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "tel:+79080107559" },
   { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#YouTube" },
   { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#Telegram" },
 ];
