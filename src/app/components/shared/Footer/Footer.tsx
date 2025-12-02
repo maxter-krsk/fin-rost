@@ -26,7 +26,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="text-darkBlue desk:pt-30 desk:pb-60 relative hidden bg-white pt-24 pb-68 md:block">
+      <footer className="text-darkBlue desk:pt-30 desk:pb-60 relative hidden bg-white pt-24 pb-68 lg:block">
         <div className="desk:block pointer-events-none absolute inset-x-0 -top-[4.938rem] hidden h-100 overflow-hidden">
           <Image
             src="/icons/ui/subtract.svg"
@@ -50,9 +50,8 @@ export default function Footer() {
               <nav>
                 <ul className="flex flex-col gap-16">
                   {links.map(([label, href]) => (
-                    <li>
+                    <li key={href}>
                       <Link
-                        key={href}
                         href={href}
                         className="text-14 xs:text-16 font-bounded nav-link font-light"
                       >
@@ -119,17 +118,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      <footer className="text-darkBlue xs:block relative hidden bg-white pt-24 pb-68 md:hidden">
-        <div className="desk:block pointer-events-none absolute inset-x-0 -top-[4.938rem] hidden h-100 overflow-hidden">
-          <Image
-            src="/icons/ui/subtract.svg"
-            alt="Декоративный вырез"
-            aria-hidden="true"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      <footer className="text-darkBlue relative hidden bg-white pt-24 pb-68 sm:block lg:hidden">
         <div className="container">
           <Image
             className="mb-50 h-48 w-66"
@@ -138,14 +127,13 @@ export default function Footer() {
             width={66}
             height={49}
           />
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-10">
             <div>
               <nav>
                 <ul className="mb-36 flex flex-col gap-16">
                   {links.map(([label, href]) => (
-                    <li>
+                    <li key={href}>
                       <Link
-                        key={href}
                         href={href}
                         className="text-14 xs:text-16 font-bounded nav-link font-light"
                       >
@@ -218,17 +206,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      <footer className="text-darkBlue xs:hidden relative block bg-white pt-24 pb-68 md:hidden">
-        <div className="desk:block pointer-events-none absolute inset-x-0 -top-[4.938rem] hidden h-100 overflow-hidden">
-          <Image
-            src="/icons/ui/subtract.svg"
-            alt="Декоративный вырез"
-            aria-hidden="true"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      <footer className="text-darkBlue relative block bg-white pt-24 pb-68 sm:hidden">
         <div className="container">
           <Image
             className="mb-24 h-48 w-66"
@@ -242,12 +220,8 @@ export default function Footer() {
               <nav>
                 <ul className="mb-20 flex flex-col gap-14">
                   {links.map(([label, href]) => (
-                    <li>
-                      <Link
-                        key={href}
-                        href={href}
-                        className="text-14 font-bounded nav-link font-light"
-                      >
+                    <li key={href}>
+                      <Link href={href} className="text-14 font-bounded nav-link font-light">
                         {label}
                       </Link>
                     </li>
@@ -308,7 +282,6 @@ export default function Footer() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col"></div>
           </div>
           <div className="mt-50 flex justify-center">
             <DevelopedBy />
