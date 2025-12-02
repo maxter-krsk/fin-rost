@@ -80,15 +80,23 @@ export function ResultsCardsSlider() {
                     key={i}
                     className="relative flex h-full w-full overflow-hidden rounded-10 border border-white/30 bg-darkBlue p-20 desk:p-30"
                   >
+                    <div
+                      className="absolute inset-0 opacity-20"
+                      style={{
+                        backgroundImage: 'url(/icons/ui/square-texture.svg)',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                      }}
+                    />
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
 
                     <div className="relative z-10 flex h-full w-full flex-col">
-                      <h2 className="text-12 sm:text-18 desk:text-20 font-bounded text-center desk:text-left font-normal">
+                      <h2 className="text-12 xs:text-16 font-bounded text-center desk:text-left font-normal">
                         {item.title}
                       </h2>
                       <div className="mt-auto flex justify-center">
-                        <Image width={132} height={108} src={item.image} alt={item.alt} />
+                        <Image className="w-[6.875rem] h-[6.75rem]" width={132} height={108} src={item.image} alt={item.alt} />
                       </div>
                     </div>
                   </div>
