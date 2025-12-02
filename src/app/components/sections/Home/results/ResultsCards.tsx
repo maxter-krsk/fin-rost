@@ -30,19 +30,36 @@ const cardsItems = [
 
 export function ResultsCards() {
   return (
-    <div className="container flex-wrap justify-center gap-10 hidden md:flex">
+    <div className="container hidden gap-10 md:grid md:grid-cols-2 md:grid-rows-3 lg:grid-cols-5 lg:grid-rows-1">
       {cardsItems.map((item, i) => (
         <div
           key={i}
-          className="rounded-10 bg-darkBlue relative flex h-[24.75rem] w-[17.5rem] overflow-hidden border border-white/30 p-30"
+          className="desk:min-h-[25.75rem] rounded-10 bg-darkBlue desk:p-30 relative flex justify-center overflow-hidden border border-white/30 p-20 lg:min-h-[19.313rem]"
         >
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: "url(/icons/ui/square-texture.svg)",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat"
+            }}
+          />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
-          <div className="relative z-10 flex h-full w-full flex-col">
-            <h2 className="text-left text-20 font-bounded font-normal">{item.title}</h2>
-            <div className="mt-auto flex justify-center">
-              <Image className="w-[11.063rem] h-[8.5rem]" width={177} height={136} src={item.image} alt={item.alt} />
+          <div className="relative z-10 flex h-full flex-col items-center justify-between gap-20">
+            <div className="flex items-start">
+              <h2 className="text-14 desk:text-20 font-bounded font-normal md:text-center lg:text-left">
+                {item.title}
+              </h2>
             </div>
+
+            <Image
+              className="desk:w-[11.063rem] desk:h-[8.5rem] h-[6.75rem] w-[8.25rem]"
+              width={177}
+              height={136}
+              src={item.image}
+              alt={item.alt}
+            />
           </div>
         </div>
       ))}
