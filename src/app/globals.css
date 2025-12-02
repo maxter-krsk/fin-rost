@@ -304,7 +304,6 @@ html body[data-scroll-locked] {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  font-family: "Bounded", sans-serif;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-duration: 300ms;
   width: auto;
