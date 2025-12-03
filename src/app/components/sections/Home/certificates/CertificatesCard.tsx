@@ -156,7 +156,7 @@ export function CertificatesCard() {
                   style={{ height: "30.5rem" }}
                 >
                   {!imageLoaded[i] && (
-                    <Skeleton className="absolute inset-0 z-20 h-full w-full animate-pulse rounded-md bg-gray-200" />
+                    <Skeleton className="absolute inset-0 z-20 animate-pulse rounded-md bg-gray-500 opacity-80" />
                   )}
                   <Image
                     src={item.image}
