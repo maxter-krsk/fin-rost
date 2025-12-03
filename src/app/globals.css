@@ -339,6 +339,17 @@ html body[data-scroll-locked] {
   transform: scaleX(1);
 }
 
+.hero-stat {
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 1s ease-out;
+}
+
+.hero-stat.in-view {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 footer .nav-link {
   position: relative;
   display: inline-flex;

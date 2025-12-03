@@ -1,9 +1,37 @@
+"use client";
+
+import { useEffect } from "react";
 import { Button } from "@/lib/ui/button";
 import bg from "@/app/styles/modules/herobg.module.css";
 
 export function Hero() {
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>(".hero-stat");
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          } else {
+            entry.target.classList.remove("in-view");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="hero" className={`${bg.heroBg} desk:pt-200 xs:mb-70 mb-50 pt-120 md:mb-90 desk:mb-120`}>
+    <section
+      id="hero"
+      className={`${bg.heroBg} pb-40 desk:pt-200 xs:mb-70 desk:mb-120 mb-50 pt-120 md:mb-90`}
+    >
       <div className="relative z-10 container">
         <div className="mb-36 flex flex-col gap-24 md:mb-60 md:grid md:auto-rows-auto md:grid-cols-2 md:gap-x-20 md:gap-y-24 md:[grid-template-areas:'title_title''subtitle_button''text_.'] lg:grid lg:auto-rows-auto lg:grid-cols-3 lg:gap-x-0 lg:gap-y-50 lg:[grid-template-areas:'title_title_button''subtitle_subtitle_text']">
           <h1 className="text-24 xs:text-30 md:text-36 desk:text-60 font-bounded desk:font-bold text-left font-semibold md:[grid-area:title] lg:whitespace-normal lg:[grid-area:title]">
@@ -26,14 +54,14 @@ export function Hero() {
           </Button>
         </div>
         <ul className="xs:gap-50 desk:gap-100 grid grid-cols-2 grid-rows-2 items-center gap-20 md:grid md:grid-cols-4 md:grid-rows-2 md:items-end md:gap-46">
-          <li className="order-1 flex flex-col items-center gap-14 md:order-0 lg:ml-26">
+          <li className="hero-stat order-1 flex flex-col items-center gap-14 md:order-0 lg:ml-26">
             <span className="text-30 xs:text-36 md:text-40 desk:text-80 font-bounded font-bold whitespace-nowrap">
               18 лет
             </span>
             <p className="text-14 md:text-16 desk:text-18 font-onest font-normal">в финансах</p>
           </li>
           <li className="order-3 md:order-0 md:row-span-2">
-            <div className="flex flex-col items-center gap-14">
+            <div className="hero-stat flex flex-col items-center gap-14">
               <svg
                 className="desk:h-[6.188rem] desk:w-[17.375rem] h-[2.813rem] w-[6.875rem]"
                 width="111"
@@ -66,7 +94,7 @@ export function Hero() {
               </p>
             </div>
           </li>
-          <li className="order-4 flex flex-col items-center gap-14 md:order-0">
+          <li className="hero-stat order-4 flex flex-col items-center gap-14 md:order-0">
             <span className="text-30 xs:text-36 md:text-40 desk:text-80 font-bounded font-bold">
               100%
             </span>
@@ -75,7 +103,7 @@ export function Hero() {
             </p>
           </li>
           <li className="order-2 md:order-0 md:row-span-2">
-            <div className="flex flex-col items-center gap-14">
+            <div className="hero-stat flex flex-col items-center gap-14">
               <svg
                 className="desk:h-[6.188rem] desk:w-[12.125rem] h-[2.813rem] w-[5.125rem]"
                 width="83"
