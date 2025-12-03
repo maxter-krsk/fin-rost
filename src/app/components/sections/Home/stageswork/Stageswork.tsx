@@ -15,8 +15,8 @@ export function Stageswork() {
 
         <div className="mt-6">
           <div className="relative w-full">
-            <HorizontalArrow className="top-[1.5rem] left-[8%] w-[40%]" />
-            <HorizontalArrow className="lg:top-[11rem] desk:top-[12rem] left-[8%] w-[40%] rotate-180" />
+            <HorizontalArrow className="top-[2rem] left-[8%] w-[40%]" />
+            <HorizontalArrow className="lg:top-[11rem] desk:top-[13rem] left-[8%] w-[40%] rotate-180" />
             <Semicircle className="top-[-2rem] left-[53.5%] w-[47%] h-[100%]" />
             <ul className="grid grid-cols-2 gap-x-40 gap-y-40 desk:gap-y-50">
               <li>
@@ -26,8 +26,8 @@ export function Stageswork() {
                   </CircleElement>
                   <Separator className="w-auto lg:w-[25rem] hidden sm:block desk:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="font-bounded text-14 mt-10 font-normal">Знакомство</h2>
-                <p className="font-onest text-14 mt-10 font-extralight">
+                <h2 className="font-bounded text-14 xs:text-16 md:text-18 lg:text-20 mt-10 font-normal">Знакомство</h2>
+                <p className="font-onest text-14 xs:text-16 lg:text-18 mt-10 font-extralight">
                   Бесплатная онлайн-встреча 20-30 минут: цели и запрос
                 </p>
               </li>
@@ -39,8 +39,8 @@ export function Stageswork() {
                   </CircleElement>
                   <Separator className="w-auto lg:w-[25rem] hidden sm:block desk:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="font-bounded text-14 mt-10 font-normal">Варианты</h2>
-                <p className="font-onest text-14 mt-10 font-extralight">
+                <h2 className="font-bounded text-14 xs:text-16 md:text-18 lg:text-20 mt-10 font-normal">Варианты</h2>
+                <p className="font-onest text-14 xs:text-16 lg:text-18 mt-10 font-extralight">
                   В течение 24 часов предлагаем решения и форматы
                 </p>
               </li>
@@ -52,8 +52,8 @@ export function Stageswork() {
                   </CircleElement>
                   <Separator className="w-auto lg:w-[25rem] hidden sm:block desk:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="font-bounded text-14 mt-10 font-normal">Сопровождение</h2>
-                <p className="font-onest text-14 mt-10 font-extralight">
+                <h2 className="font-bounded text-14 xs:text-16 md:text-18 lg:text-20 mt-10 font-normal">Сопровождение</h2>
+                <p className="font-onest text-14 xs:text-16 lg:text-18 mt-10 font-extralight">
                   Регулярные онлайн-встречи, отчёты, контроль
                 </p>
               </li>
@@ -65,8 +65,8 @@ export function Stageswork() {
                   </CircleElement>
                   <Separator className="w-auto lg:w-[25rem] hidden sm:block desk:hidden" gradientDirection="center" />
                 </div>
-                <h2 className="font-bounded text-14 mt-10 font-normal">Договор</h2>
-                <p className="font-onest text-14 mt-10 font-extralight">
+                <h2 className="font-bounded text-14 xs:text-16 md:text-18 lg:text-20 mt-10 font-normal">Договор</h2>
+                <p className="font-onest text-14 xs:text-16 lg:text-18 mt-10 font-extralight">
                   Подписываем, выставляем счёт, стартуем в тот же день
                 </p>
               </li>
