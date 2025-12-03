@@ -3,7 +3,7 @@ import bg from "@/app/styles/modules/herobg.module.css";
 
 export function Hero() {
   return (
-    <section className={`${bg.heroBg} desk:pt-200 xs:mb-70 mb-50 pt-120 md:mb-90 desk:mb-120`}>
+    <section id="hero" className={`${bg.heroBg} desk:pt-200 xs:mb-70 mb-50 pt-120 md:mb-90 desk:mb-120`}>
       <div className="relative z-10 container">
         <div className="mb-36 flex flex-col gap-24 md:mb-60 md:grid md:auto-rows-auto md:grid-cols-2 md:gap-x-20 md:gap-y-24 md:[grid-template-areas:'title_title''subtitle_button''text_.'] lg:grid lg:auto-rows-auto lg:grid-cols-3 lg:gap-x-0 lg:gap-y-50 lg:[grid-template-areas:'title_title_button''subtitle_subtitle_text']">
           <h1 className="text-24 xs:text-30 md:text-36 desk:text-60 font-bounded desk:font-bold text-left font-semibold md:[grid-area:title] lg:whitespace-normal lg:[grid-area:title]">

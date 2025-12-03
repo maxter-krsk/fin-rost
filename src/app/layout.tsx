@@ -4,7 +4,23 @@ import "./globals.css";
 import Header from "@/app/components/shared/Header/Header";
 import Footer from "@/app/components/shared/Footer/Footer";
 import CookiesBanner from "@/app/components/ui/CookiesBanner";
+import { VerticalProgress } from "@/app/components/ui/VerticalProgress";
 import ScrollTop from "@/app/components/ui/ScrollToTop";
+
+const sections = [
+  { id: "hero", label: "Hero" },
+  { id: "about", label: "About" },
+  { id: "problems", label: "Problems" },
+  { id: "solutions", label: "Solutions" },
+  { id: "stages", label: "Stages" },
+  { id: "advantages", label: "Advantages" },
+  { id: "price", label: "Price" },
+  { id: "form", label: "Form" },
+  { id: "faq", label: "Faq" },
+  { id: "regalia", label: "Regalia" },
+  { id: "news", label: "News" },
+  { id: "footer", label: "Footer" },
+];
 
 // Мета-данные
 
@@ -79,6 +95,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CookiesBanner />
+        <VerticalProgress sections={sections} />
         <ScrollTop />
       </body>
     </html>
