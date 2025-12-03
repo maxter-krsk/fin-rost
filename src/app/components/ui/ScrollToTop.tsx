@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export default function ScrollTop() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isAtFooter, setIsAtFooter] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -21,59 +20,26 @@ export default function ScrollTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-
-    const observer = new IntersectionObserver(([entry]) => setIsAtFooter(entry.isIntersecting), {
-      root: null,
-      threshold: 0,
-      rootMargin: "0px 0px 50px 0px",
-    });
-
-    observer.observe(footer);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
           key="scroll-top"
-          initial={{
-            opacity: 0,
-            scale: 0,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
-          whileHover={{
-            scale: 1.05,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 180,
-            damping: 18,
-            mass: 0.5,
-          }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 180, damping: 18, mass: 0.5 }}
           style={{
             borderRadius: "100%",
-            border: isAtFooter
-              ? "1px solid rgba(255, 255, 255, 0.4)"
-              : "1px solid rgba(255, 255, 255, 0.3)",
-            background: isAtFooter
-              ? "linear-gradient(135deg, rgba(14,29,58,0.7), rgba(14,29,58,0.9))"
-              : "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",
+            border: "1px solid rgba(185, 185, 185, 0.5)",
+            background: "rgba(14, 29, 58, 0.7)",
             backdropFilter: "blur(0.75rem)",
-            color: isAtFooter ? "#B8D2C5" : "#fff",
-            boxShadow: isAtFooter
-              ? "0px 0.25rem 0.75rem rgba(0,0,0,0.35)"
-              : "0px 0.25rem 0.75rem rgba(20, 43, 35, 0.25)",
+            color: "#FFF",
+            boxShadow: "0px 0.25rem 0.75rem rgba(0,0,0,0.25)",
           }}
           onClick={scrollToTop}
-          className="fixed right-3 bottom-3 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#142B23] hover:text-[#95BAA8]"
+          className="fixed right-3 bottom-3 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#DD9B1D] hover:text-[#0E1D3A]"
           aria-label="Прокрутить вверх"
         >
           <svg
