@@ -39,7 +39,7 @@ export default function ScrollTop() {
             boxShadow: "0px 0.25rem 0.75rem rgba(0,0,0,0.25)",
           }}
           onClick={scrollToTop}
-          className="fixed right-3 bottom-3 z-50 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#DD9B1D] hover:text-[#0E1D3A]"
+          className="fixed right-3 bottom-3 z-100 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#DD9B1D] hover:text-[#0E1D3A]"
           aria-label="Прокрутить вверх"
         >
           <svg
