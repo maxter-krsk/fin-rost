@@ -1,5 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 import Image from "next/image";
 import styles from "@/app/styles/modules/noise.module.css";
+import { Skeleton } from "@/lib/ui/skeleton";
 
 const cardsItems = [
   {
@@ -30,20 +35,22 @@ const cardsItems = [
 ];
 
 export function ResultsCards() {
+  const [imageLoaded, setImageLoaded] = useState<Record<number, boolean>>({});
+
   return (
     <div className="container hidden gap-10 md:grid md:grid-cols-2 md:grid-rows-3 lg:grid-cols-5 lg:grid-rows-1">
       {cardsItems.map((item, i) => (
         <div
-        key={i}
-        className="desk:min-h-[25.75rem] rounded-10 bg-darkBlue desk:p-30 relative flex justify-center overflow-hidden border border-white/30 p-20 lg:min-h-[19.313rem]"
+          key={i}
+          className="desk:min-h-[25.75rem] rounded-10 bg-darkBlue desk:p-30 relative flex justify-center overflow-hidden border border-white/30 p-20 lg:min-h-[19.313rem]"
         >
-        <div className={styles.noise} />
+          <div className={styles.noise} />
           <div
             className="absolute inset-0 opacity-30"
             style={{
               backgroundImage: "url(/icons/ui/square-texture.svg)",
               backgroundPosition: "center",
-              backgroundRepeat: "no-repeat"
+              backgroundRepeat: "no-repeat",
             }}
           />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
@@ -55,13 +62,21 @@ export function ResultsCards() {
               </h2>
             </div>
 
-            <Image
-              className="desk:w-[11.063rem] desk:h-[8.5rem] h-[6.75rem] w-[8.25rem]"
-              width={177}
-              height={136}
-              src={item.image}
-              alt={item.alt}
-            />
+            <div className="desk:h-[8.5rem] desk:w-[11.063rem] relative h-[6.75rem] w-[8.25rem] flex-shrink-0">
+              {!imageLoaded[i] && (
+                <Skeleton className="absolute inset-0 z-20 animate-pulse rounded-md bg-gray-500 opacity-80" />
+              )}
+              <Image
+                className={`absolute inset-0 h-full w-full rounded-md object-contain ${
+                  imageLoaded[i] ? "opacity-100" : "opacity-0"
+                }`}
+                onLoad={() => setImageLoaded((prev) => ({ ...prev, [i]: true }))}
+                width={177}
+                height={136}
+                src={item.image}
+                alt={item.alt}
+              />
+            </div>
           </div>
         </div>
       ))}

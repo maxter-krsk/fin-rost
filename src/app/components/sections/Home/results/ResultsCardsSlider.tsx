@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/lib/ui/carousel";
+
 import Image from "next/image";
 import styles from "@/app/styles/modules/noise.module.css";
+import { Skeleton } from "@/lib/ui/skeleton";
 
 const carouselItems = [
   {
@@ -36,6 +38,7 @@ const carouselItems = [
 type CardItem = (typeof carouselItems)[number];
 
 export function ResultsCardsSlider() {
+  const [imageLoaded, setImageLoaded] = useState<Record<string, boolean>>({});
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
@@ -56,7 +59,7 @@ export function ResultsCardsSlider() {
   }, [api]);
 
   return (
-    <div className="container md:hidden block w-full max-w-[480px] mx-auto">
+    <div className="container mx-auto block w-full max-w-[480px] md:hidden">
       <Carousel
         setApi={setApi}
         opts={{
@@ -70,7 +73,7 @@ export function ResultsCardsSlider() {
       >
         <CarouselContent>
           {slides.map((slideItems, slideIndex) => (
-            <CarouselItem key={slideIndex} className="w-full h-[258px]">
+            <CarouselItem key={slideIndex} className="h-[258px] w-full">
               <div
                 className={`grid h-full w-full gap-10 ${
                   slideItems.length === 1 ? "grid-cols-1" : "grid-cols-2"
@@ -79,26 +82,45 @@ export function ResultsCardsSlider() {
                 {slideItems.map((item, i) => (
                   <div
                     key={i}
-                    className="relative flex h-full w-full overflow-hidden rounded-10 border border-white/30 bg-darkBlue p-20 desk:p-30"
+                    className="rounded-10 bg-darkBlue desk:p-30 relative flex h-full w-full overflow-hidden border border-white/30 p-20"
                   >
                     <div className={styles.noise} />
                     <div
                       className="absolute inset-0 opacity-20"
                       style={{
-                        backgroundImage: 'url(/icons/ui/square-texture.svg)',
-                        backgroundPosition: 'center',
-                        backgroundSize: 'cover',
+                        backgroundImage: "url(/icons/ui/square-texture.svg)",
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
                       }}
                     />
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
 
                     <div className="relative z-10 flex h-full w-full flex-col">
-                      <h2 className="text-12 xs:text-16 font-bounded text-center desk:text-left font-normal">
+                      <h2 className="text-12 xs:text-16 font-bounded desk:text-left text-center font-normal">
                         {item.title}
                       </h2>
                       <div className="mt-auto flex justify-center">
-                        <Image className="w-[6.875rem] h-[6.75rem]" width={132} height={108} src={item.image} alt={item.alt} />
+                        <div className="relative h-[6.75rem] w-[6.875rem] flex-shrink-0">
+                          {!imageLoaded[`${slideIndex}-${i}`] && (
+                            <Skeleton className="absolute inset-0 z-20 animate-pulse rounded-md bg-gray-500 opacity-80" />
+                          )}
+                          <Image
+                            className={`absolute inset-0 h-full w-full rounded-md object-contain ${
+                              imageLoaded[`${slideIndex}-${i}`] ? "opacity-100" : "opacity-0"
+                            }`}
+                            onLoad={() =>
+                              setImageLoaded((prev) => ({
+                                ...prev,
+                                [`${slideIndex}-${i}`]: true,
+                              }))
+                            }
+                            width={132}
+                            height={108}
+                            src={item.image}
+                            alt={item.alt}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -109,7 +131,7 @@ export function ResultsCardsSlider() {
         </CarouselContent>
       </Carousel>
 
-      <div className="mt-36 flex items-center justify-center gap-4 desk:hidden">
+      <div className="desk:hidden mt-36 flex items-center justify-center gap-4">
         {slides.map((_, i) => (
           <button
             key={i}
