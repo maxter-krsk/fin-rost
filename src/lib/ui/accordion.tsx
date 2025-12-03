@@ -46,7 +46,7 @@ function AccordionTrigger({
         >
           <span className="faq-close-icon inline-flex items-center justify-center transition-transform duration-300">
             <Image
-            className="w-16 h-16"
+            className="w-20 h-20"
               src="/icons/ui/open-icon.svg"
               alt="Иконка Открытия / Закрытия"
               width={16}
