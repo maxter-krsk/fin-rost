@@ -193,29 +193,27 @@ function FlipCard({ item }: { item: CardItem }) {
         transition={{ duration: 0.5 }}
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* FRONT */}
         <div
-          className="rounded-12 bg-darkBlue absolute inset-0 flex h-full w-full flex-col overflow-hidden p-30"
+          className="absolute rounded-12 bg-darkBlue inset-0 flex h-full w-full flex-col overflow-hidden p-30"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="rounded-12 pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
           <div className="rounded-12 pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
           <div className={`${styles.noise} rounded-12 pointer-events-none`} />
 
-          <h3 className="font-bounded text-20 font-normal">{item.title}</h3>
+          <h3 className="relative font-bounded text-20 font-normal">{item.title}</h3>
 
-          <div className="mt-auto flex items-end justify-between">
+          <div className="relative mt-auto flex items-end justify-between">
             <p className="text-18 text-mouse mr-10 font-light underline">{item.front.question}</p>
             <div className="flex flex-col text-right">
               <span className="desk:text-20 text-18 font-bounded font-light">
                 {item.front.cost}
               </span>
-              {item.front.time && <span className="text-16 font-light">{item.front.time}</span>}
+              {item.front.time && <span className="text-16 font-light text-mouse">{item.front.time}</span>}
             </div>
           </div>
         </div>
 
-        {/* BACK */}
         <div
           className="rounded-12 bg-darkBlue absolute inset-0 flex h-full w-full flex-col overflow-hidden p-30"
           style={{
@@ -227,7 +225,7 @@ function FlipCard({ item }: { item: CardItem }) {
           <div className="rounded-12 pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
           <div className={`${styles.noise} rounded-12 pointer-events-none`} />
 
-          <div className="desk:flex-row flex flex-col justify-between">
+          <div className="relative desk:flex-row flex flex-col justify-between">
             <div className="basis-1/2">
               <h3 className="font-bounded text-20 desk:mb-0 mb-20 font-normal">{item.title}</h3>
             </div>
