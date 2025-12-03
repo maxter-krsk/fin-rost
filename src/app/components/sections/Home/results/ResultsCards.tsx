@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "@/app/styles/modules/noise.module.css";
 
 const cardsItems = [
   {
@@ -33,9 +34,10 @@ export function ResultsCards() {
     <div className="container hidden gap-10 md:grid md:grid-cols-2 md:grid-rows-3 lg:grid-cols-5 lg:grid-rows-1">
       {cardsItems.map((item, i) => (
         <div
-          key={i}
-          className="desk:min-h-[25.75rem] rounded-10 bg-darkBlue desk:p-30 relative flex justify-center overflow-hidden border border-white/30 p-20 lg:min-h-[19.313rem]"
+        key={i}
+        className="desk:min-h-[25.75rem] rounded-10 bg-darkBlue desk:p-30 relative flex justify-center overflow-hidden border border-white/30 p-20 lg:min-h-[19.313rem]"
         >
+        <div className={styles.noise} />
           <div
             className="absolute inset-0 opacity-30"
             style={{

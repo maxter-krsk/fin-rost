@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/lib/ui/carousel";
 import Image from "next/image";
+import styles from "@/app/styles/modules/noise.module.css";
 
 const carouselItems = [
   {
@@ -80,6 +81,7 @@ export function ResultsCardsSlider() {
                     key={i}
                     className="relative flex h-full w-full overflow-hidden rounded-10 border border-white/30 bg-darkBlue p-20 desk:p-30"
                   >
+                    <div className={styles.noise} />
                     <div
                       className="absolute inset-0 opacity-20"
                       style={{
