@@ -34,7 +34,7 @@ const newsList = [
 
 export function News() {
   return (
-    <section className="mb-50 desk:mb-120">
+    <section id="news" className="mb-50 desk:mb-120">
       <div className="container">
         <Title>Новости</Title>
         <div className="xs:grid-cols-2 mb-50 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20">
