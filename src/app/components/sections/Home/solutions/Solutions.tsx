@@ -20,7 +20,7 @@ export function Solutions() {
               </p>
               <Separator
                 orientation="vertical"
-                gradientDirection="ttb"
+                gradientDirection="center"
                 className="absolute top-0 right-0 bottom-0"
               />
             </li>
@@ -38,6 +38,7 @@ export function Solutions() {
               <p className="flex flex-1 items-center justify-center p-20 lg:justify-start lg:text-left">
                 Сопровождаем управленческий учет ежемесячно
               </p>
+              <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
               <Separator
                 orientation="vertical"
                 gradientDirection="center"
@@ -52,6 +53,7 @@ export function Solutions() {
               <p className="flex flex-1 items-center justify-center p-20 lg:justify-start lg:text-left">
                 Разрабатываем антикризисные программы
               </p>
+              <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
             </li>
             <li className="relative flex w-1/2">
               <Separator
@@ -61,9 +63,11 @@ export function Solutions() {
               <p className="flex flex-1 items-center justify-center p-20 lg:justify-start lg:text-left">
                 Настраиваем бюджетирование и платёжный календарь
               </p>
+              <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
+              <Separator gradientDirection="center" className="hidden lg:block absolute right-0 bottom-0 left-0" />
               <Separator
                 orientation="vertical"
-                gradientDirection="btt"
+                gradientDirection="center"
                 className="absolute top-0 right-0 bottom-0"
               />
             </li>
@@ -75,6 +79,8 @@ export function Solutions() {
               <p className="flex flex-1 items-center justify-center p-20 lg:justify-start lg:text-left">
                 Обеспечиваем прозрачность
               </p>
+              <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
+              <Separator gradientDirection="center" className="hidden lg:block absolute right-0 bottom-0 left-0" />
             </li>
           </ul>
           <Image
