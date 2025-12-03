@@ -5,13 +5,19 @@
   inset: 0;
   pointer-events: none;
   mix-blend-mode: overlay;
-  opacity: .20;
-  background-size: 240px 240px;
+  opacity: 0.2;
+
+  /* увеличенный размер фона для плавного повторения */
+  background-size: 400px 400px;
   background-repeat: repeat;
+
+  /* GPU ускорение */
   will-change: transform, opacity;
   transform: translateZ(0);
+
+  /* SVG шум */
   background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='292' height='209'>\
+<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'>\
   <defs>\
     <filter id='n'>\
       <feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/>\
@@ -26,4 +32,23 @@
   </defs>\
   <rect width='100%' height='100%' filter='url(%23n)' fill='white'/>\
 </svg>");
+}
+
+/* Медиазапрос для маленьких экранов */
+@media (max-width: 480px) {
+  .noise {
+    background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='255' height='255'>\
+  <defs>\
+    <filter id='n'>\
+      <feTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='1' stitchTiles='stitch'/>\
+      ...\
+    </filter>\
+  </defs>\
+  <rect width='100%' height='100%' filter='url(%23n)' fill='white'/>\
+</svg>");
+
+    /* если полосы остаются, можно временно отключить overlay */
+    /* mix-blend-mode: normal; */
+  }
 }
