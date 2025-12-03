@@ -33,7 +33,7 @@ export default function CookiesBanner() {
           exit={{ y: "110%", transition: { duration: 0.4, ease: "easeInOut" } }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           style={{ willChange: "transform" }}
-          className="fixed inset-x-16 bottom-6 p-2 md:right-auto md:left-1/2 md:mx-auto md:w-[calc(100%-2rem)] md:max-w-4xl md:-translate-x-1/2"
+          className="fixed z-90 inset-x-16 bottom-6 p-2 md:right-auto md:left-1/2 md:mx-auto md:w-[calc(100%-2rem)] md:max-w-4xl md:-translate-x-1/2"
         >
           <div className="rounded-12 bg-white/10 backdrop-blur-md">
             <div className="flex flex-col gap-24 p-20 lg:flex-row lg:gap-60 lg:p-30">
