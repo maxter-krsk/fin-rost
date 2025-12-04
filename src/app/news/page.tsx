@@ -133,43 +133,50 @@ export default function News() {
   };
 
   return (
-    <section className="mt-120 mb-50 desk:mb-120">
-      <div className="container">
-        <h1 className="font-bounded text-30 md:text-36 lg:text-60 xs:mb-36 mb-20 font-bold lg:mb-50">
-          Новости об Ольги Кирьяновой
-        </h1>
-        <Separator className="xs:mb-36 mb-20 lg:mb-50" gradientDirection="center" />
-        <motion.div
-          layout
-          className="xs:grid-cols-[repeat(2,minmax(14rem,1fr))] grid grid-cols-[repeat(1,minmax(14rem,1fr))] gap-10 lg:grid-cols-[repeat(3,minmax(16rem,1fr))] lg:gap-20"
-        >
-          <AnimatePresence>
-            {newsList.map((item, i) =>
-              showMore || i < 6 ? (
-                <motion.div
-                  key={`${item.title}-${item.date}`}
-                  layout="position"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <NewsCard {...item} />
-                </motion.div>
-              ) : null
-            )}
-          </AnimatePresence>
-        </motion.div>
-        <div className="text-center">
-          <Button
-            className="xs:mt-36 mt-12 lg:mt-50"
-            variant="orange"
-            onClick={handleShowMoreClick}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
+      <section className="desk:mb-120 mt-120 mb-50">
+        <div className="container">
+          <h1 className="font-bounded text-30 md:text-36 lg:text-60 xs:mb-36 mb-20 font-bold lg:mb-50">
+            Новости об Ольги Кирьяновой
+          </h1>
+          <Separator className="xs:mb-36 mb-20 lg:mb-50" gradientDirection="center" />
+          <motion.div
+            layout
+            className="xs:grid-cols-[repeat(2,minmax(14rem,1fr))] grid grid-cols-[repeat(1,minmax(14rem,1fr))] gap-10 lg:grid-cols-[repeat(3,minmax(16rem,1fr))] lg:gap-20"
           >
-            {showMore ? "Свернуть" : "Все новости"}
-          </Button>
+            <AnimatePresence>
+              {newsList.map((item, i) =>
+                showMore || i < 6 ? (
+                  <motion.div
+                    key={`${item.title}-${item.date}`}
+                    layout="position"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <NewsCard {...item} />
+                  </motion.div>
+                ) : null
+              )}
+            </AnimatePresence>
+          </motion.div>
+          <div className="text-center">
+            <Button
+              className="xs:mt-36 mt-12 lg:mt-50"
+              variant="orange"
+              onClick={handleShowMoreClick}
+            >
+              {showMore ? "Свернуть" : "Все новости"}
+            </Button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </motion.div>
   );
 }
