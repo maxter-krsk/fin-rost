@@ -13,7 +13,7 @@ export function AboutDesk() {
                 src="/images/about/olga-kiryanova-desk.svg"
                 alt="Фотография Ольги Кирьяновой"
                 width={350}
-                height={403}
+                height={399}
                 className="h-auto w-auto object-contain"
               />
               <div className="mt-[-10px] flex flex-col gap-10 bg-[linear-gradient(90deg,#24406F_0%,#0E1D3A_100%)] p-20">

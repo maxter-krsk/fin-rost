@@ -71,7 +71,7 @@ export function AboutMobile() {
               src="/images/about/olga-kiryanova-mobile.svg"
               alt="Фотография Ольги Кирьяновой"
               width={300}
-              height={350}
+              height={341}
               className="w-[18.75rem] h-auto object-contain"
             />
           </div>
