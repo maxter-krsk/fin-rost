@@ -21,7 +21,6 @@ export default function Footer() {
   const socialLinks = [
     { src: "/icons/ui/socials/wa-dark.svg", alt: "WhatsApp", href: "#wa" },
     { src: "/icons/ui/socials/tg-dark.svg", alt: "Telegram", href: "#tg" },
-    { src: "/icons/ui/socials/youtube-dark.svg", alt: "YouTube", href: "#youtube" },
   ];
 
   return (
