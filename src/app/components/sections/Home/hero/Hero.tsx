@@ -19,7 +19,7 @@ export function Hero() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0 }
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -30,7 +30,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className={`${bg.heroBg} pb-40 desk:pt-200 xs:mb-70 desk:mb-120 mb-50 pt-120 md:mb-90`}
+      className={`${bg.heroBg} desk:pb-60 desk:pt-200 xs:mb-70 desk:mb-120 mb-50 pt-120 md:mb-90`}
     >
       <div className="relative z-10 container">
         <div className="mb-36 flex flex-col gap-24 md:mb-60 md:grid md:auto-rows-auto md:grid-cols-2 md:gap-x-20 md:gap-y-24 md:[grid-template-areas:'title_title''subtitle_button''text_.'] lg:grid lg:auto-rows-auto lg:grid-cols-3 lg:gap-x-0 lg:gap-y-50 lg:[grid-template-areas:'title_title_button''subtitle_subtitle_text']">

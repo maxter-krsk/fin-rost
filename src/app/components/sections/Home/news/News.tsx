@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 import { Title } from "@/app/components/ui/Title";
 import { NewsCard } from "@/app/components/ui/NewsCard";
 import { Button } from "@/lib/ui/button";
@@ -34,22 +38,29 @@ const newsList = [
 
 export function News() {
   return (
-    <section id="news" className="mb-50 desk:mb-120">
-      <div className="container">
-        <Title>Новости</Title>
-        <div className="xs:grid-cols-2 mb-50 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20">
-          {newsList.map((item, i) => (
-            <div key={i} className={i === 2 ? "hidden lg:block" : ""}>
-              <NewsCard {...item} />
-            </div>
-          ))}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
+      <section id="news" className="desk:mb-120 mb-50">
+        <div className="container">
+          <Title>Новости</Title>
+          <div className="xs:grid-cols-2 mb-50 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20">
+            {newsList.map((item, i) => (
+              <div key={i} className={i === 2 ? "hidden lg:block" : ""}>
+                <NewsCard {...item} />
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Button variant="orange" href="/news">
+              Все новости
+            </Button>
+          </div>
         </div>
-        <div className="text-center">
-          <Button variant="orange" href="/news">
-            Все новости
-          </Button>
-        </div>
-      </div>
-    </section>
+      </section>
+    </motion.div>
   );
 }
