@@ -88,7 +88,7 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="font-bounded mb-20 font-normal">Время работы:</h3>
-                <p className="mb-10 font-light">Пн—Пт: работаем с клиентами</p>
+                <p className="mb-10 font-light">Пн—Пт: с 10:00 до 17:00</p>
                 <p>Сб—Вс: выходной</p>
               </div>
               <p className="mt-auto">
@@ -187,7 +187,7 @@ export default function Footer() {
               <div className="flex h-full flex-col">
                 <div>
                   <h3 className="font-bounded mb-20 font-normal">Время работы:</h3>
-                  <p className="mb-10 font-light">Пн—Пт: работаем с клиентами</p>
+                  <p className="mb-10 font-light">Пн—Пт: с 10:00 до 17:00</p>
                   <p>Сб—Вс: выходной</p>
                 </div>
                 <div className="mt-auto">
@@ -257,7 +257,7 @@ export default function Footer() {
               <div className="text-14 flex h-full flex-col">
                 <div className="mb-20">
                   <h3 className="font-bounded mb-20 font-normal">Время работы:</h3>
-                  <p className="mb-10 font-light">Пн—Пт: работаем с клиентами</p>
+                  <p className="mb-10 font-light">Пн—Пт: с 10:00 до 17:00</p>
                   <p>Сб—Вс: выходной</p>
                 </div>
                 <div className="mb-20">

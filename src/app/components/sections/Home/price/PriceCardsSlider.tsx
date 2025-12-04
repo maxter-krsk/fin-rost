@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/lib/ui/carousel";
 
@@ -99,61 +100,68 @@ export function PriceCardsSlider() {
   }, [api]);
 
   return (
-    <div className="lg:hidden">
-      <Carousel
-        setApi={setApi}
-        opts={{
-          align: "start",
-          loop: false,
-          slidesToScroll: 1,
-          containScroll: "trimSnaps",
-          dragFree: false,
-        }}
-        className="w-full"
-      >
-        <CarouselContent className="gap-10">
-          {sliderItems.map((item, i) => {
-            return (
-              <CarouselItem key={i}>
-                <div className="rounded-10 bg-darkBlue relative flex h-full basis-full flex-col gap-80 overflow-hidden p-30">
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
-                  <div className={styles.noise} />
-                  <div className="relative flex flex-col gap-24">
-                    <h2 className="text-16 xs:text-18 font-bounded font-normal">{item.title}</h2>
-                    <ul className="text-16 xs:text-18 font-onest text-mouse flex flex-col gap-10 font-extralight">
-                      {item.description.map((descItem, index) => (
-                        <li className="flex items-center gap-16" key={index}>
-                          <span className="block w-[0.5rem] h-[0.5rem] rounded-full bg-ocean text-ocean shrink-0"></span>
-                          <p>{descItem}</p>
-                        </li>
-                      ))}
-                    </ul>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
+      <div className="lg:hidden">
+        <Carousel
+          setApi={setApi}
+          opts={{
+            align: "start",
+            loop: false,
+            slidesToScroll: 1,
+            containScroll: "trimSnaps",
+            dragFree: false,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="gap-10">
+            {sliderItems.map((item, i) => {
+              return (
+                <CarouselItem key={i}>
+                  <div className="rounded-10 bg-darkBlue relative flex h-full basis-full flex-col gap-80 overflow-hidden p-30">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
+                    <div className={styles.noise} />
+                    <div className="relative flex flex-col gap-24">
+                      <h2 className="text-16 xs:text-18 font-bounded font-normal">{item.title}</h2>
+                      <ul className="text-16 xs:text-18 font-onest text-mouse flex flex-col gap-10 font-extralight">
+                        {item.description.map((descItem, index) => (
+                          <li className="flex items-center gap-16" key={index}>
+                            <span className="bg-ocean text-ocean block h-[0.5rem] w-[0.5rem] shrink-0 rounded-full"></span>
+                            <p>{descItem}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="relative mt-auto flex justify-between">
+                      <span className="text-14 xs:text-16 font-onest text-mouse font-extralight">
+                        {item.time}
+                      </span>
+                      <p className="text-16 xs:text-18 font-bounded font-extralight">{item.cost}</p>
+                    </div>
                   </div>
-                  <div className="relative mt-auto flex justify-between">
-                    <span className="text-14 xs:text-16 font-onest text-mouse font-extralight">
-                      {item.time}
-                    </span>
-                    <p className="text-16 xs:text-18 font-bounded font-extralight">{item.cost}</p>
-                  </div>
-                </div>
-              </CarouselItem>
-            );
-          })}
-        </CarouselContent>
-      </Carousel>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+        </Carousel>
 
-      <div className="mt-36 flex items-center justify-center gap-4 lg:hidden">
-        {sliderItems.map((_, i) => (
-          <button
-            key={i}
-            className={`h-[0.375rem] w-[0.375rem] cursor-pointer rounded-full transition-colors ${
-              i === currentSlide ? "bg-ocean" : "bg-[#626C7F]"
-            }`}
-            onClick={() => api?.scrollTo(i)}
-          />
-        ))}
+        <div className="mt-36 flex items-center justify-center gap-4 lg:hidden">
+          {sliderItems.map((_, i) => (
+            <button
+              key={i}
+              className={`h-[0.375rem] w-[0.375rem] cursor-pointer rounded-full transition-colors ${
+                i === currentSlide ? "bg-ocean" : "bg-[#626C7F]"
+              }`}
+              onClick={() => api?.scrollTo(i)}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
