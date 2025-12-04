@@ -10,9 +10,8 @@ import { PopoverForm } from "@/app/components/sections/Home/form/PopoverForm";
 
 const socialLinks = [
   { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#WhatsApp" },
-  { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "tel:+79080107559" },
-  { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#YouTube" },
   { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#Telegram" },
+  { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "tel:+79080107559" },
 ];
 
 function useMediaQuery(query: string) {
@@ -60,7 +59,6 @@ export default function Header() {
     const targets = document.querySelectorAll<HTMLElement>("footer, [data-dark-header]");
     if (!targets.length) return;
 
-    // тут храним все элементы, которые сейчас видны
     const visible = new Set<Element>();
 
     const observer = new IntersectionObserver(
@@ -77,8 +75,7 @@ export default function Header() {
       },
       {
         root: null,
-        threshold: 0, // можно потом подрегулировать
-        // для начала убери rootMargin, чтобы убедиться что работает
+        threshold: 0,
         rootMargin: "0px 0px -500px 0px",
       }
     );
@@ -125,7 +122,10 @@ export default function Header() {
           <div className="ml-auto flex gap-30">
             <ul className="rounded-12 hidden items-center gap-10 bg-white/10 p-8 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] backdrop-blur-md lg:flex">
               {socialLinks.map(({ href, src, alt }) => (
-                <li key={href} className="rounded-12 hover:bg-white/10 transition-colors duration-300 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] h-40 w-40">
+                <li
+                  key={href}
+                  className="rounded-12 h-40 w-40 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] transition-colors duration-300 hover:bg-white/10"
+                >
                   <Link
                     href={href}
                     aria-label={alt}

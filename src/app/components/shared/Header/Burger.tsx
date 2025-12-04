@@ -42,9 +42,8 @@ export function Burger({
 
   const socialLinks = [
     { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#wa" },
-    { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "tel:+79080107559" },
-    { src: "/icons/ui/socials/youtube-icon-light.svg", alt: "YouTube", href: "#youtube" },
     { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#tg" },
+    { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "tel:+79080107559" },
   ];
 
   const showXMobile = open || formOpen;
@@ -155,7 +154,10 @@ export function Burger({
 
         <ul className="rounded-12 mt-24 flex w-fit items-center gap-10 bg-white/10 p-4 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] lg:hidden">
           {socialLinks.map(({ href, src, alt }) => (
-            <li key={href} className="rounded-12 hover:bg-white/10 transition-colors duration-300 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] h-40 w-40">
+            <li
+              key={href}
+              className="rounded-12 h-40 w-40 [box-shadow:inset_0_-0.125rem_0.375rem_rgba(0,0,0,0.2),inset_0_0.125rem_0.5rem_rgba(255,255,255,0.4)] transition-colors duration-300 hover:bg-white/10"
+            >
               <Link
                 href={href}
                 aria-label={alt}
