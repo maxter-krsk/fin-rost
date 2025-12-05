@@ -4,7 +4,7 @@ import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import { cn } from "@/lib/utils";
 
-type GradientDirection = "ltr" | "rtl" | "ttb" | "btt" | "center";
+type GradientDirection = "ltr" | "rtl" | "ttb" | "btt" | "center" | "centerVertical";
 
 interface SeparatorProps extends React.ComponentProps<typeof SeparatorPrimitive.Root> {
   gradientDirection?: GradientDirection;
@@ -23,6 +23,7 @@ function Separator({
     ttb: "bg-gradient-to-b from-orange to-transparent",
     btt: "bg-gradient-to-t from-orange to-transparent",
     center: "bg-gradient-to-r from-transparent via-orange to-transparent",
+    centerVertical: "bg-gradient-to-b from-transparent via-orange to-transparent",
   };
 
   const sizeClass = orientation === "horizontal" ? "h-[0.125rem] w-full" : "w-[0.125rem] h-full";

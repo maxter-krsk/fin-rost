@@ -18,13 +18,13 @@ export function Solutions() {
               <p className="flex flex-1 items-center justify-center p-20 lg:justify-start lg:text-left">
                 Внедряем управленческий учёт
               </p>
-              <Separator
-                orientation="vertical"
-                gradientDirection="center"
-                className="absolute top-0 right-0 bottom-0"
-              />
             </li>
             <li className="relative flex w-1/2">
+              <Separator
+                orientation="vertical"
+                gradientDirection="centerVertical"
+                className="absolute top-0 right-0 left-0"
+              />
               <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
               <p className="flex flex-1 items-center justify-center p-20 lg:justify-start lg:text-left">
                 Строим финансовые модели и сценарии
@@ -39,13 +39,13 @@ export function Solutions() {
                 Сопровождаем управленческий учет ежемесячно
               </p>
               <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
-              <Separator
-                orientation="vertical"
-                gradientDirection="center"
-                className="absolute top-0 right-0 bottom-0"
-              />
             </li>
             <li className="relative flex w-1/2">
+              <Separator
+                orientation="vertical"
+                gradientDirection="centerVertical"
+                className="absolute top-0 right-0 left-0"
+              />
               <Separator
                 gradientDirection="center"
                 className="absolute top-0 right-0 left-0 lg:hidden"
@@ -64,14 +64,17 @@ export function Solutions() {
                 Настраиваем бюджетирование и платёжный календарь
               </p>
               <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
-              <Separator gradientDirection="center" className="hidden lg:block absolute right-0 bottom-0 left-0" />
               <Separator
-                orientation="vertical"
                 gradientDirection="center"
-                className="absolute top-0 right-0 bottom-0"
+                className="absolute right-0 bottom-0 left-0 hidden lg:block"
               />
             </li>
             <li className="relative flex w-1/2">
+              <Separator
+                orientation="vertical"
+                gradientDirection="centerVertical"
+                className="absolute top-0 right-0 left-0"
+              />
               <Separator
                 gradientDirection="center"
                 className="absolute top-0 right-0 left-0 lg:hidden"
@@ -80,7 +83,10 @@ export function Solutions() {
                 Обеспечиваем прозрачность
               </p>
               <Separator gradientDirection="center" className="absolute top-0 right-0 left-0" />
-              <Separator gradientDirection="center" className="hidden lg:block absolute right-0 bottom-0 left-0" />
+              <Separator
+                gradientDirection="center"
+                className="absolute right-0 bottom-0 left-0 hidden lg:block"
+              />
             </li>
           </ul>
           <Image
