@@ -19,8 +19,8 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { src: "/icons/ui/socials/wa-dark.svg", alt: "WhatsApp", href: "#wa" },
-    { src: "/icons/ui/socials/tg-dark.svg", alt: "Telegram", href: "#tg" },
+    { src: "/icons/ui/socials/wa-dark.svg", alt: "WhatsApp", href: "https://wa.me/79080107559" },
+    { src: "/icons/ui/socials/tg-dark.svg", alt: "Telegram", href: "https://t.me/+79080107559" },
   ];
 
   return (
@@ -72,6 +72,8 @@ export default function Footer() {
                   <li key={href} className="mb-20 h-22 w-22">
                     <Link
                       className="inline-block transition-transform duration-300 hover:scale-110"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       href={href}
                       aria-label={alt}
                     >

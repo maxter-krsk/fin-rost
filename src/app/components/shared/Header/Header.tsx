@@ -9,8 +9,8 @@ import { Burger } from "./Burger";
 import { PopoverForm } from "@/app/components/sections/Home/form/PopoverForm";
 
 const socialLinks = [
-  { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "#WhatsApp" },
-  { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "#Telegram" },
+  { src: "/icons/ui/socials/wa-icon-light.svg", alt: "WhatsApp", href: "https://wa.me/79080107559" },
+  { src: "/icons/ui/socials/tg-icon-light.svg", alt: "Telegram", href: "https://t.me/+79080107559" },
   { src: "/icons/ui/socials/phone-icon-light.svg", alt: "Телефон", href: "tel:+79080107559" },
 ];
 
@@ -128,6 +128,8 @@ export default function Header() {
                 >
                   <Link
                     href={href}
+                    target="blank"
+                    rel="noopener noreferrer"
                     aria-label={alt}
                     className="rounded-12 flex h-full w-full items-center justify-center bg-white/10 transition-all duration-300 active:scale-95"
                   >
