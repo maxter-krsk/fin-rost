@@ -30,7 +30,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className={`${bg.heroBg} pb-40 desk:pt-200 xs:mb-70 desk:mb-120 mb-50 pt-120 md:mb-90`}
+      className={`${bg.heroBg} desk:pt-200 desk:mb-120 mb-70 pt-120 pb-40 md:mb-90`}
     >
       <div className="relative z-10 container">
         <div className="mb-36 flex flex-col gap-24 md:mb-60 md:grid md:auto-rows-auto md:grid-cols-2 md:gap-x-20 md:gap-y-24 md:[grid-template-areas:'title_title''subtitle_button''text_.'] lg:grid lg:auto-rows-auto lg:grid-cols-3 lg:gap-x-0 lg:gap-y-50 lg:[grid-template-areas:'title_title_button''subtitle_subtitle_text']">
@@ -53,7 +53,7 @@ export function Hero() {
             Оставить заявку
           </Button>
         </div>
-        <ul className="pt-20 xs:gap-50 desk:gap-100 grid grid-cols-2 grid-rows-2 items-center gap-20 md:grid md:grid-cols-4 md:grid-rows-2 md:items-end md:gap-46">
+        <ul className="xs:gap-50 desk:gap-100 grid grid-cols-2 grid-rows-2 items-center gap-20 pt-20 md:grid md:grid-cols-4 md:grid-rows-2 md:items-end md:gap-46">
           <li className="hero-stat order-1 flex flex-col items-center gap-14 md:order-0 lg:ml-26">
             <span className="text-30 xs:text-36 md:text-40 desk:text-80 font-bounded font-bold whitespace-nowrap">
               18 лет

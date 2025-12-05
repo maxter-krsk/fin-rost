@@ -5,10 +5,7 @@ import { Separator } from "@/lib/ui/separator";
 
 export function Solutions() {
   return (
-    <section
-      id="solutions"
-      className="xs:mb-70 xs:scroll-mt-120 mb-50 scroll-mt-100 md:mb-90 lg:mb-120"
-    >
+    <section id="solutions" className="xs:scroll-mt-120 mb-70 scroll-mt-100 md:mb-90 lg:mb-120">
       <div className="container">
         <Title>Решения</Title>
         <div className="lg:flex lg:items-center lg:justify-between">
