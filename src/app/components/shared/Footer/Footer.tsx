@@ -25,7 +25,10 @@ export default function Footer() {
 
   return (
     <>
-      <footer id="footer" className="text-darkBlue desk:pt-30 desk:pb-60 relative hidden bg-white pt-24 pb-68 lg:block">
+      <footer
+        id="footer"
+        className="text-darkBlue desk:pt-30 desk:pb-60 relative hidden bg-white pt-24 pb-68 lg:block"
+      >
         <div className="desk:block pointer-events-none absolute inset-x-0 -top-[4.938rem] hidden h-100 overflow-hidden">
           <Image
             src="/icons/ui/subtract.svg"
@@ -37,13 +40,15 @@ export default function Footer() {
           />
         </div>
         <div className="container">
-          <Image
-            className="mb-50 h-48 w-66"
-            src="/icons/logos/logo-dark.svg"
-            alt="Логотип компании"
-            width={66}
-            height={49}
-          />
+          <Link href="/">
+            <Image
+              className="mb-50 h-48 w-66"
+              src="/icons/logos/logo-dark.svg"
+              alt="Логотип компании"
+              width={66}
+              height={49}
+            />
+          </Link>
           <div className="flex flex-wrap justify-between gap-y-36">
             <div>
               <nav>
