@@ -44,7 +44,7 @@ export function News() {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <section id="news" className="desk:mb-120 mb-50">
+      <section id="news" className="desk:mb-120 mb-70">
         <div className="container">
           <Title>Новости</Title>
           <div className="xs:grid-cols-2 mb-50 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-20">

@@ -21,8 +21,8 @@ export function NewsCard({ image, alt, title, description, link, date }: NewsCar
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <Link className="group block h-full" href={link}>
-      <div className="rounded-12 bg-darkBlue relative flex h-full flex-col gap-20 overflow-hidden border border-white/30 p-20 lg:p-30">
+    <Link className="group block h-full group" href={link}>
+      <div className="rounded-12 bg-darkBlue relative flex h-full flex-col gap-20 overflow-hidden border border-white/30 p-20 lg:p-30 group-hover:border-orange/80 transition-colors duration-300">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />
         <div className={styles.noise} />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,var(--color-ocean)_0%,transparent_70%)] opacity-30" />

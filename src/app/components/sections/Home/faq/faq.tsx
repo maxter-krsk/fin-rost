@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export function FAQ() {
   return (
-    <section id="faq" className="xs:mb-70 xs:scroll-mt-120 mb-50 scroll-mt-100 md:mb-90 lg:mb-120">
+    <section id="faq" className="xs:scroll-mt-120 mb-70 scroll-mt-100 md:mb-90 lg:mb-120">
       <div className="container">
         <Title>FAQ</Title>
         <Accordion className="grid grid-cols-1 gap-20 lg:grid-cols-2" type="single" collapsible>

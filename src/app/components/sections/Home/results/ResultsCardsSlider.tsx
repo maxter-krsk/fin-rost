@@ -80,7 +80,7 @@ export function ResultsCardsSlider() {
         >
           <CarouselContent>
             {slides.map((slideItems, slideIndex) => (
-              <CarouselItem key={slideIndex} className="h-[258px] w-full">
+              <CarouselItem key={slideIndex} className="h-[16.125rem] w-full">
                 <div
                   className={`grid h-full w-full gap-10 ${
                     slideItems.length === 1 ? "grid-cols-1" : "grid-cols-2"
@@ -89,7 +89,9 @@ export function ResultsCardsSlider() {
                   {slideItems.map((item, i) => (
                     <div
                       key={i}
-                      className="rounded-10 bg-darkBlue desk:p-30 relative flex h-full w-full overflow-hidden border border-white/30 p-20"
+                      className={`rounded-10 bg-darkBlue desk:p-30 relative flex h-full overflow-hidden border border-white/30 p-20 ${
+                        slideItems.length === 1 ? "w-[50%]" : "w-full"
+                      }`}
                     >
                       <div className={styles.noise} />
                       <div
@@ -97,7 +99,8 @@ export function ResultsCardsSlider() {
                         style={{
                           backgroundImage: "url(/icons/ui/square-texture.svg)",
                           backgroundPosition: "center",
-                          backgroundSize: "cover",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "10rem 10rem",
                         }}
                       />
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-ocean)_0%,transparent_70%)] opacity-30" />

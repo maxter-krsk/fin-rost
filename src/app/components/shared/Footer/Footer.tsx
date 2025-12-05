@@ -19,13 +19,16 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { src: "/icons/ui/socials/wa-dark.svg", alt: "WhatsApp", href: "#wa" },
-    { src: "/icons/ui/socials/tg-dark.svg", alt: "Telegram", href: "#tg" },
+    { src: "/icons/ui/socials/wa-dark.svg", alt: "WhatsApp", href: "https://wa.me/79080107559" },
+    { src: "/icons/ui/socials/tg-dark.svg", alt: "Telegram", href: "https://t.me/+79080107559" },
   ];
 
   return (
     <>
-      <footer id="footer" className="text-darkBlue desk:pt-30 desk:pb-60 relative hidden bg-white pt-24 pb-68 lg:block">
+      <footer
+        id="footer"
+        className="text-darkBlue desk:pt-30 desk:pb-60 relative hidden bg-white pt-24 pb-68 lg:block"
+      >
         <div className="desk:block pointer-events-none absolute inset-x-0 -top-[4.938rem] hidden h-100 overflow-hidden">
           <Image
             src="/icons/ui/subtract.svg"
@@ -37,13 +40,15 @@ export default function Footer() {
           />
         </div>
         <div className="container">
-          <Image
-            className="mb-50 h-48 w-66"
-            src="/icons/logos/logo-dark.svg"
-            alt="Логотип компании"
-            width={66}
-            height={49}
-          />
+          <Link href="/">
+            <Image
+              className="mb-50 h-48 w-66"
+              src="/icons/logos/logo-dark.svg"
+              alt="Логотип компании"
+              width={66}
+              height={49}
+            />
+          </Link>
           <div className="flex flex-wrap justify-between gap-y-36">
             <div>
               <nav>
@@ -67,6 +72,8 @@ export default function Footer() {
                   <li key={href} className="mb-20 h-22 w-22">
                     <Link
                       className="inline-block transition-transform duration-300 hover:scale-110"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       href={href}
                       aria-label={alt}
                     >

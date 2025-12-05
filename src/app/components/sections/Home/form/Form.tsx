@@ -73,7 +73,7 @@ export function Form() {
   };
 
   return (
-    <section id="form" className="xs:mb-70 xs:scroll-mt-120 mb-50 scroll-mt-100 md:mb-90 lg:mb-120">
+    <section id="form" className="xs:scroll-mt-120 mb-70 scroll-mt-100 md:mb-90 lg:mb-120">
       <div className="container">
         <Title>Консультация</Title>
         <h1 className="font-bounded text-14 sm:text-18 lg:text-30 xs:text-left mb-24 text-center md:mb-20 lg:mb-50">
