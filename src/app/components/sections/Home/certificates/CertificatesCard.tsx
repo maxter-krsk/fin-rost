@@ -152,11 +152,11 @@ export function CertificatesCard() {
                 }}
               >
                 <div
-                  className="relative w-full overflow-hidden rounded-md bg-[radial-gradient(ellipse_at_top_right,_#4594E960_0%,_transparent_90%)]"
+                  className="relative w-full rounded-12 overflow-hidden bg-[radial-gradient(ellipse_at_top_right,_#4594E960_0%,_transparent_90%)]"
                   style={{ height: "30.5rem" }}
                 >
                   {!imageLoaded[i] && (
-                    <Skeleton className="absolute inset-0 z-20 animate-pulse rounded-md bg-gray-500 opacity-80" />
+                    <Skeleton className="absolute inset-0 z-20 animate-pulse rounded-12 bg-gray-500 opacity-80" />
                   )}
                   <Image
                     src={item.image}
