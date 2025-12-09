@@ -13,7 +13,7 @@ const newsList = [
     title: "Мастер-класс Ольги Кирьяновой на форуме «Мой бизнес»",
     description:
       "Ольга рассказала, как разделять личные и бизнес-финансы для стабильного роста компании.",
-    link: "#",
+    link: "https://vk.com/wall-211226583_1786 ",
     date: "06.06.2024",
   },
   {
@@ -22,7 +22,7 @@ const newsList = [
     title: "«Деловая Россия» на форуме «Мой бизнес»",
     description:
       "Эксперт Ольга Кирьянова провела мастер-класс о разделении личных и корпоративных финансов.",
-    link: "#",
+    link: "https://deloros.ru/press-centr/novosti/novosti-regionov/krasnoyarskiy-kray/krasnoyarskaya-delovaya-rossiya-vystupila-organizatorom-ploshchadok-na-forume-moy-biznes-dni-predpri/",
     date: "24.05.2024",
   },
   {
@@ -31,7 +31,7 @@ const newsList = [
     title: "Совещание по инвестиционному потенциалу края",
     description:
       "Ольга Кирьянова обсудила меры поддержки МСП и развитие кадрового и инвестиционного потенциала региона.",
-    link: "#",
+    link: "https://vk.com/wall-211226583_1687 ",
     date: "09.04.2024",
   },
 ];
