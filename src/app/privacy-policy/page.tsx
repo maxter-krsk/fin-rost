@@ -3,7 +3,7 @@ import { ScrollArea } from "@/lib/ui/scroll-area";
 
 export default function Policy() {
   return (
-    <section className="desk:mb-100 text-14 md:text-16 lg:text-18 mb-100 text-white md:mb-120">
+    <section className="desk:mb-180 text-14 md:text-16 lg:text-18 mb-100 text-white md:mb-120">
       <div className="container mx-auto max-w-4xl px-4">
         <h1 className="text-20 md:text-30 desk:text-70 font-bounded desk:mt-200 mt-120 mb-30 text-left font-bold text-balance text-white uppercase md:mb-50">
           Политика в отношении обработки персональных данных

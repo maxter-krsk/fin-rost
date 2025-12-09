@@ -115,6 +115,7 @@ export function CertificatesCard() {
     };
   }, [api]);
 
+
   return (
     <div className="container">
       <Carousel
@@ -132,8 +133,8 @@ export function CertificatesCard() {
           <Title>Сертификаты и дипломы</Title>
 
           <div className="hidden items-center gap-20 md:flex">
-            <CarouselPrevious aria-label="Предыдущий">Предыдущий</CarouselPrevious>
-            <CarouselNext aria-label="Следующий">Следующий</CarouselNext>
+            <CarouselPrevious className="transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-black/50 active:scale-100" aria-label="Предыдущий">Предыдущий</CarouselPrevious>
+            <CarouselNext className="transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-black/50 active:scale-100" aria-label="Следующий">Следующий</CarouselNext>
           </div>
         </div>
 
@@ -152,11 +153,11 @@ export function CertificatesCard() {
                 }}
               >
                 <div
-                  className="relative w-full rounded-12 overflow-hidden bg-[radial-gradient(ellipse_at_top_right,_#4594E960_0%,_transparent_90%)]"
+                  className="rounded-12 relative w-full overflow-hidden bg-[radial-gradient(ellipse_at_top_right,_#4594E960_0%,_transparent_90%)]"
                   style={{ height: "30.5rem" }}
                 >
                   {!imageLoaded[i] && (
-                    <Skeleton className="absolute inset-0 z-20 animate-pulse rounded-12 bg-gray-500 opacity-80" />
+                    <Skeleton className="rounded-12 absolute inset-0 z-20 animate-pulse bg-gray-500 opacity-80" />
                   )}
                   <Image
                     src={item.image}
