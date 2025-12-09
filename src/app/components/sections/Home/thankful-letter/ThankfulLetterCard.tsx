@@ -111,8 +111,8 @@ export function ThankfulLetterCard() {
           <Title>Благодарственные письма</Title>
 
           <div className="hidden items-center gap-20 md:flex">
-            <CarouselPrevious aria-label="Предыдущий">Предыдущий</CarouselPrevious>
-            <CarouselNext aria-label="Следующий">Следующий</CarouselNext>
+            <CarouselPrevious className="transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-black/50 active:scale-100" aria-label="Предыдущий">Предыдущий</CarouselPrevious>
+            <CarouselNext className="transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-black/50 active:scale-100" aria-label="Следующий">Следующий</CarouselNext>
           </div>
         </div>
 
