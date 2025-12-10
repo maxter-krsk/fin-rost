@@ -31,8 +31,8 @@ export default function DevelopedBy() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             variants={{
-              rest: { rotate: 0, color: '#EFE5D9', opacity: 0.5 },
-              hover: { rotate: 45, color: '#BC9C5F', opacity: 1 },
+              rest: { rotate: 0, color: '#0E1D3A', opacity: 0.5 },
+              hover: { rotate: 45, color: '#0E1D3A', opacity: 1 },
             }}
             transition={{ type: 'spring', stiffness: 200 }}
           >
@@ -49,12 +49,12 @@ export default function DevelopedBy() {
             <motion.span
               variants={{
                 rest: {
-                  color: '#EFE5D9',
+                  color: '#0E1D3A',
                   letterSpacing: '0.2rem',
                   opacity: 0.5,
                 },
                 hover: {
-                  color: '#BC9C5F',
+                  color: '#0E1D3A',
                   letterSpacing: '0.3rem',
                   opacity: 1,
                 },
@@ -70,7 +70,7 @@ export default function DevelopedBy() {
             </motion.span>
 
             <motion.span
-              className="absolute bottom-0 left-0 h-px w-0 bg-[#BC9C5F]"
+              className="absolute bottom-0 left-0 h-px w-0 bg-[#0E1D3A]"
               variants={{
                 rest: { width: '0%', opacity: 0 },
                 hover: { width: '100%', opacity: 1 },

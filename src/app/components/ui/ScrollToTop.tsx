@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function ScrollTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,12 +12,12 @@ export default function ScrollTop() {
     };
 
     toggleVisibility();
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -25,32 +25,21 @@ export default function ScrollTop() {
       {isVisible && (
         <motion.button
           key="scroll-top"
-          initial={{
-            opacity: 0,
-            scale: 0,
-            backgroundColor: '#000000',
-            color: '#fff',
-            boxShadow: '0px 4px 12px rgba(20, 43, 35, 0.25)',
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            boxShadow: '0px 4px 12px rgba(20, 43, 35, 0.25)',
-          }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
-          whileHover={{
-            backgroundColor: '#fff',
-            color: '#000000',
-            boxShadow: '0px 0px 20px rgba(149, 186, 168, 0.2)',
-          }}
-          transition={{
-            type: 'spring',
-            stiffness: 180,
-            damping: 18,
-            mass: 0.5,
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 180, damping: 18, mass: 0.5 }}
+          style={{
+            borderRadius: "100%",
+            border: "1px solid rgba(185, 185, 185, 0.5)",
+            background: "rgba(14, 29, 58, 0.7)",
+            backdropFilter: "blur(0.75rem)",
+            color: "#FFF",
+            boxShadow: "0px 0.25rem 0.75rem rgba(0,0,0,0.25)",
           }}
           onClick={scrollToTop}
-          className="fixed right-3 bottom-3 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#142B23] hover:text-[#95BAA8]"
+          className="fixed right-3 bottom-3 z-100 flex h-[2.68rem] w-[2.68rem] cursor-pointer items-center justify-center rounded-full hover:bg-[#DD9B1D] hover:text-[#0E1D3A]"
           aria-label="Прокрутить вверх"
         >
           <svg

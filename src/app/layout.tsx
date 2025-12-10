@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/app/components/shared/Header/Header";
 import Footer from "@/app/components/shared/Footer/Footer";
 import CookiesBanner from "@/app/components/ui/CookiesBanner";
+import { ProgressBar } from "@/app/components/ui/ProgressBar";
 import ScrollTop from "@/app/components/ui/ScrollToTop";
 
 // Мета-данные
@@ -73,12 +74,10 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">
           {children}
-          <div className="container">
-            <div className="grid grid-cols-3 grid-rows-2 gap-10"></div>
-          </div>
         </main>
         <Footer />
         <CookiesBanner />
+        <ProgressBar />
         <ScrollTop />
       </body>
     </html>
