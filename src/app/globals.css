@@ -2,13 +2,12 @@
 @import "tw-animate-css";
 
 @theme {
-
   /* Брейкпоинты */
 
-  --breakpoint-sm: 40rem;
-  /* 640  */
   --breakpoint-xs: 36rem;
   /* 576px */
+  --breakpoint-sm: 40rem;
+  /* 640px  */
   --breakpoint-md: 48rem;
   /* 768px  */
   --breakpoint-lg: 64rem;
@@ -21,12 +20,15 @@
   --color-ocean: #4594E9;
   --color-orange: #DD9B1D;
   --color-darkBlue: #0E1D3A;
+  --color-mouse: #818A9A;
+  --color-slate: #7387A2;
+  --color-lightSlate: #C3CDD6;
+  --color-midnight: #1D3D69;
 
   /* Шрифты */
 
   --font-onest: var(--font-onest), system-ui, sans-serif;
   --font-bounded: var(--font-bounded), sans-serif;
-
 
   /* Текст */
 
@@ -236,7 +238,6 @@
   --spacing-200: 12.5rem;
   /* 200px */
 
-
   /* Скругления */
 
   --radius-10: 0.625rem;
@@ -257,7 +258,6 @@
   /* 50px */
   --radius-100: 6.25rem;
   /* 100px */
-
 }
 
 .container {
@@ -272,10 +272,120 @@
   -webkit-text-stroke: 0.125rem var(--color-white);
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 html body[data-scroll-locked] {
   overflow: visible !important;
   margin-right: 0 !important;
 }
+
+.circle-gradient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6.25rem;
+  border: var(--circle-border-width, 0.063rem) solid transparent;
+  background:
+    linear-gradient(var(--circle-fill, var(--color-darkBlue)), var(--circle-fill, var(--color-darkBlue))) padding-box,
+    var(--circle-gradient, linear-gradient(135deg, #4594e9 0%, #0e1d3a 100%)) border-box;
+}
+
+.circle-size {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: 300ms;
+  width: auto;
+  width: max-content;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  inset: -0.25rem -0.5rem;
+  border-radius: 6.25rem;
+  background: rgba(255, 255, 255);
+  opacity: 0;
+  transform: scale(0.98);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.4s ease-out;
+  z-index: -1;
+}
+
+.nav-link:hover {
+  color: #0E1D3A;
+  text-shadow: 0 0 0.5rem rgba(14, 29, 58, 0.2);
+}
+
+.nav-link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.hero-stat {
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 1s ease-out;
+}
+
+.hero-stat.in-view {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+footer .nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.25s ease-out;
+  z-index: 1;
+}
+
+footer .nav-link::before {
+  content: "";
+  position: absolute;
+  inset: -0.25rem -0.6rem;
+  border-radius: 6.25rem;
+  background: rgba(14, 29, 58, 0.8);
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: -1;
+}
+
+footer .nav-link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+footer .nav-link:hover {
+  color: #fff;
+  text-shadow: 0 0 0.35rem rgba(14, 29, 58, 0.25);
+}
+
+footer .nav-link::after {
+  content: none !important;
+}
+
+
 
 @media (max-width: 768px) {
   .container {
@@ -288,7 +398,7 @@ html body[data-scroll-locked] {
   }
 }
 
-@media(max-width: 640px) {
+@media (max-width: 640px) {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -298,5 +408,12 @@ html body[data-scroll-locked] {
 @media (min-width: 1920px) {
   html {
     font-size: calc(100vw / 120);
+  }
+}
+
+@media (min-width: 768px) {
+  .circle-size {
+    width: 56px;
+    height: 56px;
   }
 }
