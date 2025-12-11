@@ -9,7 +9,7 @@ export default function Policy() {
           Политика в отношении обработки персональных данных
         </h1>
         <ScrollArea className="h-[80vh] rounded-lg border border-gray-200 p-20 md:rounded-xl md:p-40">
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             1. Общие положения
           </h2>
           <p className="mb-20 font-extralight">
@@ -27,9 +27,12 @@ export default function Policy() {
           <p className="mb-20 font-extralight">
             1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее —
             Политика) применяется ко всей информации, которую Оператор может получить о посетителях
-            веб-сайта <Link className="underline" href="/">https://fin-rost.ru</Link>
+            веб-сайта{" "}
+            <Link className="underline" href="/">
+              https://kiryanova-o.ru/
+            </Link>
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             2. Основные понятия, используемые в Политик
           </h2>
           <p className="mb-20 font-extralight">
@@ -44,7 +47,10 @@ export default function Policy() {
           <p className="mb-20 font-extralight">
             2.3. Веб-сайт — совокупность графических и информационных материалов, а также программ
             для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу{" "}
-            <Link className="underline" href="/">https://fin-rost.ru</Link>.
+            <Link className="underline" href="/">
+              https://kiryanova-o.ru/
+            </Link>
+            .
           </p>
           <p className="mb-20 font-extralight">
             2.4. Информационная система персональных данных — совокупность содержащихся в базах
@@ -74,7 +80,10 @@ export default function Policy() {
           <p className="mb-20 font-extralight">
             2.8. Персональные данные — любая информация, относящаяся прямо или косвенно к
             определенному или определяемому Пользователю веб-сайта{" "}
-            <Link className="underline" href="/">https://fin-rost.ru</Link>.
+            <Link className="underline" href="/">
+              https://kiryanova-o.ru/
+            </Link>
+            .
           </p>
           <p className="mb-20 font-extralight">
             2.9. Персональные данные, разрешенные субъектом персональных данных для распространения,
@@ -85,7 +94,10 @@ export default function Policy() {
           </p>
           <p className="mb-20 font-extralight">
             2.10. Пользователь — любой посетитель веб-сайта{" "}
-            <Link className="underline" href="/">https://fin-rost.ru</Link>.
+            <Link className="underline" href="/">
+              https://kiryanova-o.ru/
+            </Link>
+            .
           </p>
           <p className="mb-20 font-extralight">
             2.11. Предоставление персональных данных — действия, направленные на раскрытие
@@ -110,7 +122,7 @@ export default function Policy() {
             восстановления содержания персональных данных в информационной системе персональных
             данных и/или уничтожаются материальные носители персональных данных.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             3. Основные права и обязанности Оператора
           </h2>
           <p className="mb-20 font-extralight">
@@ -149,7 +161,7 @@ export default function Policy() {
             предусмотренных Законом о персональных данных;
             <br /> — исполнять иные обязанности, предусмотренные Законом о персональных данных.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             4. Основные права и обязанности субъектов персональных данных
           </h2>
           <p className="mb-20 font-extralight">
@@ -184,7 +196,7 @@ export default function Policy() {
             субъекте персональных данных без согласия последнего, несут ответственность в
             соответствии с законодательством РФ.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             5. Принципы обработки персональных данных
           </h2>
           <p className="mb-20 font-extralight">
@@ -225,17 +237,21 @@ export default function Policy() {
             обработки или в случае утраты необходимости в достижении этих целей, если иное не
             предусмотрено федеральным законом.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             6. Цели обработки персональных данных
           </h2>
           <ul className="mb-50">
             <li className="mb-20">
               <h3 className="font-bold">Цель обработки</h3>
-              <p className="font-extralight">информирование Пользователя посредством отправки электронных писем </p>
+              <p className="font-extralight">
+                информирование Пользователя посредством отправки электронных писем{" "}
+              </p>
             </li>
             <li className="mb-20">
               <h3 className="font-bold">Персональные данные</h3>
-              <p className="font-extralight">фамилия, имя, отчество электронный адрес номера телефонов </p>
+              <p className="font-extralight">
+                фамилия, имя, отчество электронный адрес номера телефонов{" "}
+              </p>
             </li>
             <li className="mb-20">
               <h3 className="font-bold">Правовые основания</h3>
@@ -255,7 +271,9 @@ export default function Policy() {
           <ul className="mb-50">
             <li className="mb-20">
               <h3 className="font-bold">Цель обработки</h3>
-              <p className="font-extralight">заключение, исполнение и прекращение гражданско-правовых договоров </p>
+              <p className="font-extralight">
+                заключение, исполнение и прекращение гражданско-правовых договоров{" "}
+              </p>
             </li>
             <li className="mb-20">
               <h3 className="font-bold">Персональные данные</h3>
@@ -309,7 +327,7 @@ export default function Policy() {
               </p>
             </li>
           </ul>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             7. Условия обработки персональных данных
           </h2>
           <p className="mb-20 font-extralight">
@@ -343,7 +361,7 @@ export default function Policy() {
             которым предоставлен субъектом персональных данных либо по его просьбе (далее —
             общедоступные персональные данные).
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             8. Порядок сбора, хранения, передачи и других видов обработки персональных данных
           </h2>
           <p className="mb-20 font-extralight">
@@ -367,8 +385,10 @@ export default function Policy() {
             8.3. В случае выявления неточностей в персональных данных, Пользователь может
             актуализировать их самостоятельно, путем направления Оператору уведомление на адрес
             электронной почты Оператора{" "}
-            <Link className="underline" href="mailto:bkkiryanova.o@yandex.ru">bkkiryanova.o@yandex.ru</Link> с пометкой
-            «Актуализация персональных данных».
+            <Link className="underline" href="mailto:bkkiryanova.o@yandex.ru">
+              bkkiryanova.o@yandex.ru
+            </Link>{" "}
+            с пометкой «Актуализация персональных данных».
           </p>
           <p className="mb-20 font-extralight">
             8.4. Срок обработки персональных данных определяется достижением целей, для которых были
@@ -376,8 +396,10 @@ export default function Policy() {
             законодательством. Пользователь может в любой момент отозвать свое согласие на обработку
             персональных данных, направив Оператору уведомление посредством электронной почты на
             электронный адрес Оператора{" "}
-            <Link className="underline" href="mailto:bkkiryanova.o@yandex.ru">bkkiryanova.o@yandex.ru</Link> с пометкой
-            «Отзыв согласия на обработку персональных данных».
+            <Link className="underline" href="mailto:bkkiryanova.o@yandex.ru">
+              bkkiryanova.o@yandex.ru
+            </Link>{" "}
+            с пометкой «Отзыв согласия на обработку персональных данных».
           </p>
           <p className="mb-20 font-extralight">
             8.5. Вся информация, которая собирается сторонними сервисами, в том числе платежными
@@ -412,7 +434,7 @@ export default function Policy() {
             обработки персональных данных, а также выявление неправомерной обработки персональных
             данных.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             9. Перечень действий, производимых Оператором с полученными персональными данными
           </h2>
           <p className="mb-20 font-extralight">
@@ -426,7 +448,7 @@ export default function Policy() {
             и/или передачей полученной информации по информационно-телекоммуникационным сетям или
             без таковой.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             10. Трансграничная передача персональных данных
           </h2>
           <p className="mb-20 font-extralight">
@@ -442,7 +464,7 @@ export default function Policy() {
             которым планируется трансграничная передача персональных данных, соответствующие
             сведения.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             11. Конфиденциальность персональных данных
           </h2>
           <p className="mb-20 font-extralight">
@@ -450,13 +472,15 @@ export default function Policy() {
             третьим лицам и не распространять персональные данные без согласия субъекта персональных
             данных, если иное не предусмотрено федеральным законом.
           </p>
-          <h2 className="text-18 md:text-20 mb-20 text-center font-bounded font-bold uppercase">
+          <h2 className="text-18 md:text-20 font-bounded mb-20 text-center font-bold uppercase">
             12. Заключительные положения
           </h2>
           <p className="mb-20 font-extralight">
             12.1. Пользователь может получить любые разъяснения по интересующим вопросам, касающимся
             обработки его персональных данных, обратившись к Оператору с помощью электронной почты{" "}
-            <Link className="underline" href="mailto:bkkiryanova.o@yandex.ru">bkkiryanova.o@yandex.ru</Link>
+            <Link className="underline" href="mailto:bkkiryanova.o@yandex.ru">
+              bkkiryanova.o@yandex.ru
+            </Link>
           </p>
           <p className="mb-20 font-extralight">
             12.2. В данном документе будут отражены любые изменения политики обработки персональных
@@ -464,7 +488,11 @@ export default function Policy() {
           </p>
           <p className="mb-20 font-extralight">
             12.3. Актуальная версия Политики в свободном доступе расположена в сети Интернет по
-            адресу <Link className="underline" href="/privacy-policy">https://fin-rost.ru/privacy-policy</Link>.
+            адресу{" "}
+            <Link className="underline" href="/privacy-policy">
+              https://kiryanova-o.ru/privacy-policy
+            </Link>
+            .
           </p>
         </ScrollArea>
       </div>
