@@ -88,7 +88,7 @@ export async function sendContact(formData: FormData): Promise<SendContactResult
     const source =
       String(formData.get("source") ?? formData.get("Источник") ?? "").trim() || "сайт";
 
-    const fromEmail = process.env.RESEND_FROM || "onboarding@resend.dev";
+    const fromEmail = process.env.RESEND_FROM || "onboarding@kiryanova-o.ru";
     const to = process.env.RESEND_TO || "nigazzz2000@gmail.com";
 
     const { error: mailError } = await resend.emails.send({
