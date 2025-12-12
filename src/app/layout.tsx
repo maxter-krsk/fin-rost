@@ -16,13 +16,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 
   title: "Финансовый рост — финансовая стратегия и CFO для бизнеса",
-  description: "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
+  description:
+    "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
 
   openGraph: {
     title: "Финансовый рост — финансовая стратегия и CFO для бизнеса",
-    description: "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
+    description:
+      "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
     url: "https://kiryanova-o.ru",
-    siteName: "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
+    siteName:
+      "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
     images: [
       {
         url: "/og/og-img.jpg",
@@ -37,7 +40,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Финансовый рост — финансовая стратегия и CFO для бизнеса",
-    description: "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
+    description:
+      "Финансовый консалтинг для бизнеса: CFO на аутсорсе, управленческий учёт, финансовые модели и бизнес‑планы. Помогаем добиться устойчивого роста.",
     images: ["/og/og-img.jpg"],
   },
 
@@ -73,15 +77,15 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${onest.className} ${bounded.variable}`}>
       <body className="leading-1.7 bg-darkBlue flex min-h-screen flex-col overflow-x-hidden font-light text-white antialiased">
+        <YandexMetrika />
+
         <Header />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <Footer />
+        
         <CookiesBanner />
         <ProgressBar />
         <ScrollTop />
-        <YandexMetrika />
       </body>
     </html>
   );
