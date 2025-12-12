@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   const links: [string, string][] = [
-    ["Обо мне", "/#about"],
+    ["Основатель компании", "/#about"],
     ["Проблемы роста", "/#problems"],
     ["Решения", "/#solutions"],
     ["Преимущества", "/#advantages"],

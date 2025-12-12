@@ -19,15 +19,18 @@ import { Textarea } from "@/lib/ui/textarea";
 import { Label } from "@/lib/ui/label";
 import { Button } from "@/lib/ui/button";
 import { sendContact } from "@/app/actions/sendContact";
-// import { useSuccessPopup } from "@/app/providers/SuccessPopupProvider";
 
 type Channel = "Telegram" | "WhatsApp" | "Телефон" | "";
+
+const PHONE_PREFIX = "+7 ";
+const TG_PREFIX = "@";
+
 export function Form() {
   const [pending, setPending] = useState(false);
   const [channel, setChannel] = useState<Channel>("");
-  const [telegram, setTelegram] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
-  const [phone, setPhone] = useState("");
+  const [telegram, setTelegram] = useState(TG_PREFIX);
+  const [whatsapp, setWhatsapp] = useState(PHONE_PREFIX);
+  const [phone, setPhone] = useState(PHONE_PREFIX);
 
   const effectiveChannel: Exclude<Channel, ""> = channel || "Телефон";
 
@@ -38,16 +41,28 @@ export function Form() {
 
   const handleChannelChange = (v: Channel) => {
     setChannel(v);
-    setTelegram("");
-    setWhatsapp("");
-    setPhone("");
+    setTelegram(TG_PREFIX);
+    setWhatsapp(PHONE_PREFIX);
+    setPhone(PHONE_PREFIX);
+
     if ((phoneRef as React.RefObject<HTMLInputElement>).current) {
-      (phoneRef as React.RefObject<HTMLInputElement>).current!.value = "";
+      (phoneRef as React.RefObject<HTMLInputElement>).current!.value = PHONE_PREFIX;
     }
   };
 
   const tgPattern = /^@?[a-zA-Z0-9_]{1,32}$/;
   const phonePattern = /^\+?\d[\d\s()-]{6,}$/;
+
+  const keepPhonePrefix = (value: string) => {
+    if (!value.startsWith("+7")) return PHONE_PREFIX;
+    if (value === "+7") return PHONE_PREFIX;
+    return value;
+  };
+
+  const keepTgPrefix = (value: string) => {
+    if (!value.startsWith(TG_PREFIX)) return TG_PREFIX;
+    return value;
+  };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -57,12 +72,18 @@ export function Form() {
       const fd = new FormData(form);
       fd.set("source", "Форма из блока Консультация");
       const res = await sendContact(fd);
+
       if (res?.ok) {
         form.reset();
         setChannel("");
-        setTelegram("");
-        setWhatsapp("");
-        setPhone("");
+        setTelegram(TG_PREFIX);
+        setWhatsapp(PHONE_PREFIX);
+        setPhone(PHONE_PREFIX);
+
+        if ((phoneRef as React.RefObject<HTMLInputElement>).current) {
+          (phoneRef as React.RefObject<HTMLInputElement>).current!.value = PHONE_PREFIX;
+        }
+
         alert("Заявка успешно отправлена");
       } else {
         alert(res?.error ?? "Заявка не отправилась. Повторите попытку.");
@@ -79,6 +100,7 @@ export function Form() {
         <h1 className="font-bounded text-14 sm:text-18 lg:text-30 xs:text-left mb-24 text-center md:mb-20 lg:mb-50">
           Обсудим цели, найдём «узкие места» и предложим план действий
         </h1>
+
         <form
           onSubmit={onSubmit}
           className="grid items-start gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-20"
@@ -93,7 +115,8 @@ export function Form() {
             maxLength={40}
             pattern="^(?=.{2,40}$)[A-Za-zÀ-ÖØ-öø-ÿА-Яа-яЁё]+(?:[ '\-’][A-Za-zÀ-ÖØ-öø-ÿА-Яа-яЁё]+)*$"
             title="2–40 символов, только буквы, пробелы, дефис и апостроф"
-          ></Input>
+          />
+
           <Select value={channel} onValueChange={handleChannelChange}>
             <SelectTrigger className="text-slate bg-midnight rounded-12 w-full cursor-pointer border-none px-30 py-16 font-normal">
               <SelectValue placeholder="Способ связи" />
@@ -119,7 +142,7 @@ export function Form() {
               type="text"
               name="telegram"
               value={telegram}
-              onChange={(e) => setTelegram(e.target.value)}
+              onChange={(e) => setTelegram(keepTgPrefix(e.target.value))}
               required
               pattern={tgPattern.source}
               placeholder="@username"
@@ -135,7 +158,7 @@ export function Form() {
               inputMode="tel"
               name="whatsapp"
               value={whatsapp}
-              onChange={(e) => setWhatsapp(e.target.value)}
+              onChange={(e) => setWhatsapp(keepPhonePrefix(e.target.value))}
               required
               pattern={phonePattern.source}
               placeholder="Номер WhatsApp"
@@ -151,7 +174,7 @@ export function Form() {
               inputMode="tel"
               name="phone"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => setPhone(keepPhonePrefix(e.target.value))}
               required
               pattern={phonePattern.source}
               placeholder="Номер телефона"
@@ -159,7 +182,6 @@ export function Form() {
             />
           )}
 
-          {/* скрытое поле: удобный способ связи */}
           <input type="hidden" name="preferred" value={effectiveChannel} />
 
           <Textarea
@@ -177,6 +199,7 @@ export function Form() {
               </Link>
             </Label>
           </div>
+
           <Button type="submit" disabled={pending} variant="orange">
             {pending ? "Отправляем..." : "Отправить"}
           </Button>

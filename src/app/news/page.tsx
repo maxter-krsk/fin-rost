@@ -136,7 +136,7 @@ export default function News() {
     <section className="desk:mb-120 mt-120 mb-50">
       <div className="container">
         <h1 className="font-bounded text-30 md:text-36 lg:text-60 xs:mb-36 mb-20 font-bold lg:mb-50">
-          Новости об Ольги Кирьяновой
+          Новости об Ольге Кирьяновой
         </h1>
         <Separator className="xs:mb-36 mb-20 lg:mb-50" gradientDirection="center" />
         <motion.div

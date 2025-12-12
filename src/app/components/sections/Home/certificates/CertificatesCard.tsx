@@ -35,6 +35,11 @@ const carouselItems: {
     alt: "лидер бухгалтерского аутсорсинга",
     orientation: "portrait",
   },
+  {
+    image: "/images/certificates/sootvetstviya-auditora.jpg",
+    alt: "благодарственное письмо 2024 года от cantilen",
+    orientation: "portrait",
+  },
   // остальные — горизонтальные
   {
     image: "/images/certificates/netologiya.jpg",
@@ -88,11 +93,6 @@ const carouselItems: {
   },
   {
     image: "/images/certificates/zimniy-ostrov-2035.jpg",
-    alt: "благодарственное письмо 2024 года от cantilen",
-    orientation: "landscape",
-  },
-  {
-    image: "/images/certificates/vesenniy-navigator.jpg",
     alt: "благодарственное письмо 2024 года от cantilen",
     orientation: "landscape",
   },
@@ -163,7 +163,7 @@ export function CertificatesCard() {
                     src={item.image}
                     alt={item.alt}
                     fill
-                    className={`object-contain px-10 transition-opacity duration-500 md:p-20 ${
+                    className={`object-contain lg:object-cover p-20 transition-opacity duration-500 ${
                       imageLoaded[i] ? "opacity-100" : "opacity-0"
                     }`}
                     sizes="(min-width: 1024px) 865px, 100vw"
