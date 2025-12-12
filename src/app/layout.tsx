@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import YandexMetrika from "@/app/components/analytics/YandexMetrika";
 
 import { onest, bounded } from "@/app/components/ui/fonts";
@@ -77,12 +78,14 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${onest.className} ${bounded.variable}`}>
       <body className="leading-1.7 bg-darkBlue flex min-h-screen flex-col overflow-x-hidden font-light text-white antialiased">
-        <YandexMetrika />
+        <Suspense fallback={null}>
+          <YandexMetrika />
+        </Suspense>
 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        
+
         <CookiesBanner />
         <ProgressBar />
         <ScrollTop />
