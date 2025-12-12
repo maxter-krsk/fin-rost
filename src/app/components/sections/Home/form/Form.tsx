@@ -46,7 +46,7 @@ export function Form() {
     }
   };
 
-  const tgPattern = /^@?[a-zA-Z0-9_]{5,32}$/;
+  const tgPattern = /^@?[a-zA-Z0-9_]{1,32}$/;
   const phonePattern = /^\+?\d[\d\s()-]{6,}$/;
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
