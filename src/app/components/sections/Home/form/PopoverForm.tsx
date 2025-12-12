@@ -37,6 +37,9 @@ type Props = {
   anchorRef?: React.RefObject<HTMLElement> | React.MutableRefObject<HTMLElement | null>;
 };
 
+const PHONE_PREFIX = "+7 ";
+const TG_PREFIX = "@";
+
 export function PopoverForm({
   open,
   onOpenChange,
@@ -47,21 +50,33 @@ export function PopoverForm({
 }: Props) {
   const [pending, setPending] = useState(false);
   const [channel, setChannel] = useState<Channel>("");
-  const [telegram, setTelegram] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
-  const [phone, setPhone] = useState("");
+  const [telegram, setTelegram] = useState(TG_PREFIX);
+  const [whatsapp, setWhatsapp] = useState(PHONE_PREFIX);
+  const [phone, setPhone] = useState(PHONE_PREFIX);
 
   const phoneRef = useMask({
-  mask: "+7 ___ ___-__-__",
-  replacement: { _: /\d/ },
-});
+    mask: "+7 ___ ___-__-__",
+    replacement: { _: /\d/ },
+  });
+
+  const keepPhonePrefix = (value: string) => {
+    if (!value.startsWith("+7")) return PHONE_PREFIX;
+    if (value === "+7") return PHONE_PREFIX;
+    return value;
+  };
+
+  const keepTgPrefix = (value: string) => {
+    if (!value.startsWith(TG_PREFIX)) return TG_PREFIX;
+    return value;
+  };
 
   const handleChannelChange = (v: Channel) => {
     setChannel(v);
-    setTelegram("");
-    setWhatsapp("");
-    setPhone("");
-    if (phoneRef.current) phoneRef.current.value = "";
+    setTelegram(TG_PREFIX);
+    setWhatsapp(PHONE_PREFIX);
+    setPhone(PHONE_PREFIX);
+
+    if (phoneRef.current) phoneRef.current.value = PHONE_PREFIX;
   };
 
   const tgPattern = /^@?[a-zA-Z0-9_]{1,32}$/;
@@ -75,12 +90,16 @@ export function PopoverForm({
       const fd = new FormData(form);
       fd.set("source", "Форма: Поповер «Консультация»");
       const res = await sendContact(fd);
+
       if (res?.ok) {
         form.reset();
         setChannel("");
-        setTelegram("");
-        setWhatsapp("");
-        setPhone("");
+        setTelegram(TG_PREFIX);
+        setWhatsapp(PHONE_PREFIX);
+        setPhone(PHONE_PREFIX);
+
+        if (phoneRef.current) phoneRef.current.value = PHONE_PREFIX;
+
         onOpenChange?.(false);
         alert("Заявка успешно отправлена! Мы свяжемся с Вами в ближайшее время.");
       } else {
@@ -90,6 +109,8 @@ export function PopoverForm({
       setPending(false);
     }
   };
+
+  const effectiveChannel: Exclude<Channel, ""> = channel || "Телефон";
 
   return (
     <Popover modal open={open} onOpenChange={onOpenChange}>
@@ -161,14 +182,14 @@ export function PopoverForm({
             </SelectContent>
           </Select>
 
-          {(channel || "Телефон") === "Telegram" && (
+          {effectiveChannel === "Telegram" && (
             <Input
               className="placeholder:text-lightSlate text-lightSlate bg-white/40"
               key="tg"
               type="text"
               name="telegram"
               value={telegram}
-              onChange={(e) => setTelegram(e.target.value)}
+              onChange={(e) => setTelegram(keepTgPrefix(e.target.value))}
               required
               pattern={tgPattern.source}
               placeholder="@username"
@@ -176,7 +197,7 @@ export function PopoverForm({
             />
           )}
 
-          {(channel || "Телефон") === "WhatsApp" && (
+          {effectiveChannel === "WhatsApp" && (
             <Input
               className="placeholder:text-lightSlate text-lightSlate bg-white/40"
               key="wa"
@@ -185,7 +206,7 @@ export function PopoverForm({
               inputMode="tel"
               name="whatsapp"
               value={whatsapp}
-              onChange={(e) => setWhatsapp(e.target.value)}
+              onChange={(e) => setWhatsapp(keepPhonePrefix(e.target.value))}
               required
               pattern={phonePattern.source}
               placeholder="Номер WhatsApp"
@@ -193,7 +214,7 @@ export function PopoverForm({
             />
           )}
 
-          {(channel || "Телефон") === "Телефон" && (
+          {effectiveChannel === "Телефон" && (
             <Input
               className="placeholder:text-lightSlate text-lightSlate bg-white/40"
               key="ph"
@@ -202,7 +223,7 @@ export function PopoverForm({
               ref={phoneRef}
               name="phone"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => setPhone(keepPhonePrefix(e.target.value))}
               required
               pattern={phonePattern.source}
               placeholder="Номер телефона"
@@ -210,7 +231,7 @@ export function PopoverForm({
             />
           )}
 
-          <input type="hidden" name="preferred" value={channel || "Телефон"} />
+          <input type="hidden" name="preferred" value={effectiveChannel} />
 
           <Textarea
             className="placeholder:text-lightSlate text-lightSlate rounded-12 border border-white/15 bg-white/40 px-30 py-16 font-normal sm:col-span-2"

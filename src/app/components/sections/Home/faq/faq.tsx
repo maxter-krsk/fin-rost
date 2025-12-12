@@ -16,7 +16,17 @@ export function FAQ() {
             </AccordionTrigger>
             <Separator gradientDirection="ltr" />
             <AccordionContent>
-              <p className="text-16 desk:text-18 font-onest font-extralight">Информация от Ольги</p>
+              <p className="text-16 desk:text-18 font-onest font-extralight">
+                <strong>Цель:</strong> Бухучет формирует отчетность для внешних пользователей (государство,
+                инвесторы). Управленческий учет предоставляет информацию для внутреннего управления
+                и принятия решений.<br /><br /> <strong>Пользователи:</strong> Внешние (налоговые, акционеры) vs. внутренние
+                (руководство, менеджеры). Регулирование: Бухучет строго регламентирован стандартами
+                (РСБУ). Управленческий учет гибок, стандарты устанавливает сама компания.<br /><br />
+                <strong>Отчетность:</strong> Бухучет — финансовая (баланс, ОФР). Управленческий учет — оперативные
+                показатели (затраты, рентабельность, KPI).<br /><br /> Бухгалтерский учет обеспечивает внешнее
+                регулирование и отчетность, а управленческий — инструмент для внутреннего
+                оперативного управления бизнесом.
+              </p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem className="flex flex-col gap-16" value="item-2">
@@ -55,7 +65,7 @@ export function FAQ() {
             <Separator gradientDirection="ltr" />
             <AccordionContent>
               <p className="text-16 desk:text-18 font-onest font-extralight">
-                Базовый контур УУ обычно разворачиваем за 30‑60 дней. Срок зависи от масштаба и
+                Базовый контур УУ обычно разворачиваем за 30‑60 дней. Срок зависит от масштаба и
                 доступности данных.
               </p>
             </AccordionContent>

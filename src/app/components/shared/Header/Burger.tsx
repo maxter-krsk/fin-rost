@@ -29,7 +29,7 @@ export function Burger({
   const [open, setOpen] = useState(false);
 
   const links: [string, string][] = [
-    ["Обо мне", "/#about"],
+    ["Основатель компании", "/#about"],
     ["Проблемы роста", "/#problems"],
     ["Решения", "/#solutions"],
     ["Преимущества", "/#advantages"],
