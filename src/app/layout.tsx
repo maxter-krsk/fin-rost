@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import YandexMetrika from "@/app/components/analytics/YandexMetrika";
+
 import { onest, bounded } from "@/app/components/ui/fonts";
 import "./globals.css";
 import Header from "@/app/components/shared/Header/Header";
@@ -79,6 +81,7 @@ export default function RootLayout({
         <CookiesBanner />
         <ProgressBar />
         <ScrollTop />
+        <YandexMetrika />
       </body>
     </html>
   );
