@@ -32,8 +32,8 @@ export function Form() {
   const effectiveChannel: Exclude<Channel, ""> = channel || "Телефон";
 
   const phoneRef = useMask({
-    mask: "+7 999 999-99-99",
-    replacement: { 9: /\d/ },
+    mask: "+7 ___ ___-__-__",
+    replacement: { _: /\d/ },
   });
 
   const handleChannelChange = (v: Channel) => {

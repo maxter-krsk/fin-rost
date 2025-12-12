@@ -52,9 +52,9 @@ export function PopoverForm({
   const [phone, setPhone] = useState("");
 
   const phoneRef = useMask({
-    mask: "+7 999 999-99-99",
-    replacement: { 9: /\d/ },
-  }) as React.RefObject<HTMLInputElement>;
+  mask: "+7 ___ ___-__-__",
+  replacement: { _: /\d/ },
+});
 
   const handleChannelChange = (v: Channel) => {
     setChannel(v);
